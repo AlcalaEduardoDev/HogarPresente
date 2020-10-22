@@ -1,0 +1,36 @@
+<div>
+<app-navbaruser></app-navbaruser>
+</div>
+
+<div class="w3-container w3-padding-32 margenes" id="about">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
+    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+</div>
+
+<div class="container h-100">
+  <div class="d-flex justify-content-center h-100">
+    <div class="searchbar">
+      <input class="search_input" type="text" name="filter" placeholder="Search..." [(ngModel)]="filter">
+      <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+    </div>
+  </div>
+</div>
+
+<!--Cartas-->
+<div>
+<div class="margenes">
+  <app-card-curso *ngFor="let curso of cursos | filterCursos:filter | paginate: {itemsPerPage : 8, currentPage : p}" [curso]="curso"></app-card-curso>
+</div>
+  <!-- Pagination -->
+<div style="clear: both; text-align: center;">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+</div>
+ <!----------- Footer ------------>
+ <div>
+<app-footer></app-footer>
+</div>
+  
