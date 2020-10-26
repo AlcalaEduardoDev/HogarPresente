@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Curso } from 'src/app/Interface/curso';
+import { ListaCursosService } from 'src/app/Service/lista-cursos.service';
 
 @Component({
   selector: 'app-lista-cursos',
@@ -7,73 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaCursosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private listaCursosService:ListaCursosService) { }
+  p='';
   filter="";
-  public cursos:Array<any>=[
-    {img:"assets/hogar.jpg",
-    nom:"Edu",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    },
-    {
-    img:"assets/hogar.jpg",
-    nom:"John Doe",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    },
-    {img:"assets/hogar.jpg",
-    nom:"John Doe",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    },
-    {img:"assets/hogar.jpg",
-    nom:"John Doe",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    },
-    {img:"assets/hogar.jpg",
-    nom:"John Doe",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    },
-    {img:"assets/hogar.jpg",
-    nom:"John Doe",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    },
-    {img:"assets/hogar.jpg",
-    nom:"John Doe",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    },
-    {img:"assets/hogar.jpg",
-    nom:"John Doe",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    },
-    {img:"assets/hogar.jpg",
-    nom:"John Doe",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    },
-    {img:"assets/hogar.jpg",
-    nom:"John Doe",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    },
-    {img:"assets/hogar.jpg",
-    nom:"John Doe",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    },
-    {img:"assets/hogar.jpg",
-    nom:"John Doe",
-    tittle:"CEO & Founder",
-    text:"Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum."
-    }
-  ];
+  public cursos:Array<Curso>=[]
 
   ngOnInit(): void {
+    this.listaCursosService
+    .findAll()
+    .subscribe((response: Array<Curso>) =>{
+      this.cursos=response;
+    }
+    )
   }
 
 }

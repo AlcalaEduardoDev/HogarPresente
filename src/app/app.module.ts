@@ -17,6 +17,8 @@ import { CardCursoComponent } from './components/Cards/card-curso/card-curso.com
 import { FilterCursosPipe } from './Pipes/filter-cursos.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FichaCursoComponent } from './Formularios/ficha-curso/ficha-curso.component';
+import { EditarPerfilComponent } from './Formularios/usuario/editar-perfil/editar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FooterComponent,
     PaginationComponent,
     CardCursoComponent,
-    FilterCursosPipe
+    FilterCursosPipe,
+    FichaCursoComponent,
+    EditarPerfilComponent
   ],
   imports: [
     BrowserModule,

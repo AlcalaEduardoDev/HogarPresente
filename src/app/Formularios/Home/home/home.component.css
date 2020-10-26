@@ -1,22 +1,18 @@
 h1 {
-    font-family: 'Anima';
-    text-align: left;
-    font-weight: 700;
+    font-family: 'Montserrat';
+    text-align: center;
+    font-weight: 600;
     margin-left: 50px;
-    margin-right: 500px;
     position: relative;
     bottom: -100px;
 }
  h3{
-    font-family: 'Anima';
-    text-align: left;
+    font-family: 'Montserrat';
+    text-align: center;
     font-weight: 300;
-    margin-left: 50px;
-    margin-right: 500px;
+    margin-left: 300px;
+    margin-right: 300px;
     position: relative;
     bottom: -100px;
     padding-top: 40px;
-}
-.color-fondo{
-    background-color:#2ae274d5;
 }

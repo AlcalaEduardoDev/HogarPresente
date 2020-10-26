@@ -1,7 +1,8 @@
 .color-nadvad{
-  background-color:#14ee6bd5 !important;
+  background-color:#D99058 !important;
 }
-  .letras{
-    color: black !important;
-    font-size: 15px !important;
-    }
+.letras{
+  color: black !important;
+  font-family: 'Montserrat';
+  font-size: 15px !important;
+  }

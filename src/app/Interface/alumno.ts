@@ -1,5 +1,9 @@
+import { StringifyOptions } from 'querystring';
+
 export interface Alumno {
     icon: string;
-    user: string;
+    nombre:string;
+    apellido:string;
+    email: string;
     pass: string;
 }
