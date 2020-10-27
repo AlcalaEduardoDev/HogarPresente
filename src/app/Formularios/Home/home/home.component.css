@@ -1,18 +1,58 @@
-h1 {
-    font-family: 'Montserrat';
-    text-align: center;
-    font-weight: 600;
-    margin-left: 50px;
-    position: relative;
-    bottom: -100px;
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+bottom: 3rem;
+z-index: 10;
 }
- h3{
-    font-family: 'Montserrat';
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+height: 32rem;
+
+}
+.carousel-item > img {
+position: absolute;
+top: 0;
+left: 0;
+min-width: 100%;
+height: 32rem;
+}
+
+.textoLegible{
+    display: inline-block;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+
+}
+.opp .textoLegible{
+    background: rgba(255, 255, 255, 0.75);
+    color: black;
+  
+}
+.color-boton{
+    background-color: #9CF08C;
+}
+
+
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
     text-align: center;
+  }
+  .marketing{
+    font-weight: 400;
+  }
+  .marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+.featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+  
+  /* Thin out the marketing headings */
+  .featurette-heading {
     font-weight: 300;
-    margin-left: 300px;
-    margin-right: 300px;
-    position: relative;
-    bottom: -100px;
-    padding-top: 40px;
-}
+    line-height: 1;
+    letter-spacing: -.05rem;
+  }

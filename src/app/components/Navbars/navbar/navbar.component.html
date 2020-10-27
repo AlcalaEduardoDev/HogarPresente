@@ -1,6 +1,7 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-md sticky-top color-nadvad">
-  <a class="navbar-brand logo" href="/home"><img src="assets/logo-blanco.PNG" style="height: 100px; width: 100px;" alt="" /></a>
+<div class="shadow-lg sticky-top">
+<nav class="navbar navbar-expand-md  color-nadvad">
+  <a class="navbar-brand logo" href="/home"><img src="assets/logo-blanco.PNG" style="height: 50px; width: 50px;" alt="" /></a>
   <button class="navbar-toggler navbar-toggler-right bg-dark navbar-dark" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,22 +20,23 @@
 
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link  letras"><span class="fas fa-user"data-toggle="modal" data-target="#signinModal"></span > Registrarse</a>
+        <a class="nav-link  letras"><span class="fas fa-user" data-toggle="modal" data-target="#signinModal"></span > Registrarse</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link  letras"><span class="fas fa-sign-in-alt" data-toggle="modal" data-target="#loginModal"></span> Iniciar Sesión</a>
+        <a class="nav-link  letras"><span class="fas fa-user" data-toggle="modal" data-target="#loginModal"></span> Iniciar Sesión</a>
       </li>
     </ul>
   </div>
 </nav>
+</div>
 <!-- Modal LogIn-->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" [ngStyle]="{'display':display}" data-target="loginModal">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
     <!--Content-->
     <div class="modal-content form-elegant">
         <!--Header-->
-        <img src="assets/logo.png" style="height: 70px; width: 70px; text-align: left; position: absolute;" alt="" />
-        <div class="modal-header text-center" style="background-color:  #FFFACD;">
+        <img src="assets/logo-blanco.PNG" style="height: 95px; width: 90px; text-align: left; position: absolute;" alt="" />
+        <div class="modal-header text-center" style="background-color:#D99058;">
         <h3 class="w-100 dark-grey-text font-weight-bold" id="myModalLabel" style="font-family:'Amatic SC'; font-size: 40px;">INICIAR SESIÓN</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -77,7 +79,6 @@
         <!--/.Content-->
     </div>
 </div>
-
 <!-- Modal Registro-->
 
 <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
@@ -85,8 +86,8 @@
     <!--Content-->
     <div class="modal-content form-elegant">
         <!--Header-->
-        <img src="assets/logo.png" style="height: 70px; width: 70px; text-align: left; position: absolute;" alt="" />
-        <div class="modal-header text-center" style="background-color:  #FFFACD;">
+        <img src="assets/logo-blanco.PNG" style="height: 95px; width: 90px; text-align: left; position: absolute;" alt="" />
+        <div class="modal-header text-center" style="background-color:  #D99058;">
         <h3 class="w-100 dark-grey-text font-weight-bold" id="myModalLabel" style="font-family:'Amatic SC'; font-size: 40px;">HOGAR PRESENTE</h3>
         <button type="button" id="closebutton" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>

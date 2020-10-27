@@ -19,6 +19,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FichaCursoComponent } from './Formularios/ficha-curso/ficha-curso.component';
 import { EditarPerfilComponent } from './Formularios/usuario/editar-perfil/editar-perfil.component';
+import { Error500Component } from './Formularios/error500/error500.component';
+import { Error404Component } from './Formularios/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { EditarPerfilComponent } from './Formularios/usuario/editar-perfil/edita
     CardCursoComponent,
     FilterCursosPipe,
     FichaCursoComponent,
-    EditarPerfilComponent
+    EditarPerfilComponent,
+    Error500Component,
+    Error404Component
   ],
   imports: [
     BrowserModule,
