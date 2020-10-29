@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeuserComponent } from './Formularios/HomeUser/homeuser/homeuser.component';
-import { HomeComponent } from './Formularios/Home/home/home.component';
-import {ListaCursosComponent } from './Formularios/lista-cursos/lista-cursos.component';
-import {FichaCursoComponent} from './Formularios/ficha-curso/ficha-curso.component';
+import { HomeComponent } from './templates/Home/home/home.component';
+import {ListaCursosComponent } from './templates/lista-cursos/lista-cursos.component';
+import {FichaCursoComponent} from './templates/ficha-curso/ficha-curso.component';
+import {EditarPerfilComponent} from './templates/usuario/editar-perfil/editar-perfil.component';
 
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomeComponent},
-  {path: 'homeuser', component: HomeuserComponent},
   {path:'lista-cursos', component:ListaCursosComponent},
-  {path: 'ficha-curso', component:FichaCursoComponent}
+  {path: 'ficha-curso', component:FichaCursoComponent},
+  {path:'editar-perfil', component:EditarPerfilComponent}
   
 ];
 

@@ -18,7 +18,7 @@
       </li>
     </ul>
 
-    <ul class="nav navbar-nav ml-auto">
+    <ul class="nav navbar-nav ml-auto" *ngIf="!isLogged">
       <li class="nav-item">
         <a class="nav-link  letras"><span class="fas fa-user" data-toggle="modal" data-target="#signinModal"></span > Registrarse</a>
       </li>
@@ -26,11 +26,20 @@
         <a class="nav-link  letras"><span class="fas fa-user" data-toggle="modal" data-target="#loginModal"></span> Iniciar Sesión</a>
       </li>
     </ul>
+    <ul class="navbar-nav ml-auto" *ngIf="isLogged">
+      <li class="nav-item disabled">
+        <a class="nav-link letras">          
+          {{userLogged.name}}
+        </a>
+      </li>
+      <img *ngIf="isLogged" src="{{userLogged.photoUrl}}" class="rounded-circle mr-3" style="width:'40px'">
+
+    </ul>
   </div>
 </nav>
 </div>
 <!-- Modal LogIn-->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div NgbModal class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
     <!--Content-->
     <div class="modal-content form-elegant">
@@ -63,11 +72,9 @@
 
         <div class="row my-3 d-flex justify-content-center">
             <!--Facebook-->
-            <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-facebook-f text-center"></i></button>
-            <!--Twitter-->
-            <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-twitter"></i></button>
+            <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a" (click)="signInWithFB()"><i class="fab fa-facebook-f text-center"></i></button>
             <!--Google +-->
-            <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google-plus-g"></i></button>
+            <button type="button" class="btn btn-white btn-rounded z-depth-1a" (click)="signInWithGoogle()"><i class="fab fa-google-plus-g"></i></button>
         </div>
         </div>
         <!--Footer-->

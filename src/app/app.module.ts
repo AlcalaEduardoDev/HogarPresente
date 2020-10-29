@@ -7,20 +7,24 @@ import { NavbarComponent } from './components/Navbars/navbar/navbar.component';
 import { ModalLoginComponent } from './components/Modals/modal-login/modal-login.component';
 import { CardIndexComponent } from './components/Cards/card-index/card-index.component';
 import { FormsModule } from '@angular/forms';
-import { HomeuserComponent } from './Formularios/HomeUser/homeuser/homeuser.component';
-import { NavbaruserComponent } from './components/Navbars/navbaruser/navbaruser.component';
-import { HomeComponent } from './Formularios/Home/home/home.component';
-import { ListaCursosComponent } from './Formularios/lista-cursos/lista-cursos.component';
+import { HomeComponent } from './templates/Home/home/home.component';
+import { ListaCursosComponent } from './templates/lista-cursos/lista-cursos.component';
 import { FooterComponent } from './components/Footers/footer/footer.component';
 import { PaginationComponent } from './components/Paginations/pagination/pagination.component';
 import { CardCursoComponent } from './components/Cards/card-curso/card-curso.component';
 import { FilterCursosPipe } from './Pipes/filter-cursos.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FichaCursoComponent } from './Formularios/ficha-curso/ficha-curso.component';
-import { EditarPerfilComponent } from './Formularios/usuario/editar-perfil/editar-perfil.component';
-import { Error500Component } from './Formularios/error500/error500.component';
-import { Error404Component } from './Formularios/error404/error404.component';
+import { FichaCursoComponent } from './templates/ficha-curso/ficha-curso.component';
+import { EditarPerfilComponent } from './templates/usuario/editar-perfil/editar-perfil.component';
+import { Error500Component } from './templates/error500/error500.component';
+import { Error404Component } from './templates/error404/error404.component';
+import {SocialLoginModule, SocialAuthServiceConfig} from 'angularx-social-login'
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from 'angularx-social-login';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,8 +32,6 @@ import { Error404Component } from './Formularios/error404/error404.component';
     NavbarComponent,
     ModalLoginComponent,
     CardIndexComponent,
-    HomeuserComponent,
-    NavbaruserComponent,
     HomeComponent,
     ListaCursosComponent,
     FooterComponent,
@@ -46,9 +48,30 @@ import { Error404Component } from './Formularios/error404/error404.component';
     AppRoutingModule,
     FormsModule,
     NgxPaginationModule,
-    HttpClientModule
+    HttpClientModule,
+    SocialLoginModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '558627112130-vrffn2c5p44pppm60l4akli5kfrha6pt.apps.googleusercontent.com'
+            ),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('4108383465858931'),
+          },      
+        ],
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
