@@ -3,7 +3,6 @@ import { Alumno } from 'src/app/interface/alumno';
 import {UserAlumnoService} from 'src/app/Service/user-alumno.service';
 import {Router} from '@angular/router';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
-import {NgbModalConfig, NgbModal, NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 
 @Component({
@@ -29,8 +28,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private userAlumnoService:UserAlumnoService, 
     private route:Router, 
-    private authService: SocialAuthService,
-    private modalService: NgbActiveModal) { }
+    private authService: SocialAuthService) { }
   
 
   ngOnInit(): void {
@@ -54,7 +52,6 @@ export class NavbarComponent implements OnInit {
         if(alumno.pass == this.password){
           console.log("Funciona la verificacion cutre");                   
           //this.isLogged = true;
-          this.cerrarModal();
           this.route.navigate(['/home']);
         }
       }
@@ -80,7 +77,6 @@ export class NavbarComponent implements OnInit {
         console.log(data);
         this.socialUser = data;
         this.isLogged = true;
-        this.cerrarModal();
         this.route.navigate(['/home']);
       });
   }
@@ -91,7 +87,6 @@ export class NavbarComponent implements OnInit {
       console.log(data);
       this.socialUser = data;
       this.isLogged = true;
-      this.cerrarModal();
       this.route.navigate(['/home']);
 
       //window.location.href = "/home";
@@ -102,7 +97,4 @@ export class NavbarComponent implements OnInit {
     this.authService.signOut();
   }
 
-  cerrarModal(){
-    this.modalService.close();
-  }
 }
