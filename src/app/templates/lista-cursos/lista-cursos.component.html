@@ -18,7 +18,7 @@
 <!--Cartas-->
 <div>
 <div class="margenes">
-  <app-card-curso *ngFor="let curso of cursos | filterCursos:filter | paginate: {itemsPerPage : 8, currentPage : p}" [curso]="curso"></app-card-curso>
+  <app-card-curso *ngFor="let curso of cursos | filterCursos:filter | paginate: {itemsPerPage : 8, currentPage : p}" [curso]="curso">  </app-card-curso>
 </div>
   <!-- Pagination -->
 <div style="clear: both; text-align: center;">

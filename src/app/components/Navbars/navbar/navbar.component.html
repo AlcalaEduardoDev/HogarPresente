@@ -18,7 +18,7 @@
       </li>
     </ul>
 
-    <ul class="nav navbar-nav ml-auto" *ngIf="!isLogged">
+    <ul class="nav navbar-nav ml-auto" *ngIf="!isLogged && !usuarioLogeado">
       <li class="nav-item">
         <a class="nav-link  letras"><span class="fas fa-user" data-toggle="modal" data-target="#signinModal"></span > Registrarse</a>
       </li>
@@ -33,7 +33,14 @@
         </a>
       </li>
       <img *ngIf="isLogged" src="{{userLogged.photoUrl}}" class="rounded-circle mr-3" style="width:'40px'">
-
+    </ul>
+    <ul class="navbar-nav ml-auto" *ngIf="usuarioLogeado">
+      <li class="nav-item disabled">
+        <a class="nav-link letras">          
+          {{dataUsuario.nombre}}
+        </a>
+      </li>
+      <img *ngIf="usuarioLogeado" src="{{dataUsuario.icon}}" class="rounded-circle mr-3" style="width:'40px'">
     </ul>
   </div>
 </nav>

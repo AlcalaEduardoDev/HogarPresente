@@ -25,6 +25,7 @@ import {
   FacebookLoginProvider,
 } from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CollapseComponent } from './components/collapse/collapse.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FichaCursoComponent,
     EditarPerfilComponent,
     Error500Component,
-    Error404Component
+    Error404Component,
+    CollapseComponent
   ],
   imports: [
     BrowserModule,

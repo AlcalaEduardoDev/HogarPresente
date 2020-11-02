@@ -4,9 +4,10 @@ bottom: 3rem;
 z-index: 10;
 }
 
+
 /* Declare heights because of positioning of img element */
 .carousel-item {
-height: 32rem;
+height: 55rem;
 
 }
 .carousel-item > img {
@@ -14,7 +15,7 @@ position: absolute;
 top: 0;
 left: 0;
 min-width: 100%;
-height: 32rem;
+height: 55rem;
 }
 
 .textoLegible{
@@ -56,3 +57,4 @@ height: 32rem;
     line-height: 1;
     letter-spacing: -.05rem;
   }
+

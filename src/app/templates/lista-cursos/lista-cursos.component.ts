@@ -12,7 +12,9 @@ export class ListaCursosComponent implements OnInit {
   constructor(private listaCursosService:ListaCursosService) { }
   p='';
   filter="";
-  public cursos:Array<Curso>=[]
+  public cursos:Array<Curso>=[];
+  public cursoActivo : Curso;
+
 
   ngOnInit(): void {
     this.listaCursosService
