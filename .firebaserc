@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "hogar-presente": {
+      "hosting": {
+        "HogarPresenteAng": [
+          "hogar-presente"
+        ]
+      }
+    }
+  }
+}

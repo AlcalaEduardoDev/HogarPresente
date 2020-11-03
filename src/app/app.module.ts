@@ -26,6 +26,12 @@ import {
 } from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollapseComponent } from './components/collapse/collapse.component';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireStorageModule} from 'angularfire2/storage';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +58,11 @@ import { CollapseComponent } from './components/collapse/collapse.component';
     NgxPaginationModule,
     HttpClientModule,
     SocialLoginModule,
-    NgbModule
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [
     {
