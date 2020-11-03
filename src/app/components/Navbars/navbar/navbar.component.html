@@ -19,11 +19,11 @@
     </ul>
 
     <ul class="nav navbar-nav ml-auto" *ngIf="!isLogged && !usuarioLogeado">
-      <li class="nav-item">
-        <a class="nav-link  letras"><span class="fas fa-user" data-toggle="modal" data-target="#signinModal"></span > Registrarse</a>
+      <li class="nav-item p-1">
+        <a class="nav-link letras shadow-lg"><span class="fas fa-user" data-toggle="modal" data-target="#signinModal"><b> Registrarse </b></span ></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link  letras"><span class="fas fa-user" data-toggle="modal" data-target="#loginModal"></span> Iniciar Sesión</a>
+      <li class="nav-item p-1">
+        <a class="nav-link letras shadow-lg"><span class="fas fa-sign-in-alt" data-toggle="modal" data-target="#loginModal"> <b> Iniciar Sesión </b></span>  </a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto" *ngIf="isLogged">
@@ -51,7 +51,7 @@
     <!--Content-->
     <div class="modal-content form-elegant">
         <!--Header-->
-        <img src="assets/logo-blanco.PNG" style="height: 95px; width: 90px; text-align: left; position: absolute;" alt="" />
+        <img src="assets/logo-blanco.PNG" style="height: 85px; width: 90px; text-align: left; position: absolute;" alt="" />
         <div class="modal-header text-center" style="background-color:#D99058;">
         <h3 class="w-100 dark-grey-text font-weight-bold" id="myModalLabel" style="font-family:'Amatic SC'; font-size: 40px;">INICIAR SESIÓN</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -67,7 +67,7 @@
 
         <div class="md-form pb-3">
             <input type="password" id="Form-pass" class="form-control validate" name="name" placeholder="Contraseña" [(ngModel)]="password">
-            <p class="font-small blue-text d-flex justify-content-end"> <a href="#" class="blue-text ml-1">
+            <p class="font-small blue-text d-flex justify-content-end"> <a routerLink="/enProgreso" class="blue-text ml-1">
                 ¿Olvidaste la contraseña?</a></p>
         </div>
 
@@ -86,8 +86,8 @@
         </div>
         <!--Footer-->
         <div class="modal-footer mx-5 pt-3 mb-1">
-            <p class="font-small grey-text d-flex justify-content-end">¿No eres miembro? <a href="#" class="blue-text ml-1">
-                Registrarse</a></p>
+            <p class="font-small grey-text d-flex justify-content-end">¿No eres miembro? <a class="blue-text ml-1"><span data-toggle="modal" data-target="#signinModal">            
+                Registrarse </span></a></p>
             </div>
         </div>
         <!--/.Content-->
@@ -100,7 +100,7 @@
     <!--Content-->
     <div class="modal-content form-elegant">
         <!--Header-->
-        <img src="assets/logo-blanco.PNG" style="height: 95px; width: 90px; text-align: left; position: absolute;" alt="" />
+        <img src="assets/logo-blanco.PNG" style="height: 85px; width: 90px; text-align: left; position: absolute;" alt="" />
         <div class="modal-header text-center" style="background-color:  #D99058;">
         <h3 class="w-100 dark-grey-text font-weight-bold" id="myModalLabel" style="font-family:'Amatic SC'; font-size: 40px;">HOGAR PRESENTE</h3>
         <button type="button" id="closebutton" class="close" data-dismiss="modal" aria-label="Close">
@@ -123,8 +123,7 @@
         </div>
         <div class="md-form pb-3">
             <input type="password" id="Form-pass" class="form-control validate" placeholder="Contraseña" [(ngModel)]="password">
-            <p class="font-small blue-text d-flex justify-content-end"> <a href="#" class="blue-text ml-1">
-                ¿Olvidaste tu Constraseña?</a></p>
+           
         </div>
 
         <div class="text-center mb-3">
@@ -136,8 +135,6 @@
         <div class="row my-3 d-flex justify-content-center">
             <!--Facebook-->
             <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-facebook-f text-center"></i></button>
-            <!--Twitter-->
-            <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-twitter"></i></button>
             <!--Google +-->
             <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google-plus-g"></i></button>
         </div>
