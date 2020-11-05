@@ -5,6 +5,7 @@ import {ListaCursosComponent } from './templates/lista-cursos/lista-cursos.compo
 import {FichaCursoComponent} from './templates/ficha-curso/ficha-curso.component';
 import {EditarPerfilComponent} from './templates/usuario/editar-perfil/editar-perfil.component';
 import {Error404Component} from './templates/error404/error404.component';
+import {CursoComponent} from './templates/curso/curso.component';
 
 
 
@@ -14,6 +15,8 @@ const routes: Routes = [
   {path:'lista-cursos', component:ListaCursosComponent},
   {path: 'ficha-curso', component:FichaCursoComponent},
   {path:'editar-perfil', component:EditarPerfilComponent},
+  {path:'curso', component:CursoComponent},
+
   {path:'**', component:Error404Component},
 
   

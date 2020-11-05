@@ -32,7 +32,9 @@ height: 55rem;
   
 }
 .color-boton{
-    background-color: #9CF08C;
+    background-color: #308446;
+    border: black 1px solid;     
+    color: white;
 }
 
 

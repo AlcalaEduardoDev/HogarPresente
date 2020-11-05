@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { getVideoId } from 'get-video-id';
+
 @Component({
   selector: 'app-curso',
   templateUrl: './curso.component.html',
@@ -8,6 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class CursoComponent implements OnInit {
 
   constructor() { }
+
+  pdfSrc ="";
+  video : boolean = true;
+ 
+  
+  
+  videoId = getVideoId('https://www.youtube.com/watch?v=DKlZRKmMdRQ&ab_channel=CodingShiksha').id; 
 
   ngOnInit(): void {
   }

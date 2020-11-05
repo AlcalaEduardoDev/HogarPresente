@@ -62,11 +62,14 @@
         <div class="modal-body mx-4">
         <!--Body-->
         <div class="md-form mb-5">
-            <input type="email" id="Form-email" name="name" class="form-control validate" placeholder="Email" [(ngModel)]="user">
+            <input type="email" id="Form-email" name="name" class="form-control validate" placeholder="Email" [(ngModel)]="user" required multiple/>
+            <label data-error="wrong" data-success="right" for="Form-email"></label>
         </div>
 
         <div class="md-form pb-3">
-            <input type="password" id="Form-pass" class="form-control validate" name="name" placeholder="Contraseña" [(ngModel)]="password">
+            <input type="password" id="Form-pass" class="form-control validate" name="name" placeholder="Contraseña" [(ngModel)]="password" required pattern="[A-Za-z0-9]{8,30}"
+            title="Letras y números. Mínimo: 8. Máximo: 30" autofocus>
+            <label data-error="wrong" data-success="right" for="Form-pass"></label>
             <p class="font-small blue-text d-flex justify-content-end"> <a routerLink="/enProgreso" class="blue-text ml-1">
                 ¿Olvidaste la contraseña?</a></p>
         </div>
@@ -119,10 +122,13 @@
           </div>
         </div>
         <div class="md-form mb-5" style="margin-top: 30px;">
-            <input type="email" id="Form-email" class="form-control validate" placeholder="Email" [(ngModel)]="user">
+            <input type="email" id="Form-email" class="form-control validate" placeholder="Email" [(ngModel)]="user" required multiple/>
+            <label data-error="wrong" data-success="right" for="Form-email1"></label>
         </div>
         <div class="md-form pb-3">
-            <input type="password" id="Form-pass" class="form-control validate" placeholder="Contraseña" [(ngModel)]="password">
+            <input type="password" id="Form-pass" class="form-control validate" placeholder="Contraseña" [(ngModel)]="password" required pattern="[A-Za-z0-9]{8,30}"
+            title="Letras y números. Mínimo: 8. Máximo: 30" autofocus>
+            <label data-error="wrong" data-success="right" for="Form-pass"></label>
            
         </div>
 

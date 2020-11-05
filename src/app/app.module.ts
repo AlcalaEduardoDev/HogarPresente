@@ -14,6 +14,7 @@ import { PaginationComponent } from './components/Paginations/pagination/paginat
 import { CardCursoComponent } from './components/Cards/card-curso/card-curso.component';
 import { FilterCursosPipe } from './Pipes/filter-cursos.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FichaCursoComponent } from './templates/ficha-curso/ficha-curso.component';
 import { EditarPerfilComponent } from './templates/usuario/editar-perfil/editar-perfil.component';
@@ -30,6 +31,7 @@ import {environment} from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { CursoComponent } from './templates/curso/curso.component';
+import {PdfViewerModule} from 'ng2-pdf-viewer';
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { CursoComponent } from './templates/curso/curso.component';
     HomeComponent,
     ListaCursosComponent,
     FooterComponent,
+    
     PaginationComponent,
     CardCursoComponent,
     FilterCursosPipe,
@@ -57,7 +60,9 @@ import { CursoComponent } from './templates/curso/curso.component';
     FormsModule,
     NgxPaginationModule,
     HttpClientModule,
+    YouTubePlayerModule,
     SocialLoginModule,
+    PdfViewerModule,
     NgbModule,
     AngularFirestoreModule,
     AngularFireModule,

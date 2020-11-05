@@ -1,0 +1,46 @@
+.borde{
+    background-color: rgb(85, 83, 83) !important;
+    color: white;
+  }
+  
+  .altura{
+    height: 50px !important;
+  }
+  
+  .centrar{
+    text-align: justify !important;
+  }
+  
+  
+  .separar-icon{
+    padding-left: 10px !important;
+    margin: 20px !important;
+  }
+  
+  
+  .video{
+    height: auto !important;
+    width: 700px !important;
+  }
+  
+  
+  .centrar-contenido{
+    text-align: center !important;
+    align-items: center !important;
+    margin: auto !important;
+    padding: auto !important;
+  }
+
+  .color-fondo{
+    background-color:#D99058;
+}
+
+.color-nadvad{
+    background-color: #D99058 !important;
+  }
+
+  .letras{
+    color: white !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px !important;
+    }
