@@ -10,6 +10,7 @@ const cabecera = {headers: new HttpHeaders({'content-type':'application-json'})}
   providedIn: 'root'
 })
 export class UserAlumnoService {
+  loggeado : boolean = false;
   oauthURL = 'http://localhost:8080/oauth/';
   apiBaseUrl : string = 'https://ba072e38-a035-4e4f-af9e-281642d5d4ca.mock.pstmn.io';
 

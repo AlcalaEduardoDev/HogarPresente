@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output} from '@angular/core';
 import { Alumno } from 'src/app/interface/alumno';
 import {UserAlumnoService} from 'src/app/Service/user-alumno.service';
 import {Router} from '@angular/router';
@@ -54,6 +54,7 @@ export class NavbarComponent implements OnInit {
         if(alumno.pass == this.password){
           console.log("Funciona la verificacion cutre");                   
           this.usuarioLogeado = true;
+          this.userAlumnoService.loggeado=true;
           this.dataUsuario = alumno;
         }
       }
@@ -79,6 +80,8 @@ export class NavbarComponent implements OnInit {
         console.log(data);
         this.socialUser = data;
         this.isLogged = true;
+        this.userAlumnoService.loggeado=true;
+
       });
   }
  
@@ -88,12 +91,16 @@ export class NavbarComponent implements OnInit {
       console.log(data);
       this.socialUser = data;
       this.isLogged = true;
+      this.userAlumnoService.loggeado=true;
+
       //window.location.href = "/home";
     });;
   }
 
   logOut() : void{
     this.authService.signOut();
+    this.userAlumnoService.loggeado=false;
+
   }
 
 }

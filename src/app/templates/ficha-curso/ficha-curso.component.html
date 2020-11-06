@@ -11,7 +11,10 @@
     <div class="col-sm-6">
       <div class="">
         <div class="card-body">
-          <a routerLink="/curso" class="btn color-boton">Continuar</a>
+          <a (click)="verificarLogg()" class="btn color-boton" aria-describedby="validationFeedback">Continuar</a>
+          <div id="validationFeedback" ng-class="visivilidad" >
+            DEBE INICIAR SESIÓN
+          </div>
         </div>
       </div>
     </div>

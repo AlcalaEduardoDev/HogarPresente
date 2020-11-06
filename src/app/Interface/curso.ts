@@ -1,6 +1,5 @@
 import { Unidad } from './unidad';
 
-
 export interface Curso {
     id?: number;
     img: string;
