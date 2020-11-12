@@ -23,14 +23,11 @@
           <div class="">
             <div class="card-body">
                 <div class="container">
-                  <div class="card text-center acordion" id="accordionExample" *ngFor="let unidad of unidades, index as i">
-                    <div class="card-header">
-                      <b>UNIDAD {{i+1}} </b>
-                    </div>
-                    <div class="list-group list-group-flush">
-                      <a (click)="cambiarVistaDocumento(contUnidad.doc)" *ngFor="let contUnidad of unidades[this.i].contUnidad"  class="list-group-item"><strong> Contenido: {{contUnidad.desc}} </strong></a>                      
-                    </div>                    
-                  </div>
+                  <accordion [isAnimated]="true" *ngFor="let unidad of unidades, index as i">
+                    <accordion-group  [isOpen]="unidad.unidadOpen" [heading]="unidad.nombre">
+                      <a (click)="cambiarVistaDocumento(contUnidad.doc)" *ngFor="let contUnidad of unidades[this.i].contUnidad" class="list-group-item"><strong> Contenido: {{contUnidad.desc}} </strong></a>
+                    </accordion-group>
+                  </accordion>
                 </div>
             </div>
           </div>

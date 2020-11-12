@@ -5,6 +5,8 @@ import {UserAlumnoService} from 'src/app/Service/user-alumno.service';
 import { Curso } from '../../interface/curso';
 import {Router} from '@angular/router';
 
+
+
 @Component({
   selector: 'app-ficha-curso',
   templateUrl: './ficha-curso.component.html',

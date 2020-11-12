@@ -12,7 +12,7 @@
       <div class="">
         <div class="card-body">
           <a (click)="verificarLogg()" class="btn color-boton" aria-describedby="validationFeedback">Continuar</a>
-          <div id="validationFeedback" ng-class="visivilidad" >
+          <div id="validationFeedback" [ngClass]="'visivilidad'" >
             DEBE INICIAR SESIÓN
           </div>
         </div>
@@ -40,6 +40,6 @@
   </div>
 </div>
 
-<div class="acordion container mt-3 mb-4" id="accordionExample">
-<app-collapse *ngFor="let unidad of unidades" [unidad]="unidad" ></app-collapse>
-</div>
+<accordion class="mb-5 mt-5" [isAnimated]="true">
+  <app-collapse *ngFor="let unidad of unidades" [unidad]="unidad" ></app-collapse>
+</accordion>

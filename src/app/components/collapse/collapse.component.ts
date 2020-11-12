@@ -9,8 +9,7 @@ import { Unidad } from 'src/app/Interface/unidad';
 export class CollapseComponent implements OnInit {
 
   constructor() { }
-  @Input() unidad:Unidad;
+  @Input() unidad:any;
   ngOnInit(): void {
   }
-
 }

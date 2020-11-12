@@ -13,7 +13,7 @@ import { FooterComponent } from './components/Footers/footer/footer.component';
 import { PaginationComponent } from './components/Paginations/pagination/pagination.component';
 import { CardCursoComponent } from './components/Cards/card-curso/card-curso.component';
 import { FilterCursosPipe } from './Pipes/filter-cursos.pipe';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule} from 'ngx-pagination';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FichaCursoComponent } from './templates/ficha-curso/ficha-curso.component';
@@ -27,12 +27,13 @@ import {
 } from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollapseComponent } from './components/collapse/collapse.component';
-import {environment} from '../environments/environment';
+import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { CursoComponent } from './templates/curso/curso.component';
-import {PdfViewerModule} from 'ng2-pdf-viewer';
-
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,7 @@ import {PdfViewerModule} from 'ng2-pdf-viewer';
     CardIndexComponent,
     HomeComponent,
     ListaCursosComponent,
-    FooterComponent,
-    
+    FooterComponent,    
     PaginationComponent,
     CardCursoComponent,
     FilterCursosPipe,
@@ -66,7 +66,9 @@ import {PdfViewerModule} from 'ng2-pdf-viewer';
     NgbModule,
     AngularFirestoreModule,
     AngularFireModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),    
+    AccordionModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     {
