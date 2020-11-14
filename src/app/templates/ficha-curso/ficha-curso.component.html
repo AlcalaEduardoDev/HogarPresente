@@ -1,6 +1,6 @@
-<div class="container-fluid justify-content-center">
+<div class="container justify-content-center mt-5 mb-5">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-4">
       <div class="">
         <div class="card-body">
           <h5 class="card-title"><b>{{curso.nom}}</b></h5>
@@ -8,13 +8,10 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-md-4">
       <div class="">
         <div class="card-body">
-          <a (click)="verificarLogg()" class="btn color-boton" aria-describedby="validationFeedback">Continuar</a>
-          <div id="validationFeedback" [ngClass]="'visivilidad'" >
-            DEBE INICIAR SESIÓN
-          </div>
+          <a (click)="verificarLogg(template)" class="btn color-boton" aria-describedby="validationFeedback">Continuar</a>
         </div>
       </div>
     </div>
@@ -22,7 +19,6 @@
 </div>
 
 
-<div class="separar2"></div>
 <div class="container" style="text-align: center">
   <div class="row justify-content-center">
     <div class="col-md-4">
@@ -43,3 +39,17 @@
 <accordion class="mb-5 mt-5" [isAnimated]="true">
   <app-collapse *ngFor="let unidad of unidades" [unidad]="unidad" ></app-collapse>
 </accordion>
+
+
+
+
+<!-- MODAL -->
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Debe iniciar sesión para continuar</p>
+      <button type="button " class="btn color-boton m-1" data-toggle="modal" data-target="#loginModal" (click)="hide()">Iniciar Sesion</button>
+      <button type="button" class="btn btn-danger m-1" (click)="hide()" >Cerrar</button>
+
+  </div>
+</ng-template>

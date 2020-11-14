@@ -20,10 +20,10 @@
 
     <ul class="nav navbar-nav ml-auto" *ngIf="!isLogged && !usuarioLogeado">
       <li class="nav-item p-1">
-        <a class="nav-link letras shadow-lg"><span class="fas fa-user" data-toggle="modal" data-target="#signinModal"><b> Registrarse </b></span ></a>
+        <a class="nav-link  letras3 color-boton2"><span class="fas fa-user" data-toggle="modal" data-target="#signinModal"><b> Registrarse </b></span ></a>
       </li>
       <li class="nav-item p-1">
-        <a class="nav-link letras shadow-lg"><span class="fas fa-sign-in-alt" data-toggle="modal" data-target="#loginModal"> <b> Iniciar Sesión </b></span>  </a>
+        <a class="nav-link  letras3 color-boton2"><span class="fas fa-sign-in-alt" data-toggle="modal" data-target="#loginModal"> <b> Iniciar Sesión </b></span>  </a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto" *ngIf="isLogged">
@@ -32,7 +32,9 @@
           {{userLogged.name}}
         </a>
       </li>
-      <img *ngIf="isLogged" src="{{userLogged.photoUrl}}" class="rounded-circle mr-3" style="width:'40px'">
+      <a href="/editar-perfil">
+        <img *ngIf="isLogged" src="{{userLogged.photoUrl}}" class="rounded-circle mr-3" style="width:'40px'">
+      </a>
     </ul>
     <ul class="navbar-nav ml-auto" *ngIf="usuarioLogeado">
       <li class="nav-item disabled">

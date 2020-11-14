@@ -1,40 +1,52 @@
 .color-nadvad{
-    background-color: #D99058 !important;
-  }
-  .letras{
-    color: white !important;
-    font-family: 'Montserrat';
-    font-size: 15px !important;
-    }
+background-color: #D99058 !important;
+}
+.letras{
+color: white !important;
+font-family: 'Montserrat';
+font-size: 15px !important;
+}
 
-    b{
-      font-family: 'Montserrat';
-    }
-    
-    input {
-      border: 2px solid;
-      border-radius: 4px;
-      font-size: 1rem;
-      margin: 0.25rem;
-      min-width: 125px;
-      padding: 0.5rem;
-      transition: border-color 0.5s ease-out;
-    }
-    input:optional {
-      border-color: gray;
-    }
+b{
+font-family: 'Montserrat';
+}
 
-  
+input {
+border: 2px solid;
+border-radius: 4px;
+font-size: 1rem;
+margin: 0.25rem;
+min-width: 125px;
+padding: 0.5rem;
+transition: border-color 0.5s ease-out;
+}
+input:optional {
+border-color: gray;
+}
+.letras3{
+color: #D99058 !important;
+font-family: 'Montserrat', sans-serif;
+font-size: 15px !important;
+}
+.color-boton2{
+background-color: white;    
+color: white;
+}
 
-    input:required:valid {
-      border-color: green;
-    }
-    
-    input:required:focus:valid {
-      background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
-      background-size: 25px;
-    }
-    input:focus:invalid {
-      background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% lightsalmon;
-      background-size: 25px;
-    }
+
+
+
+
+
+input:required:valid {
+border-color: green;
+}
+
+input:required:focus:valid {
+background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+background-size: 25px;
+}
+input:focus:invalid {
+background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% lightsalmon;
+background-size: 25px;
+}

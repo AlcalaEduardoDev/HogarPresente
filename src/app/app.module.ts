@@ -34,6 +34,7 @@ import { CursoComponent } from './templates/curso/curso.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
     AngularFireModule,
     AngularFireModule.initializeApp(environment.firebase),    
     AccordionModule.forRoot(),
+    ModalModule.forRoot(),
     BrowserAnimationsModule
   ],
   providers: [

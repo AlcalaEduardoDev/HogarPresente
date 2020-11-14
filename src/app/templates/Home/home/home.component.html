@@ -1,3 +1,4 @@
+<!-- CARRUSEL -->
 <div style="margin-bottom: 150px;">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -13,7 +14,7 @@
           <div class="carousel-caption text-left ">
             <h1 class="textoLegible">Cursos</h1> <br> 
             <p class="textoLegible">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg color-boton" href="#cards" role="button">Seccion cursos</a></p>
+            <p><a class="btn btn-lg color-boton" href="#cards" role="button" data-toggle="modal" data-target="#signinModal">¡Regístrate hoy!</a></p>
           </div>
 
         </div>
@@ -27,7 +28,7 @@
           <div class="carousel-caption">
             <h1 class="textoLegible">¿Que se puede aprender?</h1>
             <p class="textoLegible">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg color-boton" href="#descripcion" role="button">Nosotros</a></p>
+            <p><a class="btn btn-lg color-boton" href="/lista-cursos" role="button">Ver los Cursos</a></p>
           </div>
         </div>
       </div>
@@ -36,9 +37,9 @@
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
         <div class="container">
           <div class="carousel-caption text-right">
-            <h1 class="textoLegible">One more for good measure.</h1>
+            <h1 class="textoLegible">¿Quienes somos?</h1>
             <p class="textoLegible">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg color-boton" href="#" role="button">Browse gallery</a></p>
+            <p><a class="btn btn-lg color-boton" href="https://hogarpresente.wixsite.com/consultora" role="button" >Nosotros</a></p>
           </div>
         </div>
       </div>
@@ -52,9 +53,11 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div style="margin-bottom: 200px;">
-  <app-card-index name="cards" id="cards"></app-card-index>  
+  <!-- CARDS DEL CENTRO -->
+  <div style="margin-bottom: 400px; margin-top:45px;">
+    <app-card-index name="cards" id="cards"></app-card-index>  
   </div>
+  <!-- INFORMACION GENERAL DE LA PAGINA -->
   <div class="container marketing" name="descripcion" id="descripcion">
     <hr class="featurette-divider">
   

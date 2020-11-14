@@ -1,76 +1,75 @@
 .letras{
-    color: black !important;
-    font-size: 15px !important;
-    }
-  
-    
-    .altura{
-      height: 50px !important;
-    }
-    
-    .centrar{
-      text-align: justify !important;
-    }
-    
-    
-    .separar-icon{
-      padding-left: 10px !important;
-      margin: 20px !important;
-    }
-    
-    
-    .video{
-      height: auto !important;
-      width: 700px !important;
-    }
-    
-    
-    .centrar-contenido{
-      text-align: center !important;
-      align-items: center !important;
-      margin: auto !important;
-      padding: auto !important;
-    }
-    
-    
-  .color-boton{
-      background-color: #9CF08C;
-      border: black 1px solid;     
+color: black !important;
+font-size: 15px !important;
+}
+
+
+.altura{
+  height: 50px !important;
+}
+
+.centrar{
+  text-align: justify !important;
+}
+
+
+.separar-icon{
+  padding-left: 10px !important;
+  margin: 20px !important;
+}
+
+
+.video{
+  height: auto !important;
+  width: 700px !important;
+}
+
+
+.centrar-contenido{
+  text-align: center !important;
+  align-items: center !important;
+  margin: auto !important;
+  padding: auto !important;
+}
+
+
+.color-boton{
+background-color: #308446;   
+color: white;
+}
+.color-boton:hover{
+background-color: #1F6116 !important;
+}
+
+
+
+.letras{
+  color: white !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px !important;
   }
-  
-  
-  
-    .letras{
-      color: white !important;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 15px !important;
-      }
-  
-  .sombra{
-  box-shadow:   1px 1px 3px #666 !important
-  
-  }
-  
-  .separar-botones{
-  padding: 10px !important;
-  }
-  
-  
-  .separar2{
-      margin-top: 100px !important;
-    }
-  
-    .separar1{
-      margin-bottom: 100px !important;
-    }
-  
-    .separar3{
-      margin-top: 50px !important;
-    }
-  
-  
-    h3{
-      font-family: 'Montserrat', sans-serif;
-        text-align: center !important;
-        font-size: 30px !important;
-    }
+
+.sombra{
+box-shadow:   1px 1px 3px #666 !important
+
+}
+
+.separar-botones{
+padding: 10px !important;
+}
+
+
+.separar1{
+  margin-bottom: 100px !important;
+}
+
+.separar3{
+  margin-top: 50px !important;
+}
+
+
+h3{
+  font-family: 'Montserrat', sans-serif;
+    text-align: center !important;
+    font-size: 30px !important;
+}

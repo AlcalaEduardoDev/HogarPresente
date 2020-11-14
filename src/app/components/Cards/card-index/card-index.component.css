@@ -1,7 +1,9 @@
 .color-boton{
-  background-color: #308446;
-  border: black 1px solid;     
+  background-color: #308446;   
   color: white;
+}
+.color-boton:hover{
+background-color: #1F6116 !important;
 }
 
 .tamanno{
@@ -35,4 +37,8 @@
   }
   .separar-con{
     padding: 100px !important;
+  }
+
+  .sombra{
+    box-shadow:   1px 1px 3px #666 !important  
   }
