@@ -15,6 +15,7 @@ export class CursoComponent implements OnInit {
   
   constructor( public dataService:ListaCursosService) { }
     pdfSrc ="";
+    colorTexto = 'text-primary';
     video : boolean = true;  
     videoId : string = "Nfj81ARo260";
     curso : Curso = this.dataService.cursoActivo;
@@ -26,6 +27,7 @@ export class CursoComponent implements OnInit {
     ngOnInit(): void {}
     
     public cambiarVistaDocumento( url:string){
+      this.colorTexto = 'text-success';
       if ( url.indexOf("www.youtube.com")==-1){
           this.video=false;
           this.pdfSrc=url;

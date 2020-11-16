@@ -25,7 +25,7 @@
                 <div class="container">
                   <accordion [isAnimated]="true" *ngFor="let unidad of unidades, index as i">
                     <accordion-group  [isOpen]="unidad.unidadOpen" [heading]="unidad.nombre">
-                      <a (click)="cambiarVistaDocumento(contUnidad.doc)" *ngFor="let contUnidad of unidades[this.i].contUnidad" class="list-group-item"><strong> Contenido: {{contUnidad.desc}} </strong></a>
+                      <a [ngClass]="'colorTexto'" (click)="cambiarVistaDocumento(contUnidad.doc)" *ngFor="let contUnidad of unidades[this.i].contUnidad" class="list-group-item"><strong> Contenido: {{contUnidad.desc}} </strong></a>
                     </accordion-group>
                   </accordion>
                 </div>
