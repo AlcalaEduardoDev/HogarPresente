@@ -9,9 +9,13 @@ import { Curso } from '../Interface/curso';
 export class ListaCursosService {
 
   cursoActivo : Curso;
-  apiBaseUrl : string = 'https://e6b4b286-1a3f-4b6d-8663-7a6cb9f3fa22.mock.pstmn.io';
+  apiBaseUrl : string = 'https://hogar-presente.herokuapp.com';
   constructor(private http: HttpClient) { }
   public findAll():Observable<any>{
-    return this.http.get(this.apiBaseUrl + '/lista-cursos');
+    return this.http.get(this.apiBaseUrl + '/api/cursos');
+  }
+
+  public findOne(id : number): Observable<any>{
+    return this.http.get(this.apiBaseUrl + `/api/cursos/${id}`);
   }
 }

@@ -14,7 +14,8 @@ styleUrls: ['./navbar.component.css']
 export class NavbarComponent implements OnInit {
 
 public alumnos: Array<Alumno> = [];
-
+alumnoNuevo: Alumno = new Alumno();
+alumno:Alumno = new Alumno();
 modalRef: BsModalRef;
 
 //Ng Inputs
@@ -54,39 +55,29 @@ ngOnInit(): void {
 
 verificacion(){
   for (const alumno of this.alumnos){
-    if(alumno.email == this.user){
-      if(alumno.pass == this.password){
+    if(alumno.email == this.alumno.email){
+      if(alumno.pass == this.alumno.pass){
         console.log("Funciona la verificacion cutre");                   
         this.usuarioLogeado = true;
         this.userAlumnoService.loggeado=true;
         this.dataUsuario = alumno;
-
       }
     }
   } 
 }
 
 onLoggin():void{
-  var nuevoAlumno:Alumno;
-  nuevoAlumno.icon=this.icono;
-  nuevoAlumno.email=this.user;
-  nuevoAlumno.nombre=this.nombreReg;
-  nuevoAlumno.apellido=this.apellidoReg;
-  nuevoAlumno.pass=this.password;
-  this.userAlumnoService.login(nuevoAlumno).subscribe(res=>{
+  this.userAlumnoService.login(this.alumno).subscribe(res=>{
     if(res){
     }
   })
 }
 
 Registrar(){
-  var nuevoAlumno:Alumno;
-  nuevoAlumno.icon=this.icono;
-  nuevoAlumno.email=this.user;
-  nuevoAlumno.nombre=this.nombreReg;
-  nuevoAlumno.apellido=this.apellidoReg;
-  nuevoAlumno.pass=this.password;
-  this.userAlumnoService.addAlumno(nuevoAlumno).subscribe(alumno => console.log(alumno));
+  console.log(this.alumnoNuevo);
+  this.userAlumnoService.create(this.alumnoNuevo).subscribe(
+    res=> console.log('Usuario registrado')
+  );
   }
 
 

@@ -1,6 +1,10 @@
-import { StringifyOptions } from 'querystring';
+import { Injectable } from '@angular/core';
 
-export interface Alumno {
+@Injectable({
+    providedIn: 'root'
+})
+
+export class Alumno {
     id?: number;
     icon: string;
     nombre:string;

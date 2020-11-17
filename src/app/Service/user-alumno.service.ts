@@ -15,7 +15,7 @@ const helper = new JwtHelperService();
 export class UserAlumnoService {
   loggeado : boolean = false;
   oauthURL = 'http://localhost:8080/oauth/';
-  apiBaseUrl : string = 'https://ba072e38-a035-4e4f-af9e-281642d5d4ca.mock.pstmn.io';
+  apiBaseUrl : string = 'https://hogar-presente.herokuapp.com';
   private isLoggedIn = new BehaviorSubject<boolean>(false);
 
 
@@ -27,11 +27,10 @@ export class UserAlumnoService {
      return this.isLoggedIn.asObservable();
    }
   public findAll():Observable<any>{
-    return this.http.get(this.apiBaseUrl + '/alumnos');
+    return this.http.get(this.apiBaseUrl + '/api/alumnos');
   }
-
-  public addAlumno(alumno:Alumno) : Observable<any>{
-    return this.http.post<any>(this.apiBaseUrl + '/alumnos', alumno );
+  public create(alumno:Alumno) : Observable<any>{
+    return this.http.post<any>(this.apiBaseUrl + '/api/alumnos', alumno );
   }
   login (authData:Alumno): Observable<Alumno | void>{
     return this.http.post<Alumno>(this.apiBaseUrl+'/login', authData)
@@ -50,6 +49,9 @@ export class UserAlumnoService {
   logout ():void{
     localStorage.removeItem('token');
     this.isLoggedIn.next(false);
+  }
+  get(id : number): Observable<Alumno>{
+    return this.http.get<Alumno>(this.apiBaseUrl + '/api/alumnos'+'/'+id);
   }
   private saveToken(token: string): void{
     localStorage.setItem('token',token);
@@ -73,8 +75,8 @@ export class UserAlumnoService {
    window.alert(errorMessage);
    return throwError(errorMessage);
   }  
-  public editAlum(alumno:Alumno): Observable<any>{
-    return this.http.put<any>(this.apiBaseUrl + '/alumnos', alumno);
+  public update(alumno:Alumno): Observable<any>{
+    return this.http.put<any>(this.apiBaseUrl + '/api/alumnos', alumno);
   }
   public google (tokenDto:TokenDto): Observable<TokenDto>{
     return this.http.post<TokenDto>(this.oauthURL + 'google', tokenDto, cabecera);
