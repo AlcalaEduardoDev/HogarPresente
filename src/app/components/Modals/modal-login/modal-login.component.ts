@@ -81,6 +81,7 @@ export class ModalLoginComponent implements OnInit {
         this.tokenService.setEmail(data.correo);
         this.tokenService.setAuthorities(data.authorities);
         this.roles=data.authorities;
+        window.location.reload();
       },
       err =>{
         this.isLogged=false;

@@ -18,7 +18,7 @@
         </li>
       </ul>
   
-      <ul class="nav navbar-nav ml-auto" *ngIf="!isLogged && !usuarioLogeado">
+      <ul class="nav navbar-nav ml-auto" *ngIf="!isLogged">
         <li class="nav-item p-1">
           <a class="nav-link  letras3 color-boton2"><span class="fas fa-user" data-toggle="modal" data-target="#signinModal"><b> Registrarse </b></span ></a>
         </li>
@@ -29,14 +29,17 @@
       <ul class="navbar-nav ml-auto" *ngIf="isLogged">
         <li class="nav-item disabled">
           <a class="nav-link letras">          
-            {{userLogged.name}}
+            {{usuario}}
           </a>
         </li>
         <a [routerLink]="['/editar-perfil', userLogged.id]">
           <img *ngIf="isLogged" src="{{userLogged.photoUrl}}" class="rounded-circle mr-3" style="width:'40px'">
         </a>
+        <li class="nav-item" (click)="onLogOut()">
+          <a class="nav-link"><i class="fas fa-sign-out-alt"></i>Cerrar sesion</a>          
+        </li>
       </ul>
-      <ul class="navbar-nav ml-auto" *ngIf="usuarioLogeado">
+<!--      <ul class="navbar-nav ml-auto" *ngIf="usuarioLogeado">
         <li class="nav-item disabled">
           <a class="nav-link letras">          
             {{dataUsuario.nombre}}
@@ -45,7 +48,7 @@
         <a [routerLink]="['/editar-perfil', dataUsuario.id]">
           <img *ngIf="usuarioLogeado" src="{{dataUsuario.icon}}" class="rounded-circle mr-3" style="width:'40px'">
         </a>
-      </ul>
+      </ul>-->
     </div>
   </nav>
   </div>
