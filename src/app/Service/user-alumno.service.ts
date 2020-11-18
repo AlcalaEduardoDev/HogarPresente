@@ -15,7 +15,7 @@ const helper = new JwtHelperService();
 export class UserAlumnoService {
   loggeado : boolean = false;
   oauthURL = 'http://localhost:8080/oauth/';
-  apiBaseUrl : string = 'https://hogar-presente.herokuapp.com';
+  apiBaseUrl : string = 'https://ba072e38-a035-4e4f-af9e-281642d5d4ca.mock.pstmn.io';
   private isLoggedIn = new BehaviorSubject<boolean>(false);
 
 
@@ -27,10 +27,10 @@ export class UserAlumnoService {
      return this.isLoggedIn.asObservable();
    }
   public findAll():Observable<any>{
-    return this.http.get(this.apiBaseUrl + '/api/alumnos');
+    return this.http.get(this.apiBaseUrl + '/alumnos');
   }
   public create(alumno:Alumno) : Observable<any>{
-    return this.http.post<any>(this.apiBaseUrl + '/api/alumnos', alumno );
+    return this.http.post<any>(this.apiBaseUrl + '/alumnos', alumno );
   }
   login (authData:Alumno): Observable<Alumno | void>{
     return this.http.post<Alumno>(this.apiBaseUrl+'/login', authData)

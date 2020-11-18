@@ -14,9 +14,10 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path:'lista-cursos', component:ListaCursosComponent},
   {path: 'ficha-curso', component:FichaCursoComponent},
+  {path: 'ficha-curso/:id', component:FichaCursoComponent},
+
   {path:'editar-perfil', component:EditarPerfilComponent},
   {path:'curso', component:CursoComponent},
-
   {path:'**', component:Error404Component},
 
   

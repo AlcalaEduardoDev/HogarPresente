@@ -1,0 +1,61 @@
+<!-- Modal Registro-->
+  
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+    <div class="modal-dialog" role="document">
+    <!--Content-->
+    <div class="modal-content form-elegant">
+        <!--Header-->
+        <img src="assets/logo-blanco.PNG" style="height: 85px; width: 90px; text-align: left; position: absolute;" alt="" />
+        <div class="modal-header text-center" style="background-color:  #D99058;">
+        <h3 class="w-100 dark-grey-text font-weight-bold" id="myModalLabel" style="font-family:'Amatic SC'; font-size: 40px;">HOGAR PRESENTE</h3>
+        <button type="button" id="closebutton" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body mx-4">
+        <!--Body-->
+        <div class="form-row" style="margin-top: 30px;">
+          <div class="form-group col-md-6">
+            <label data-error="wrong" data-success="right" for="inputNombre-Registro">Nombre</label>
+            <input class="form-control" id="inputNombre-Registro" placeholder="Nombre" [(ngModel)]="alumnoNuevo.nombre">
+          </div>
+          <div class="form-group col-md-6">
+            <label data-error="wrong" data-success="right" for="inputApellido-Registro">Apellido</label>
+            <input class="form-control" id="inputApellido-Registro" placeholder="Apellido" [(ngModel)]="alumnoNuevo.apellido">
+
+          </div>
+        </div>
+        <div class="md-form mb-5" style="margin-top: 30px;">
+          <label data-error="wrong" data-success="right" for="Form-email-Registro">Email</label>
+            <input type="email" id="Form-email-Registro" class="form-control validate" placeholder="Email" [(ngModel)]="alumnoNuevo.email" required multiple/>
+        </div>
+        <div class="md-form pb-3">
+          <label data-error="wrong" data-success="right" for="Form-pass-Registro">Contraseña</label>
+            <input type="password" id="Form-pass-Registro" class="form-control validate" placeholder="Contraseña" [(ngModel)]="alumnoNuevo.pass" required pattern="[A-Za-z0-9]{8,30}"
+            title="Letras y números. Mínimo: 8. Máximo: 30" autofocus>
+           
+        </div>
+
+        <div class="text-center mb-3">
+            <a><button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a" (click)="Registrar()">Registrarse</button></a>
+        </div>
+        <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> o registrarse
+            con:</p>
+
+        <div class="row my-3 d-flex justify-content-center">
+            <!--Facebook-->
+            <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-facebook-f text-center"></i></button>
+            <!--Google +-->
+            <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google-plus-g"></i></button>
+        </div>
+        </div>
+          <!--Footer-->
+          <div class="modal-footer mx-5 pt-3 mb-1">
+            <p class="font-small grey-text d-flex justify-content-end">¿Ya eres miembro? <a class="blue-text ml-1" data-dismiss="modal" aria-label="Close"><span data-toggle="modal" data-target="#loginModal">            
+                Ingresar sesión </span></a></p>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>

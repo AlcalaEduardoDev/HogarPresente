@@ -35,12 +35,14 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ModalSigninComponent } from './components/Modals/modal-signin/modal-signin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ModalLoginComponent,
+    ModalSigninComponent,
     CardIndexComponent,
     HomeComponent,
     ListaCursosComponent,

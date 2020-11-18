@@ -1,8 +1,8 @@
 export class LoginUsuario {
-    mail: string;
-    pass: string;
+    correo: string;
+    password: string;
     constructor(mail:string, pass:string){
-        this.mail=mail;
-        this.pass=pass;
+        this.correo=mail;
+        this.password=pass;
     }
 }

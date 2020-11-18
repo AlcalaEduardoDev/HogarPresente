@@ -10,16 +10,16 @@ import { NuevoUsuario } from '../models/nuevo-usuario';
 })
 export class AuthService {
 
-  authUrl = 'http://localhost:8080/auth/';
+  authUrl = 'https://hogar-presente.herokuapp.com/';
 
 
   constructor(private httpClient:HttpClient ) { }
 
   public nuevo(nuevoUser:NuevoUsuario): Observable<any>{
-    return this.httpClient.post<any>(this.authUrl+'nuevo',nuevoUser);
+    return this.httpClient.post<any>(this.authUrl+'auth/nuevo',nuevoUser);
   }
   public login(loginUser:LoginUsuario): Observable<JwtDto>{
-    return this.httpClient.post<JwtDto>(this.authUrl+'login',loginUser);
+    return this.httpClient.post<JwtDto>(this.authUrl+'auth/login',loginUser);
   }
 
 }
