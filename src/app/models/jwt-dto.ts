@@ -3,4 +3,7 @@ export class JwtDto {
     type: string;
     correo: string;
     authorities:string[];
+    nombre:string;
+    apellido:string;
+    foto:string;
 }

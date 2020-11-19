@@ -18,27 +18,27 @@
         <div class="form-row" style="margin-top: 30px;">
           <div class="form-group col-md-6">
             <label data-error="wrong" data-success="right" for="inputNombre-Registro">Nombre</label>
-            <input class="form-control" id="inputNombre-Registro" placeholder="Nombre" [(ngModel)]="alumnoNuevo.nombre">
+            <input class="form-control" id="inputNombre-Registro" placeholder="Nombre" [(ngModel)]="nombreUser">
           </div>
           <div class="form-group col-md-6">
             <label data-error="wrong" data-success="right" for="inputApellido-Registro">Apellido</label>
-            <input class="form-control" id="inputApellido-Registro" placeholder="Apellido" [(ngModel)]="alumnoNuevo.apellido">
+            <input class="form-control" id="inputApellido-Registro" placeholder="Apellido" [(ngModel)]="apellidoUser">
 
           </div>
         </div>
         <div class="md-form mb-5" style="margin-top: 30px;">
           <label data-error="wrong" data-success="right" for="Form-email-Registro">Email</label>
-            <input type="email" id="Form-email-Registro" class="form-control validate" placeholder="Email" [(ngModel)]="alumnoNuevo.email" required multiple/>
+            <input type="email" id="Form-email-Registro" class="form-control validate" placeholder="Email" [(ngModel)]="mailUser" required multiple/>
         </div>
         <div class="md-form pb-3">
           <label data-error="wrong" data-success="right" for="Form-pass-Registro">Contraseña</label>
-            <input type="password" id="Form-pass-Registro" class="form-control validate" placeholder="Contraseña" [(ngModel)]="alumnoNuevo.pass" required pattern="[A-Za-z0-9]{8,30}"
+            <input type="password" id="Form-pass-Registro" class="form-control validate" placeholder="Contraseña" [(ngModel)]="passUser" required pattern="[A-Za-z0-9]{8,30}"
             title="Letras y números. Mínimo: 8. Máximo: 30" autofocus>
            
         </div>
 
         <div class="text-center mb-3">
-            <a><button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a" (click)="Registrar()">Registrarse</button></a>
+            <a><button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a" (click)="onRegister()" >Registrarse</button></a>
         </div>
         <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> o registrarse
             con:</p>

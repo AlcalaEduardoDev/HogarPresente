@@ -15,8 +15,9 @@ styleUrls: ['./navbar.component.css']
 export class NavbarComponent implements OnInit {
 
 isLogged=false;
-usuario='';
-
+nombreUser='';
+apellidoUser = '';
+fotoUser='';
 constructor(
   private tokenService:TokenService
 ) { }
@@ -25,7 +26,9 @@ constructor(
 ngOnInit(): void {
   if(this.tokenService.getToken()){
     this.isLogged = true;
-    this.usuario = this.tokenService.getEmail();
+    this.nombreUser = this.tokenService.getNombre();
+    this.apellidoUser = this.tokenService.getApellido();
+    this.fotoUser = this.tokenService.getFoto();
   }else{
     this.isLogged = false;
   }

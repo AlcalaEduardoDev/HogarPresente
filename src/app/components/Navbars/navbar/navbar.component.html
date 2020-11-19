@@ -29,14 +29,14 @@
       <ul class="navbar-nav ml-auto" *ngIf="isLogged">
         <li class="nav-item disabled">
           <a class="nav-link letras">          
-            {{usuario}}
+            {{nombreUser}} {{apellidoUser}}
           </a>
         </li>
-        <a [routerLink]="['/editar-perfil', userLogged.id]">
-          <img *ngIf="isLogged" src="{{userLogged.photoUrl}}" class="rounded-circle mr-3" style="width:'40px'">
+        <a [routerLink]="['/editar-perfil']">
+          <img src="{{fotoUser}}" class="rounded-circle mr-3" style="width:'40px'">
         </a>
         <li class="nav-item" (click)="onLogOut()">
-          <a class="nav-link"><i class="fas fa-sign-out-alt"></i>Cerrar sesion</a>          
+          <a class="nav-link" style="cursor: pointer;" ><i class="fas fa-sign-out-alt"></i>Cerrar sesion</a>          
         </li>
       </ul>
 <!--      <ul class="navbar-nav ml-auto" *ngIf="usuarioLogeado">

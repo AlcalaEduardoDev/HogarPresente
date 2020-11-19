@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Session } from 'protractor';
 
 const TOKEN_KEY = 'AuthToken';
 const EMAIL_KEY = 'AuthEmail';
 const AUTHORITIES_KEY = 'AuthAuthorities';
+const NOMBRE_KEY = 'AuthNombre';
+const APELLIDO_KEY = 'AuthApellido';
+const FOTO_KEY = 'AuthFoto';
 
 
 @Injectable({
@@ -41,6 +43,28 @@ export class TokenService {
       })
     }
     return this.roles;
+  }
+  public setNombre(nombre:string):void{
+    window.sessionStorage.removeItem(NOMBRE_KEY);
+    window.sessionStorage.setItem(NOMBRE_KEY,nombre);
+  }
+  public getNombre():string{
+    return sessionStorage.getItem(NOMBRE_KEY);
+  }
+  public setApellido(apellido:string):void{
+    window.sessionStorage.removeItem(APELLIDO_KEY);
+    window.sessionStorage.setItem(APELLIDO_KEY,apellido);
+  }
+  public getApellido():string{
+    return sessionStorage.getItem(APELLIDO_KEY);
+  }
+
+  public setFoto(foto:string):void{
+    window.sessionStorage.removeItem(FOTO_KEY);
+    window.sessionStorage.setItem(FOTO_KEY,foto);
+  }
+  public getFoto():string{
+    return sessionStorage.getItem(FOTO_KEY);
   }
 
   public logout():void {

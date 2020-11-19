@@ -36,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ModalSigninComponent } from './components/Modals/modal-signin/modal-signin.component';
+import { interceptorProvider } from './interceptors/user-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,7 @@ import { ModalSigninComponent } from './components/Modals/modal-signin/modal-sig
     ModalModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [
+  providers: [ interceptorProvider,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
