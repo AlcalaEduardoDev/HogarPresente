@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/Navbars/navbar/navbar.component';
 import { ModalLoginComponent } from './components/Modals/modal-login/modal-login.component';
 import { CardIndexComponent } from './components/Cards/card-index/card-index.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './templates/Home/home/home.component';
 import { ListaCursosComponent } from './templates/lista-cursos/lista-cursos.component';
 import { FooterComponent } from './components/Footers/footer/footer.component';
@@ -20,7 +20,7 @@ import { FichaCursoComponent } from './templates/ficha-curso/ficha-curso.compone
 import { EditarPerfilComponent } from './templates/usuario/editar-perfil/editar-perfil.component';
 import { Error500Component } from './templates/error500/error500.component';
 import { Error404Component } from './templates/error404/error404.component';
-import {SocialLoginModule, SocialAuthServiceConfig} from 'angularx-social-login'
+import {SocialLoginModule, SocialAuthServiceConfig} from 'angularx-social-login';
 import {
   GoogleLoginProvider,
   FacebookLoginProvider,
@@ -62,6 +62,7 @@ import { interceptorProvider } from './interceptors/user-interceptor.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxPaginationModule,
     HttpClientModule,
     YouTubePlayerModule,

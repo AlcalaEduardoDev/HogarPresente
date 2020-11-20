@@ -14,6 +14,13 @@
         <div class="card-body">
           <a (click)="verificarLogg(template)" class="btn color-boton" aria-describedby="validationFeedback">Continuar</a>
         </div>
+        <div class="container">
+          <a href="$$init_point$$" target="_blank">Pagar</a>
+          <script
+          src="https://www.mercadopago.com.pe/integrations/v1/web-payment-checkout.js"
+          data-preference-id='<%= global.id %>'>
+          </script> 
+        </div>
       </div>
     </div>
   </div>

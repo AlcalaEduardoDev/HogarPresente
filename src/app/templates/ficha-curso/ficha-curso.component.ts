@@ -7,7 +7,6 @@ import {Router} from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 
-
 @Component({
   selector: 'app-ficha-curso',
   templateUrl: './ficha-curso.component.html',
@@ -15,14 +14,14 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class FichaCursoComponent implements OnInit {
  
- 
+  
   constructor(
     public dataService:ListaCursosService,
     public userAlumnoService:UserAlumnoService, 
     private route:Router,
     private modalService: BsModalService
     ) { 
-
+      
   }
   
   modalRef: BsModalRef;
@@ -47,6 +46,7 @@ export class FichaCursoComponent implements OnInit {
 
   hide(){
     this.modalRef.hide();
+    
   }
 
 }

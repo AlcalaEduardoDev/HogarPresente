@@ -24,6 +24,7 @@
     "@angular/youtube-player": "^10.2.7",
     "@auth0/angular-jwt": "^5.0.1",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
+    "@types/scriptjs": "0.0.2",
     "angularfire": "^2.3.0",
     "angularfire2": "^5.4.2",
     "angularx-social-login": "^3.3.1",
@@ -38,6 +39,7 @@
     "ngx-bootstrap": "^6.2.0",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.0",
+    "scriptjs": "^2.5.9",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

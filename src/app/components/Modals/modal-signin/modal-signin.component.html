@@ -15,40 +15,52 @@
         <!--Body-->
         <div class="modal-body mx-4">
         <!--Body-->
-        <div class="form-row" style="margin-top: 30px;">
-          <div class="form-group col-md-6">
-            <label data-error="wrong" data-success="right" for="inputNombre-Registro">Nombre</label>
-            <input class="form-control" id="inputNombre-Registro" placeholder="Nombre" [(ngModel)]="nombreUser">
-          </div>
-          <div class="form-group col-md-6">
-            <label data-error="wrong" data-success="right" for="inputApellido-Registro">Apellido</label>
-            <input class="form-control" id="inputApellido-Registro" placeholder="Apellido" [(ngModel)]="apellidoUser">
-
-          </div>
+        <div class="form-container">          
+          <form [formGroup]="userForm" (ngSubmit)="onRegister(templateRegistro)" >
+            <input type="text" formControlName="nombre" placeholder="Ingrese su nombre" [(ngModel)]="nombreUser">
+            <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+              <div class="container-error-mesage" *ngIf="nombre.errors.required">
+                Este campo es obligatorio
+              </div>
+              <div class="container-error-mesage" *ngIf="nombre.errors.pattern">
+                Éste campo solo puede contener letras
+              </div>
+            </div>
+            <input type="text" formControlName="apellido" placeholder="Ingrese su apellido" [(ngModel)]="apellidoUser">
+            <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+              <div class="container-error-mesage" *ngIf="apellido.errors.required">
+                Este campo es obligatorio
+              </div>
+              <div class="container-error-mesage" *ngIf="apellido.errors.pattern">
+                Éste campo solo puede contener letras
+              </div>
+            </div>
+            <input type="text" formControlName="email" placeholder="Ingrese su email" [(ngModel)]="mailUser">
+            <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+              <div class="container-error-mesage" *ngIf="email.errors.required">
+                Este campo es obligatorio
+              </div>
+              <div class="container-error-mesage" *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.pattern">
+                Debe rellenar este campo con su dirección de correo
+              </div>
+            </div>
+            <input type="password" formControlName="password" placeholder="Ingrese su contraseña" [(ngModel)]="passUser">
+            <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+              <div class="container-error-mesage" *ngIf="password.errors.required">
+                Este campo es obligatorio
+              </div>
+              <div class="container-error-mesage" *ngIf="password.errors.minlength">
+                Éste campo debe contener minimo 2 caracteres
+              </div>
+            </div>
+            <button class="btn-send" type="submit" [disabled]="!userForm.valid"> Regrsitrarse </button>
+          </form>
         </div>
-        <div class="md-form mb-5" style="margin-top: 30px;">
-          <label data-error="wrong" data-success="right" for="Form-email-Registro">Email</label>
-            <input type="email" id="Form-email-Registro" class="form-control validate" placeholder="Email" [(ngModel)]="mailUser" required multiple/>
-        </div>
-        <div class="md-form pb-3">
-          <label data-error="wrong" data-success="right" for="Form-pass-Registro">Contraseña</label>
-            <input type="password" id="Form-pass-Registro" class="form-control validate" placeholder="Contraseña" [(ngModel)]="passUser" required pattern="[A-Za-z0-9]{8,30}"
-            title="Letras y números. Mínimo: 8. Máximo: 30" autofocus>
-           
-        </div>
-
-        <div class="text-center mb-3">
-            <a><button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a" (click)="onRegister()" >Registrarse</button></a>
-        </div>
-        <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> o registrarse
-            con:</p>
-
-        <div class="row my-3 d-flex justify-content-center">
             <!--Facebook-->
             <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-facebook-f text-center"></i></button>
             <!--Google +-->
             <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google-plus-g"></i></button>
-        </div>
+
         </div>
           <!--Footer-->
           <div class="modal-footer mx-5 pt-3 mb-1">
@@ -59,3 +71,11 @@
         <!--/.Content-->
     </div>
 </div>
+
+<!-- MODAL -->
+
+<ng-template #templateRegistro>
+  <div class="modal-body text-center">
+    <p>Se ha registrado correctamente</p>
+  </div>
+</ng-template>

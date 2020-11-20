@@ -1,10 +1,7 @@
-import { Component, OnInit, Output, TemplateRef} from '@angular/core';
-import { Alumno } from 'src/app/interface/alumno';
-import {UserAlumnoService} from 'src/app/Service/user-alumno.service';
+import { Component, OnInit, TemplateRef} from '@angular/core';
 import {Router} from '@angular/router';
-import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { TokenService } from 'src/app/Service/token.service';
 import { AuthService } from 'src/app/Service/auth.service';
 import { NuevoUsuario } from 'src/app/models/nuevo-usuario';
 
@@ -26,36 +23,66 @@ export class ModalSigninComponent implements OnInit {
   roles: string [] = [];
   errMsg: string;
   
-
+  modalRef: BsModalRef;
+  emailPattern: any =	/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+  namePattern: any=/^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$/;
   
   constructor(
-    private userAlumnoService:UserAlumnoService, 
     private route:Router, 
     private modalService: BsModalService,
-    private tokenService: TokenService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    ) { 
+      this.userForm = this.createFormGroup();
+    }
   
   
   ngOnInit(): void {
     
   }
-  onRegister(): void {
-    this.nuevoUsuario = new NuevoUsuario(this.nombreUser,this.apellidoUser, this.mailUser, this.passUser);
-    console.log(this.nuevoUsuario.nombre);
-    this.authService.nuevo(this.nuevoUsuario).subscribe(
-      data => {
-        console.log('Usuario creado correctamente')
-        window.location.reload();
-      },
-      err => {
-        this.isRegister = false;
-        this.isRegisterFail = true;
-        this.errMsg = err.error.mensaje;
-        console.log(this.errMsg);
-      }
-    )
+  onRegister(templateRegistro: TemplateRef<any>): void {
+    if(this.userForm.valid){
+      this.nuevoUsuario = new NuevoUsuario(this.nombreUser,this.apellidoUser, this.mailUser, this.passUser);
+      this.authService.nuevo(this.nuevoUsuario).subscribe(
+        data => {
+          console.log('Usuario creado correctamente');
+          this.modalRef = this.modalService.show(
+            templateRegistro,
+            Object.assign({}, { class: 'gray modal-sm' })
+            );
+            this.onResetForm();
+          },
+          err => {
+            this.isRegister = false;
+            this.isRegisterFail = true;
+            this.errMsg = err.error.mensaje;
+            console.log(this.errMsg);
+        }
+        )
+      }else{console.log('Not valid');
+    }
   }
-  
-  
+
+  createFormGroup(){
+    return new FormGroup({
+      nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
+      apellido: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
+      email: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern(this.emailPattern)]),
+      password : new FormControl('', [Validators.required, Validators.minLength(3)])
+    })
+  }
+  onResetForm(){
+    this.userForm.reset();
+  }
+  userForm : FormGroup;
+
+  mostrarDatos(){
+    console.log(this.userForm.value);
+  }
+
+  get nombre(){return this.userForm.get('nombre');}
+  get apellido(){return this.userForm.get('apellido');}
+  get email(){return this.userForm.get('email');}
+  get password(){return this.userForm.get('password');}
+
 
 }
