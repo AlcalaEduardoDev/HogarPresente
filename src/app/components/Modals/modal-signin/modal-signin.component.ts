@@ -67,7 +67,9 @@ export class ModalSigninComponent implements OnInit {
       nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
       apellido: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
       email: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern(this.emailPattern)]),
-      password : new FormControl('', [Validators.required, Validators.minLength(3)])
+      password : new FormControl('', [Validators.required, Validators.minLength(3)]),
+      confirmPassword : new FormControl('', [Validators.required])
+
     })
   }
   onResetForm(){
@@ -83,6 +85,8 @@ export class ModalSigninComponent implements OnInit {
   get apellido(){return this.userForm.get('apellido');}
   get email(){return this.userForm.get('email');}
   get password(){return this.userForm.get('password');}
+  get confirmPassword(){return this.userForm.get('confirmPassword');}
+
 
 
 }

@@ -53,6 +53,15 @@
                 Éste campo debe contener minimo 2 caracteres
               </div>
             </div>
+            <input type="password" formControlName="confirmPassword" appConfirmEqualValidator="password" placeholder="Introduzca nuevamente su contraseña">
+            <div class="alert alert-danger" *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+              <div class="container-error-mesage" *ngIf="confirmPassword.errors.required">
+                Este campo es obligatorio
+              </div>
+              <div class="container-error-mesage" *ngIf="confirmPassword.errors?.notEqual">
+                Las contraseñas no son iguales
+              </div>
+            </div>
             <button class="btn-send" type="submit" [disabled]="!userForm.valid"> Regrsitrarse </button>
           </form>
         </div>

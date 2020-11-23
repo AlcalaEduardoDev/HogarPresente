@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {ConfirmEqualValidatorDirective} from './shared/confirm-equal.directive';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +44,7 @@ import { interceptorProvider } from './interceptors/user-interceptor.service';
   declarations: [
     AppComponent,
     NavbarComponent,
+    ConfirmEqualValidatorDirective,
     ModalLoginComponent,
     ModalSigninComponent,
     CardIndexComponent,
