@@ -18,19 +18,7 @@ min-width: 100%;
 height: 55rem;
 }
 
-.textoLegible{
-  display: inline-block;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(0, 0, 0, 0.50);
-  color: white;
 
-}
-.opp .textoLegible{
-    background: rgba(255, 255, 255, 0.75);
-    color: black;
-  
-}
 .color-boton{
     background-color: #308446;   
     color: white;

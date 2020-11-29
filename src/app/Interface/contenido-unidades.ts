@@ -1,4 +1,6 @@
 export interface ContenidoUnidades {
+    id?:number;
+    nombre:string;
     descripcion : string;
-    doc? : string;
+    documento? : string;
 }

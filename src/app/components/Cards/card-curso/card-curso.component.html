@@ -1,7 +1,23 @@
-<div class="w3-col l3 m6 w3-margin-bottom" style="padding: 15px;">
-    <img src="{{curso.img}}" alt="John" style="width:100%">
-    <h3>{{curso.nom}}</h3>
-    <p class="w3-opacity">{{curso.titulo}}</p>
-    <p>{{curso.desc}}</p>
-    <a><p><button class="w3-button w3-light-grey w3-block" (click)="irCurso()">Ver curso</button></p></a>
+<div class="w3-col l3 m6 w3-margin-bottom align-items-stretch d-flex " style="margin:15px">
+  <a (click)="irCurso(curso.id)" >
+  <div class="course-item zoom">
+    <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
+    <div class="course-content">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>Content</h4>
+        <p class="price">$ {{curso.precio}}  </p>
+      </div>
+
+      <h3>{{curso.nombre}} </h3>
+      <p> {{curso.descripcion}} </p>
+      <div class="trainer d-flex justify-content-between align-items-center">
+        <div class="trainer-profile d-flex align-items-center">
+          <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
+          <span>{{curso.capacitador}}</span>
+        </div>
+      
+      </div>
+    </div>
   </div>
+</a>
+</div> <!-- End Course Item-->

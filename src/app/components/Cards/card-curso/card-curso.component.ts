@@ -10,7 +10,7 @@ import { ListaCursosService } from 'src/app/Service/lista-cursos.service';
 })
 export class CardCursoComponent implements OnInit {
 
-  constructor(private dataService:ListaCursosService, private route:Router) { }
+  constructor( private route:Router) { }
   @Input() curso:Curso;
  // @Output() cursoActivo = new EventEmitter<Curso>();
 
@@ -18,10 +18,8 @@ export class CardCursoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  irCurso(){
-    this.dataService.cursoActivo = this.curso;
-    console.log(this.dataService.cursoActivo);
-    this.route.navigate(['/ficha-curso']);
+  irCurso(id){
+    this.route.navigate(['/ficha-curso', id]);
   }
 
 }

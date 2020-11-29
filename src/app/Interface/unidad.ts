@@ -1,8 +1,9 @@
 import {ContenidoUnidades} from './contenido-unidades';
 
 export interface Unidad {
+    id:number;
     nombre: string;
-    desc: string;
-    contUnidad : Array<ContenidoUnidades>;
-    unidadOpen : boolean;
+    descripcion: string;
+    contenidos : Array<ContenidoUnidades>;
+    unidadOpen? : boolean;
 }

@@ -6,4 +6,6 @@ export class JwtDto {
     nombre:string;
     apellido:string;
     foto:string;
+    edad:string;
+    estudios:string;
 }

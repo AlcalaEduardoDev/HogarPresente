@@ -6,6 +6,8 @@ const AUTHORITIES_KEY = 'AuthAuthorities';
 const NOMBRE_KEY = 'AuthNombre';
 const APELLIDO_KEY = 'AuthApellido';
 const FOTO_KEY = 'AuthFoto';
+const ESTUDIO_KEY = 'AuthEstudio';
+const EDAD_KEY ='AuthEdad';
 
 
 @Injectable({
@@ -65,6 +67,22 @@ export class TokenService {
   }
   public getFoto():string{
     return sessionStorage.getItem(FOTO_KEY);
+  }
+
+  public setEstudio(estudio:string):void{
+    window.sessionStorage.removeItem(ESTUDIO_KEY);
+    window.sessionStorage.setItem(ESTUDIO_KEY,estudio);
+  }
+  public getEstudio():string{
+    return sessionStorage.getItem(ESTUDIO_KEY);
+  }
+
+  public setEdad(edad:string):void{
+    window.sessionStorage.removeItem(EDAD_KEY);
+    window.sessionStorage.setItem(EDAD_KEY,edad);
+  }
+  public getEdad():string{
+    return sessionStorage.getItem(EDAD_KEY);
   }
 
   public logout():void {

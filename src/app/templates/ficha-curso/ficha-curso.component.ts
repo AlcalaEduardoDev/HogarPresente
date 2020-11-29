@@ -1,10 +1,11 @@
-import { Component, Input, OnInit, TemplateRef  } from '@angular/core';
+import { Component, OnInit, TemplateRef  } from '@angular/core';
 import { Unidad } from 'src/app/Interface/unidad';
 import { ListaCursosService } from 'src/app/Service/lista-cursos.service';
 import {UserAlumnoService} from 'src/app/Service/user-alumno.service';
 import { Curso } from '../../interface/curso';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
 
 
 @Component({
@@ -16,23 +17,30 @@ export class FichaCursoComponent implements OnInit {
  
   
   constructor(
-    public dataService:ListaCursosService,
-    public userAlumnoService:UserAlumnoService, 
+    public userAlumnoService:UserAlumnoService,
     private route:Router,
-    private modalService: BsModalService
+    private activeRouter:ActivatedRoute,
+    private modalService: BsModalService,
+    private cursoService : ListaCursosService,
     ) { 
       
   }
   
   modalRef: BsModalRef;
-  curso : Curso = this.dataService.cursoActivo;
-  unidades : Array<Unidad> = this.curso.unidades;
-  visibilidad = true;
+  datosCurso : Curso;
+
+  ngOnInit(): void { 
+    let cursoId = this.activeRouter.snapshot.paramMap.get('id');
+    this.cursoService.findOne(cursoId).subscribe(
+      data=>this.datosCurso = data
+    )
+  }
+  irContenido(){
+    this.route.navigate(['/ficha-curso',this.datosCurso.id,'curso']);
+  }
 
 
-  ngOnInit(): void { }
-
-  verificarLogg( template: TemplateRef<any>){
+  /*verificarLogg( template: TemplateRef<any>){
     if (this.userAlumnoService.loggeado == true){
       this.route.navigate(["/curso"]);
     } else {
@@ -40,13 +48,11 @@ export class FichaCursoComponent implements OnInit {
         template,
         Object.assign({}, { class: 'gray modal-sm' })
       );  
-    }
-    
+    } 
   }
-
   hide(){
     this.modalRef.hide();
     
-  }
+  }*/
 
 }

@@ -2,11 +2,12 @@ import { Unidad } from './unidad';
 
 export interface Curso {
     id?: number;
-    img: string;
-    nom: string;
+    imagen: string;
+    nombre: string;
     titulo: string;
-    desc: string;
-    unidades: Array<Unidad>;
+    descripcion: string;
     precio:number;
     capacitador:string;
+    categoria : string;
+    unidades: Array<Unidad>;
 }

@@ -1,63 +1,63 @@
 
-<div class="container justify-content-center mt-5 mb-5">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="">
-        <div class="card-body">
-          <h5 class="card-title"><b>{{curso.nom}}</b></h5>
-          <p class="card-text"> {{curso.desc}} </p>
+
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs" data-aos="fade-in">
+    <div class="container">
+      <h2>Course Details</h2>
+      <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+    </div>
+  </div><!-- End Breadcrumbs -->
+
+  <!-- ======= Cource Details Section ======= -->
+  <section id="course-details" class="course-details">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row">
+        <div class="col-lg-8">
+          <img src="assets/img/course-details.jpg" class="img-fluid" alt="">
+          <h3>Et enim incidunt fuga tempora</h3>
+          <p>
+            Qui et explicabo voluptatem et ab qui vero et voluptas. Sint voluptates temporibus quam autem. Atque nostrum voluptatum laudantium a doloremque enim et ut dicta. Nostrum ducimus est iure minima totam doloribus nisi ullam deserunt. Corporis aut officiis sit nihil est. Labore aut sapiente aperiam.
+            Qui voluptas qui vero ipsum ea voluptatem. Omnis et est. Voluptatem officia voluptatem adipisci et iusto provident doloremque consequatur. Quia et porro est. Et qui corrupti laudantium ipsa.
+            Eum quasi saepe aperiam qui delectus quaerat in. Vitae mollitia ipsa quam. Ipsa aut qui numquam eum iste est dolorum. Rem voluptas ut sit ut.
+          </p>
+        </div>
+        <div class="col-lg-4">
+
+          <div class="course-info d-flex justify-content-between align-items-center">
+            <h5>Capacitador</h5>
+            <p><a href="#">{{datosCurso.capacitador}}</a></p>
+          </div>
+
+          <div class="course-info d-flex justify-content-between align-items-center">
+            <h5>Precio</h5>
+            <p>${{datosCurso.precio}}</p>
+          </div>
+
+          <div class="course-info d-flex justify-content-between align-items-center">
+            <h5>Available Seats</h5>
+            <p>30</p>
+          </div>
+
+          <div class="course-info d-flex justify-content-between align-items-center">
+            <h5>Schedule</h5>
+            <p>5.00 pm - 7.00 pm</p>
+          </div>
+
+          <div class=" d-flex justify-content-between align-items-center">
+          <a (click)="irContenido()" class="get-started-btn">Empezar</a>
+        </div>
         </div>
       </div>
+
     </div>
-    <div class="col-md-4">
-      <div class="">
-        <div class="card-body">
-          <a (click)="verificarLogg(template)" class="btn color-boton" aria-describedby="validationFeedback">Continuar</a>
-        </div>
-        <div class="container">
-          <a href="$$init_point$$" target="_blank">Pagar</a>
-          <script
-          src="https://www.mercadopago.com.pe/integrations/v1/web-payment-checkout.js"
-          data-preference-id='<%= global.id %>'>
-          </script> 
-        </div>
-      </div>
+  </section><!-- End Cource Details Section -->
+
+  <!-- ======= Cource Details Tabs Section ======= -->
+  <section id="cource-details-tabs" class="cource-details-tabs">
+    <div class="container" data-aos="fade-up">
+
+      <app-nav [unidades]="datosCurso.unidades" ></app-nav>
+
     </div>
-  </div>
-</div>
-
-
-<div class="container" style="text-align: center">
-  <div class="row justify-content-center">
-    <div class="col-md-4">
-      <h3>¿Por que?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus impedit itaque est libero eum inventore facere deleniti veritatis? Atque eius suscipit vitae obcaecati mollitia iste in sunt veniam esse rem!</p>
-    </div>
-    <div class="col-md-4">
-      <h3>¿Cuanto?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus impedit itaque est libero eum inventore facere deleniti veritatis? Atque eius suscipit vitae obcaecati mollitia iste in sunt veniam esse rem! <b> {{curso.precio}} </b> </p>
-    </div>
-    <div class="col-md-4">
-      <h3>¿Para que?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus impedit itaque est libero eum inventore facere deleniti veritatis? Atque eius suscipit vitae obcaecati mollitia iste in sunt veniam esse rem!</p>
-    </div>
-  </div>
-</div>
-
-<accordion class="mb-5 mt-5" [isAnimated]="true">
-  <app-collapse *ngFor="let unidad of unidades" [unidad]="unidad" ></app-collapse>
-</accordion>
-
-
-
-
-<!-- MODAL -->
-
-<ng-template #template>
-  <div class="modal-body text-center">
-    <p>Debe iniciar sesión para continuar</p>
-      <button type="button " class="btn color-boton m-1" data-toggle="modal" data-target="#loginModal" (click)="hide()">Iniciar Sesion</button>
-      <button type="button" class="btn btn-danger m-1" (click)="hide()" >Cerrar</button>
-
-  </div>
-</ng-template>
+  </section><!-- End Cource Details Tabs Section -->
