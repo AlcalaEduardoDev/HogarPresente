@@ -25,14 +25,24 @@
         </li>
       </ul>
       <div class="separar6"></div>
-      <div class="ml-lg-auto">
+      <div class="ml-lg-auto" *ngIf="!isLogged">
         <a href="login" class="get-started-btn">Iniciar Sesion</a>
         <a href="sign-up" class="get-started-btn">Crear Cuenta</a>
       </div>
+      <ul class="navbar-nav ml-auto" *ngIf="isLogged">
+        <li class="nav-item disabled">
+          <a class="nav-link">          
+            {{nombreUser}} {{apellidoUser}}
+          </a>
+        </li>
+        <a [routerLink]="['/editar-perfil']">
+          <img src="{{fotoUser}}" class="rounded-circle mr-3" style="width:'40px'">
+        </a>
+        <li class="nav-item" (click)="onLogOut()">
+          <a class="nav-link" style="cursor: pointer;" ><i class="fas fa-sign-out-alt"></i>Cerrar sesion</a>          
+        </li>
+      </ul>
     </div>
-    <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
-      <span class="fa fa-search" aria-hidden="true"></span>
-    </button>
   </div>
 </nav><!-- End Header/Navbar -->
   

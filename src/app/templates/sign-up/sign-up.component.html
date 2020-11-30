@@ -3,19 +3,43 @@
         <div class="image-holder">
             <img src="assets/img/about.jpg" alt="">
         </div>
-        <form action="">
+        <form [formGroup]="userForm" (ngSubmit)="onRegister(templateRegistro)">
             <h3>Registro</h3>
             <div class="form-group">
-                <input type="text" placeholder="Nombre" class="form-control" required="" id="username">
-                <input type="text" placeholder="Apellido" class="form-control">
+                <input type="text" placeholder="Nombre" formControlName="nombre" class="form-control" required="" id="username" [(ngModel)]="nombreUser">
+                <input type="text" placeholder="Apellido" formControlName="apellido" class="form-control" [(ngModel)]="apellidoUser">
+            </div>
+            <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div class="container-error-mesage" *ngIf="nombre.errors.required">
+                    El campo nombre es obligatorio
+                </div>
+                <div class="container-error-mesage" *ngIf="nombre.errors.pattern">
+                    El campo nombre solo puede contener letras
+                </div>
+            </div>
+            <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                <div class="container-error-mesage" *ngIf="apellido.errors.required">
+                    El campo apellido es obligatorio
+                </div>
+                <div class="container-error-mesage" *ngIf="apellido.errors.pattern">
+                    El campo apellido solo puede contener letras
+                </div>
             </div>
             <div class="form-wrapper">
                 <input type="text" placeholder="Nombre de Usuario" class="form-control">
                 <i class="zmdi zmdi-account"></i>
             </div>
             <div class="form-wrapper">
-                <input type="text" placeholder="Email" class="form-control">
+                <input type="text" placeholder="Email" formControlName="email" class="form-control" [(ngModel)]="mailUser">
                 <i class="zmdi zmdi-email"></i>
+                <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <div class="container-error-mesage" *ngIf="email.errors.required">
+                      Este campo es obligatorio
+                    </div>
+                    <div class="container-error-mesage" *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.pattern">
+                      Debe rellenar este campo con su dirección de correo
+                    </div>
+                </div>
             </div>
             <div class="form-wrapper">
                 <select name="" id="" class="form-control">
@@ -27,15 +51,39 @@
                 <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
             </div>
             <div class="form-wrapper">
-                <input type="password" placeholder="Contraseña" class="form-control">
+                <input type="password" placeholder="Contraseña" formControlName="password" class="form-control" [(ngModel)]="passUser">
                 <i class="zmdi zmdi-lock"></i>
+                <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <div class="container-error-mesage" *ngIf="password.errors.required">
+                      Este campo es obligatorio
+                    </div>
+                    <div class="container-error-mesage" *ngIf="password.errors.minlength">
+                      Éste campo debe contener minimo 2 caracteres
+                    </div>
+                </div>
             </div>
             <div class="form-wrapper">
-                <input type="password" placeholder="Confirmar Contraseña" class="form-control">
+                <input type="password" placeholder="Confirmar Contraseña" formControlName="confirmPassword"  appConfirmEqualValidator="password"  class="form-control">
                 <i class="zmdi zmdi-lock"></i>
+                <div class="alert alert-danger" *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+                    <div class="container-error-mesage" *ngIf="confirmPassword.errors.required">
+                      Este campo es obligatorio
+                    </div>
+                    <div class="container-error-mesage" *ngIf="confirmPassword.errors?.notEqual">
+                      Las contraseñas no son iguales
+                    </div>
+                  </div>
             </div>
             <div class="separar8"></div>
-  <a href="cursos.html" class="get-started-btn">Crear Cuenta</a>
+            <a href="" type="submit" class="get-started-btn">Crear Cuenta</a>
         </form>
     </div>
 </div>
+
+<!-- MODAL -->
+
+<ng-template #templateRegistro>
+    <div class="modal-body text-center">
+      <p>Se ha registrado correctamente</p>
+    </div>
+  </ng-template>
