@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.setEstudio(data.estudios);
         this.tokenService.setEdad(data.edad);
         this.roles = data.authorities;
-        //this.route.navigate(['/home']);
+        window.location.href='home';
       },
       err => {
         this.isLogged = false;

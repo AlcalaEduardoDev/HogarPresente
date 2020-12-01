@@ -27,7 +27,6 @@ export class CursoComponent implements OnInit {
       data => this.datosCurso = data
       );
       this.unidades = this.datosCurso.unidades;
-      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfSrc);
     }
     
       i: number = 0;
@@ -42,7 +41,7 @@ export class CursoComponent implements OnInit {
   public cambiarVistaDocumento(url: string) {
     if (url.indexOf("www.youtube.com") == -1) {
       this.video = false;
-      this.pdfSrc = url;
+      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     } else {
       this.videoId = url.split('v=')[1].split('&')[0];
       this.video = true;

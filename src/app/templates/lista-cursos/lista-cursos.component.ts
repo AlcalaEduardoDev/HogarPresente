@@ -13,7 +13,6 @@ export class ListaCursosComponent implements OnInit {
   p='';
   filter="";
   public cursos:Array<Curso>=[];
-  public cursoActivo : Curso;
 
 
   ngOnInit(): void {
