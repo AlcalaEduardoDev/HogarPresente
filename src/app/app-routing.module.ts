@@ -8,6 +8,7 @@ import { Error404Component } from './templates/error404/error404.component';
 import { CursoComponent } from './templates/curso/curso.component';
 import { LoginComponent } from './templates/login/login.component';
 import { SignUpComponent } from './templates/sign-up/sign-up.component';
+import {CreadorCursoComponent} from './templates/creador-curso/creador-curso.component'
 
 
 
@@ -21,7 +22,9 @@ const routes: Routes = [
   { path: 'editar-perfil', component: EditarPerfilComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
+  {path:'creador-curso', component: CreadorCursoComponent },
   { path: '**', component: Error404Component },
+
 
 
 ];

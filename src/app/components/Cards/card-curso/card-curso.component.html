@@ -1,10 +1,10 @@
 
   <a (click)="irCurso(curso.id)" >
   <div class="course-item zoom">
-    <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
+    <img src="{{curso.imagen}}" class="img-fluid" alt="...">
     <div class="course-content">
       <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4>Content</h4>
+        <h4> {{curso.categoria}} </h4>
         <p class="price">$ {{curso.precio}}  </p>
       </div>
 

@@ -31,6 +31,7 @@ import { interceptorProvider } from './interceptors/user-interceptor.service';
 import { LoginComponent } from './templates/login/login.component';
 import { SignUpComponent } from './templates/sign-up/sign-up.component';
 import { NavComponent } from './components/nav/nav.component';
+import { CreadorCursoComponent } from './templates/creador-curso/creador-curso.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { NavComponent } from './components/nav/nav.component';
     CursoComponent,
     LoginComponent,
     SignUpComponent,
-    NavComponent
+    NavComponent,
+    CreadorCursoComponent
   ],
   imports: [
     BrowserModule, 

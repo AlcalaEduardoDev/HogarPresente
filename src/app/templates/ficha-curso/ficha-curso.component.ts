@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef  } from '@angular/core';
 import { Unidad } from 'src/app/Interface/unidad';
 import { ListaCursosService } from 'src/app/Service/lista-cursos.service';
-import {UserAlumnoService} from 'src/app/Service/user-alumno.service';
+import {UserService} from 'src/app/Service/user.service';
 import { Curso } from '../../interface/curso';
 import {Router, ActivatedRoute} from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -17,7 +17,7 @@ export class FichaCursoComponent implements OnInit {
  
   
   constructor(
-    public userAlumnoService:UserAlumnoService,
+    public userAlumnoService:UserService,
     private route:Router,
     private activeRouter:ActivatedRoute,
     private modalService: BsModalService,

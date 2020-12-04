@@ -8,12 +8,12 @@ import { Unidad } from '../../Interface/unidad';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
   @Input() unidades:Array<Unidad>;
-  active = 'top';
+  constructor() {
+   }
   i : number =0;
   ngOnInit(): void {
     console.log(this.unidades);
   }
-
+  active:number;
 }

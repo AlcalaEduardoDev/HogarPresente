@@ -1,9 +1,5 @@
-import { Component, OnInit, Output, TemplateRef} from '@angular/core';
-import { Alumno } from 'src/app/interface/alumno';
-import {UserAlumnoService} from 'src/app/Service/user-alumno.service';
-import {Router} from '@angular/router';
+import { Component, OnInit, } from '@angular/core';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { TokenService } from 'src/app/Service/token.service';
 
 
