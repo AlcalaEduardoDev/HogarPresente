@@ -1,13 +1,13 @@
 import { Unidad } from './unidad';
 
-export interface Curso {
-    id?: number;
+export class Curso {
+    id?: string;
     imagen: string;
     nombre: string;
     descripcion: string;
     precio:number;
     capacitador:string;
     categoria : string;
-    unidades: Array<Unidad>;
     habilitado : boolean;
+    unidades: Array<Unidad>;
 }

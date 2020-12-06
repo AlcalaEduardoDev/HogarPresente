@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.isLogged = true;
         this.loginFail = false;
-
+        this.tokenService.setId(data.id);
         this.tokenService.setToken(data.token);
         this.tokenService.setEmail(data.correo);
         this.tokenService.setAuthorities(data.authorities);

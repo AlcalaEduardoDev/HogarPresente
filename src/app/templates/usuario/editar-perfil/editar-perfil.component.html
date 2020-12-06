@@ -6,27 +6,48 @@
     <form action="">
       <h3>Editar Perfil</h3>
       <div class="form-group">
-        <input type="text" placeholder="Nombre" class="form-control" >
-        <input type="text" placeholder="Apellido" class="form-control">
-      </div>
+        <input type="text" placeholder="Nombre" class="form-control" formControlName="nombre" [(ngModel)]="nombreInput">
+        <input type="text" placeholder="Apellido" class="form-control" formControlName="apellido" [(ngModel)]="apellidoInput">
+      </div>      
       <div class="form-wrapper">
-        <input type="text" placeholder="Correo electronico actual" class="form-control">
-        <i class="zmdi zmdi-email"></i>
-      </div>
-      <div class="form-wrapper">
-        <input type="text" placeholder="Correo electronico nuevo" class="form-control">
-        <i class="zmdi zmdi-email"></i>
-      </div>
-      <div class="form-wrapper">
-        <input type="password" placeholder="Contraseña Actual" class="form-control">
+        <input type="password" placeholder="Contraseña Actual" class="form-control" formControlName="oldPassword">
         <i class="zmdi zmdi-lock"></i>
+        <div class="alert alert-danger" *ngIf="oldPassword.invalid && (oldPassword.dirty || oldPassword.touched)">
+          <div class="container-error-mesage" *ngIf="oldPassword.errors.required">
+            Este campo es obligatorio si desea cambiar su contraseña
+          </div>
+          <div class="container-error-mesage" *ngIf="(oldPassword.dirty || oldPassword.touched) && oldPassword.invalid && oldPassword.errors.pattern">
+            Debe rellenar este campo con su contraseña si desea cambiarla
+          </div>
+      </div>
       </div>
       <div class="form-wrapper">
-        <input type="password" placeholder="Nueva Contraseña" class="form-control">
+        <input type="password" placeholder="Nueva Contraseña" class="form-control" formControlName="newPassword">
         <i class="zmdi zmdi-lock"></i>
+        <div class="alert alert-danger" *ngIf="newPassword.invalid && (newPassword.dirty || newPassword.touched)">
+          <div class="container-error-mesage" *ngIf="newPassword.errors.required">
+            Este campo es obligatorio si desea cambiar su contraseña
+          </div>
+          <div class="container-error-mesage" *ngIf="(newPassword.dirty || newPassword.touched) && newPassword.invalid && newPassword.errors.pattern">
+            Debe rellenar este campo con su contraseña si desea cambiarla
+          </div>
+      </div>
+      </div>
+      <div class="form-wrapper">
+        <input type="password" placeholder="Confirmar Nueva Contraseña" class="form-control" formControlName="confirmNewPassword">
+        <i class="zmdi zmdi-lock"></i>
+        <div class="alert alert-danger" *ngIf="confirmNewPassword.invalid && (confirmNewPassword.dirty || confirmNewPassword.touched)">
+          <div class="container-error-mesage" *ngIf="confirmNewPassword.errors.required">
+            Este campo es obligatorio si desea cambiar su contraseña
+          </div>
+          <div class="container-error-mesage" *ngIf="(confirmNewPassword.dirty || confirmNewPassword.touched) && confirmNewPassword.invalid && confirmNewPassword.errors.pattern">
+            Debe rellenar este campo con su contraseña si desea cambiarla
+          </div>
+      </div>
       </div>
       <div class="separar8"></div>
       <a href="cursos.html" class="get-started-btn">Guardar</a>
+      <a (click)="volver()" style="color: white;" class="get-started-btn">Volver</a>
     </form>
   </div>
 </div>

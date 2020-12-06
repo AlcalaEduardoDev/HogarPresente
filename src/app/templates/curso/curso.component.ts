@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Curso } from '../../interface/curso'
 import { Unidad } from 'src/app/interface/unidad';
-import { ListaCursosService } from 'src/app/Service/lista-cursos.service';
+import { CursoService } from 'src/app/Service/curso.service';
 import { ContenidoUnidades } from 'src/app/interface/contenido-unidades';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -15,8 +15,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class CursoComponent implements OnInit {
 
   constructor(
-    public dataService: ListaCursosService,
-    private cursoService: ListaCursosService,
+    private cursoService: CursoService,
     private activeRouter: ActivatedRoute,
     public sanitizer: DomSanitizer
   ) { }

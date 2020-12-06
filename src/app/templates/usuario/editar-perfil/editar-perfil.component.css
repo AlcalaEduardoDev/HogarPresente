@@ -81,3 +81,13 @@ margin-top: 50px !important;
 }
 
 
+.alert-danger{
+  color: #721c24;
+  background: #f8d7da;
+  border-color: #f5c6cb;
+  margin-bottom: 2px;
+  font-size: 5px;
+}
+.container-error-mesage{
+  padding: 1px;
+}

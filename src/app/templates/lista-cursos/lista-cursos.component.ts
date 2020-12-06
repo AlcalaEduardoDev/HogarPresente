@@ -1,6 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Curso } from 'src/app/Interface/curso';
-import { ListaCursosService } from 'src/app/Service/lista-cursos.service';
+import { CursoService } from 'src/app/Service/curso.service';
 import { TokenService } from 'src/app/Service/token.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { TokenService } from 'src/app/Service/token.service';
 export class ListaCursosComponent implements OnInit {
 
   constructor(
-    private listaCursosService:ListaCursosService,
+    private listaCursosService:CursoService,
     private dataToken: TokenService
     ) { }
   p='';
@@ -24,6 +25,7 @@ export class ListaCursosComponent implements OnInit {
     .findAll()
     .subscribe((response: Array<Curso>) =>{
       this.cursos=response;
+      console.log(this.cursos);
     }
     );
     if(this.dataToken.getToken()){

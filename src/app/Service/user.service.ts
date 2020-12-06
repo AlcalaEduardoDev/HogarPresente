@@ -19,10 +19,7 @@ export class UserService {
   isAdmin : boolean;
 
 
-  constructor(private http: HttpClient) { 
-    
-   }
-   
+  constructor(private http: HttpClient) {} 
   public update(alumno:Alumno): Observable<any>{
     return this.http.put<any>(this.apiBaseUrl + '/api/alumnos', alumno);
   }

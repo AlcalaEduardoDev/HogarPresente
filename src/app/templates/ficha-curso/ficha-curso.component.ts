@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef  } from '@angular/core';
 import { Unidad } from 'src/app/Interface/unidad';
-import { ListaCursosService } from 'src/app/Service/lista-cursos.service';
+import { CursoService } from 'src/app/Service/curso.service';
 import {UserService} from 'src/app/Service/user.service';
 import { Curso } from '../../interface/curso';
 import {Router, ActivatedRoute} from '@angular/router';
@@ -21,7 +21,7 @@ export class FichaCursoComponent implements OnInit {
     private route:Router,
     private activeRouter:ActivatedRoute,
     private modalService: BsModalService,
-    private cursoService : ListaCursosService,
+    private cursoService : CursoService,
     ) { 
       
   }
@@ -32,7 +32,7 @@ export class FichaCursoComponent implements OnInit {
   ngOnInit(): void { 
     let cursoId = this.activeRouter.snapshot.paramMap.get('id');
     this.cursoService.findOne(cursoId).subscribe(
-      data=>this.datosCurso = data
+      data=>this.datosCurso = data     
     )
   }
   irContenido(){

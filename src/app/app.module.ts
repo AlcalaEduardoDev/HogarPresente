@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/Navbars/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './templates/Home/home/home.component';
-import { ListaCursosComponent } from './templates/lista-cursos/lista-cursos.component';
 import { FooterComponent } from './components/Footers/footer/footer.component';
 import { PaginationComponent } from './components/Paginations/pagination/pagination.component';
 import { CardCursoComponent } from './components/Cards/card-curso/card-curso.component';
@@ -39,7 +38,6 @@ import { CreadorCursoComponent } from './templates/creador-curso/creador-curso.c
     NavbarComponent,
     ConfirmEqualValidatorDirective,
     HomeComponent,
-    ListaCursosComponent,
     FooterComponent,
     PaginationComponent,
     CardCursoComponent,
