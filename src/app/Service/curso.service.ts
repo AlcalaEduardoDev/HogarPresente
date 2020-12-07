@@ -8,10 +8,10 @@ import { NuevoCurso } from '../models/nuevo-curso';
 })
 export class CursoService {
 
-  apiBaseUrl:'https://hogar-presente.herokuapp.com';
+  apiBaseUrl : string = 'https://hogar-presente.herokuapp.com';
   constructor(private httpClient: HttpClient) { }
   public findAll():Observable<any>{
-    return this.httpClient.get(this.apiBaseUrl + '/api/cursos');
+    return this.httpClient.get(this.apiBaseUrl+'/api/cursos');
   }
 
   public findOne(id): Observable<any>{

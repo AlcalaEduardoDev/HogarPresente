@@ -13,7 +13,7 @@ export class FilterCursosPipe implements PipeTransform {
     const resultCursos = [];
 
     for(const curso of value){
-      if(curso.nom.toLowerCase().indexOf(arg.toLowerCase()) > -1){
+      if(curso.nombre.toLowerCase().indexOf(arg.toLowerCase()) > -1){
         resultCursos.push(curso);
       }
     }

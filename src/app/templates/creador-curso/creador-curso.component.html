@@ -1,39 +1,72 @@
 
 
 <div class="separar13"></div>
-<form class="border border-light p-5">
+<form [formGroup]="tallerForm" class="border border-light p-5">
 
-<div class="breadcrumbs3">
-    <div class="container">
-        <h2>Subiendo taller a la plataforma. Aguerde por favor.....</h2>
+    <div class="breadcrumbs3">
+        <div class="container">
+            <h2>Subiendo taller a la plataforma. Aguerde por favor.....</h2>
+        </div>
+    </div><!-- End Breadcrumbs -->
+
+
+
+
+    <label for="textInput">Nombre del Taller</label>
+    <input type="text" formControlName="nombre" class="form-control mb-4" [(ngModel)]="nombreTaller">
+    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+        <div class="container-error-mesage" *ngIf="nombre.errors.required">
+            El campo nombre es obligatorio
+        </div>
+        <div class="container-error-mesage" *ngIf="nombre.errors.pattern">
+            El campo nombre solo puede contener letras
+        </div>
     </div>
-</div><!-- End Breadcrumbs -->
-
-
-
-<div class="input-group mb-4">
-    <div class="input-group-prepend">
-        <span class="input-group-text">Cargar</span>
+    
+    <label for="textInput">Titulo del taller</label>
+    <input type="text" formControlName="titulo" class="form-control mb-4" [(ngModel)]="tituloTaller">
+    <div class="alert alert-danger" *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)">
+        <div class="container-error-mesage" *ngIf="titulo.errors.required">
+            Este campo es obligatorio
+        </div>
     </div>
-    <div class="custom-file">
-        <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput">
-        <label class="custom-file-label" for="fileInput">Archivo</label>
+    
+    <label for="textarea">Breve descripcion</label>
+    <textarea formControlName="descripcion" class="form-control mb-4" [(ngModel)]="descripcionTaller"></textarea>
+    <div class="alert alert-danger" *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+        <div class="container-error-mesage" *ngIf="descripcion.errors.required">
+            Este campo es obligatorio
+        </div>
     </div>
-</div>
 
-<label for="textInput">Etiqueta del curso</label>
-<input type="text" id="textInput" class="form-control mb-4">
+    <label for="textInput">Precio</label>
+    <input type="number" formControlName="precio" class="form-control validate" min="0" max="100000" required [(ngModel)]="precioTaller">
+    <div class="alert alert-danger" *ngIf="precio.invalid && (precio.dirty || precio.touched)">
+        <div class="container-error-mesage" *ngIf="precio.errors.required">
+            Este campo es obligatorio
+        </div>
+    </div>
 
-<label for="textInput">Precio</label>
-<input type="number" for="inputEmail" class="form-control validate" min="0" max="100000" required>
+    <label for="textInput">Categoria del curso</label>
+    <input type="text" formControlName="categoria" class="form-control mb-4" [(ngModel)]="categoriaTaller">
+    <div class="alert alert-danger" *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">
+        <div class="container-error-mesage" *ngIf="categoria.errors.required">
+            El campo nombre es obligatorio
+        </div>
+        <div class="container-error-mesage" *ngIf="categoria.errors.pattern">
+            El campo nombre solo puede contener letras
+        </div>
+    </div>
 
-<label for="textInput">Titulo del taller></label>
-<input type="text" id="textInput" class="form-control mb-4">
+    <label for="textInput">Enlace de la imágen</label>
+    <input type="text" formControlName="imagen" class="form-control mb-4" [(ngModel)]="imagenTaller">
+    <div class="alert alert-danger" *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
+        <div class="container-error-mesage" *ngIf="imagen.errors.required">
+            Este campo es obligatorio
+        </div>
+    </div>
 
-<label for="textarea">Breve descripcion</label>
-<textarea id="textarea" class="form-control mb-4"></textarea>
-
-<button class="btn btn-info btn-block" type="submit">Guardar</button>
+    <button class="btn btn-info btn-block" (click)="onCreate()" type="submit">Guardar</button>
 </form>
 
 

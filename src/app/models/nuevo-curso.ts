@@ -1,12 +1,14 @@
 export class NuevoCurso {      
     nombre : string;
+    subtitulo: string;
     descripcion : string;
     categoria : string;
     precio : number;
     imagen : string;
     idAdministrador: number;
-    constructor(titulo: string, descripcion: string, categoria: string, precio: number, imagen: string, idAdmin: number){
-        this.nombre = titulo;
+    constructor(nombre:string,subtitulo: string, descripcion: string, categoria: string, precio: number, imagen: string, idAdmin: number){
+        this.nombre = nombre;
+        this.subtitulo=subtitulo;
         this.descripcion = descripcion;
         this.categoria = categoria;
         this.precio = precio;

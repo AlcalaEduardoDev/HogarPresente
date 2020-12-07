@@ -31,6 +31,7 @@ import { LoginComponent } from './templates/login/login.component';
 import { SignUpComponent } from './templates/sign-up/sign-up.component';
 import { NavComponent } from './components/nav/nav.component';
 import { CreadorCursoComponent } from './templates/creador-curso/creador-curso.component';
+import { ListaCursosComponent } from './templates/lista-cursos/lista-cursos.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CreadorCursoComponent } from './templates/creador-curso/creador-curso.c
     LoginComponent,
     SignUpComponent,
     NavComponent,
-    CreadorCursoComponent
+    CreadorCursoComponent,
+    ListaCursosComponent
   ],
   imports: [
     BrowserModule, 
