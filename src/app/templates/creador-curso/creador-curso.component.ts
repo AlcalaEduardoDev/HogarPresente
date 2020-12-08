@@ -19,21 +19,24 @@ export class CreadorCursoComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    this.idAdministrador = this.tokenService.getId();
+    if (this.tokenService.getToken()){
+      this.idAdministrador = + this.tokenService.getId();
+      console.log(this.idAdministrador);
+    }else window.location.href='lista-cursos';
   }
   tallerForm : FormGroup;
   nombreTaller = '';
   imagenTaller='';
-  tituloTaller ='';
+  subtituloTaller ='';
   precioTaller: number;
   descripcionTaller='';
   categoriaTaller ='';
-  idAdministrador;
+  idAdministrador: number;
   namePattern: any=/^([A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^([A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,}\040[A-Z]{1}[a-z]{1,})$|^$/;
 
   createFormGroup(){
     return new FormGroup({
-      nombre: new FormControl('', [Validators.required,Validators.pattern(this.namePattern) ]),
+      nombre: new FormControl('', [Validators.required]),
       imagen: new FormControl('', [Validators.required]),
       titulo: new FormControl('', [Validators.required]),
       precio: new FormControl('', [Validators.required]),
@@ -45,7 +48,7 @@ export class CreadorCursoComponent implements OnInit {
     this.tallerForm.reset();
   }
   onCreate(){
-    const nuevoCurso = new NuevoCurso(this.nombreTaller,this.tituloTaller, this.descripcionTaller, this.categoriaTaller,this.precioTaller, this.imagenTaller, this.idAdministrador);
+    const nuevoCurso = new NuevoCurso(this.nombreTaller,this.subtituloTaller, this.descripcionTaller, this.categoriaTaller,this.precioTaller, this.imagenTaller, this.idAdministrador);
     if(this.tallerForm.valid){
       this.cursoService.nuevo(nuevoCurso).subscribe(
         data => {

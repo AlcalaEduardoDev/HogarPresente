@@ -1,5 +1,5 @@
 export class JwtDto {
-    id: string;
+    id: number;
     token: string;
     type: string;
     correo: string;

@@ -1,18 +1,19 @@
 export class NuevoCurso {      
-    nombre : string;
+    titulo : string;
     subtitulo: string;
     descripcion : string;
     categoria : string;
     precio : number;
     imagen : string;
-    idAdministrador: number;
-    constructor(nombre:string,subtitulo: string, descripcion: string, categoria: string, precio: number, imagen: string, idAdmin: number){
-        this.nombre = nombre;
+    usuarioId: number;
+    habilitado: boolean = false;
+    constructor(titulo:string,subtitulo: string, descripcion: string, categoria: string, precio: number, imagen: string, usuarioId: number){
+        this.titulo = titulo;
         this.subtitulo=subtitulo;
         this.descripcion = descripcion;
         this.categoria = categoria;
         this.precio = precio;
         this.imagen = imagen;
-        this.idAdministrador = idAdmin;
+        this.usuarioId = usuarioId;
     }
 }

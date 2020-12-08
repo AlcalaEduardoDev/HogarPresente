@@ -18,13 +18,10 @@
         <div class="container-error-mesage" *ngIf="nombre.errors.required">
             El campo nombre es obligatorio
         </div>
-        <div class="container-error-mesage" *ngIf="nombre.errors.pattern">
-            El campo nombre solo puede contener letras
-        </div>
     </div>
     
     <label for="textInput">Titulo del taller</label>
-    <input type="text" formControlName="titulo" class="form-control mb-4" [(ngModel)]="tituloTaller">
+    <input type="text" formControlName="titulo" class="form-control mb-4" [(ngModel)]="subtituloTaller">
     <div class="alert alert-danger" *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)">
         <div class="container-error-mesage" *ngIf="titulo.errors.required">
             Este campo es obligatorio

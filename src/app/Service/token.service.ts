@@ -19,9 +19,10 @@ export class TokenService {
   roles :Array<string> =[];
 
   constructor() { }
-  public setId(id:string):void{
+  public setId(id:number):void{
+    const idUsuario:string = id+''; 
     window.sessionStorage.removeItem(ID_KEY);
-    window.sessionStorage.setItem(ID_KEY,id);
+    window.sessionStorage.setItem(ID_KEY,idUsuario);
   }
   public getId():string{
     return sessionStorage.getItem(ID_KEY);

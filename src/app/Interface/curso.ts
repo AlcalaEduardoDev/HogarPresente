@@ -3,7 +3,8 @@ import { Unidad } from './unidad';
 export class Curso {
     id?: string;
     imagen: string;
-    nombre: string;
+    titulo: string;
+    subtitulo: string;
     descripcion: string;
     precio:number;
     capacitador:string;
