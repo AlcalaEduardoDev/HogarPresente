@@ -55,13 +55,13 @@
         </div>
     </div>
 
-    <label for="textInput">Enlace de la imágen</label>
+   <!-- <label for="textInput">Enlace de la imágen</label>
     <input type="text" formControlName="imagen" class="form-control mb-4" [(ngModel)]="imagenTaller">
     <div class="alert alert-danger" *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
         <div class="container-error-mesage" *ngIf="imagen.errors.required">
             Este campo es obligatorio
         </div>
-    </div>
+    </div>-->
 
     <button class="btn btn-info btn-block" (click)="onCreate()" type="submit">Guardar</button>
 </form>

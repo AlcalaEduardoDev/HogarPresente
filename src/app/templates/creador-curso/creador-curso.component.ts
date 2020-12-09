@@ -26,7 +26,7 @@ export class CreadorCursoComponent implements OnInit {
   }
   tallerForm : FormGroup;
   nombreTaller = '';
-  imagenTaller='';
+ // imagenTaller='';
   subtituloTaller ='';
   precioTaller: number;
   descripcionTaller='';
@@ -37,7 +37,7 @@ export class CreadorCursoComponent implements OnInit {
   createFormGroup(){
     return new FormGroup({
       nombre: new FormControl('', [Validators.required]),
-      imagen: new FormControl('', [Validators.required]),
+    //  imagen: new FormControl('', [Validators.required]),
       titulo: new FormControl('', [Validators.required]),
       precio: new FormControl('', [Validators.required]),
       descripcion: new FormControl('', [Validators.required]),
@@ -48,18 +48,19 @@ export class CreadorCursoComponent implements OnInit {
     this.tallerForm.reset();
   }
   onCreate(){
-    const nuevoCurso = new NuevoCurso(this.nombreTaller,this.subtituloTaller, this.descripcionTaller, this.categoriaTaller,this.precioTaller, this.imagenTaller, this.idAdministrador);
+    const nuevoCurso = new NuevoCurso(this.nombreTaller,this.subtituloTaller, this.descripcionTaller, this.categoriaTaller,this.precioTaller,  this.idAdministrador);
     if(this.tallerForm.valid){
       this.cursoService.nuevo(nuevoCurso).subscribe(
         data => {
-          console.log("Curso creado correctamente")
+          console.log("Curso creado correctamente");
+          window.location.href = '/lista-cursos';
         }
       )
     }
   }
 
   get nombre(){return this.tallerForm.get('nombre');}
-  get imagen(){return this.tallerForm.get('imagen');}
+//  get imagen(){return this.tallerForm.get('imagen');}
   get titulo(){return this.tallerForm.get('titulo');}
   get precio(){return this.tallerForm.get('precio');}
   get descripcion(){return this.tallerForm.get('descripcion');}

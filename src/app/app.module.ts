@@ -32,6 +32,7 @@ import { SignUpComponent } from './templates/sign-up/sign-up.component';
 import { NavComponent } from './components/nav/nav.component';
 import { CreadorCursoComponent } from './templates/creador-curso/creador-curso.component';
 import { ListaCursosComponent } from './templates/lista-cursos/lista-cursos.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ListaCursosComponent } from './templates/lista-cursos/lista-cursos.comp
     NgbModule,
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [interceptorProvider,
     {

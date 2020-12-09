@@ -13,7 +13,7 @@
     <div class="d-flex justify-content-center h-100">
       <div class="searchbar">
         <input class="search_input" type="text" name="filter" placeholder="Buscar curso..." [(ngModel)]="filter">
-        <a class="search_icon"><i class="fas fa-search"></i></a>
+        <a class="search_icon"><fa-icon [icon]="faSearch" style="color: white;"></fa-icon></a>
       </div>
     </div>
   </div>
@@ -23,14 +23,36 @@
       <a href="creador-curso" class="get-started-btn3" >Crear Nuevo Taller</a>
     </div>
   </div>
-  
+  <div *ngIf="isAdmin">
+    <div class="breadcrumbs3">
+      <div class="container">
+        <h2>Talleres inhabilitados.</h2>
+      </div>
+    </div>
+    <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            <app-card-curso class="col-lg-4 col-md-6 d-flex align-items-stretch"  
+                            *ngFor="let cursoInhabilitado of cursosInhabilitados | filterCursos:filter | paginate: {itemsPerPage :6, currentPage : p}" 
+                            [curso]="cursoInhabilitado">
+            </app-card-curso>
+        </div>
+      </div>
+    </section><!-- End Courses Section -->
+    <!-- Pagination -->
+    <div style="clear: both; text-align: center;">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+
+
   <div>
     <section id="courses" class="courses">
       <div class="container" data-aos="fade-up">
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
             <app-card-curso class="col-lg-4 col-md-6 d-flex align-items-stretch"  
-                            *ngFor="let curso of cursos | filterCursos:filter | paginate: {itemsPerPage :6, currentPage : p}" 
-                            [curso]="curso">
+                            *ngFor="let cursoHabilitado of cursosHabilitados | filterCursos:filter | paginate: {itemsPerPage :6, currentPage : p}" 
+                            [curso]="cursoHabilitado">
             </app-card-curso>
         </div>
       </div>

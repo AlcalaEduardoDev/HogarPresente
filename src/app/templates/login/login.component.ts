@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Alumno } from 'src/app/interface/alumno';
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
     private tokenService: TokenService,
     private authService: AuthService,
     private route: Router,
+    private location: Location
   ) { 
     this.userForm = this.createFormGroup();
   }
@@ -60,7 +62,8 @@ export class LoginComponent implements OnInit {
         this.tokenService.setEstudio(data.estudios);
         this.tokenService.setEdad(data.edad);
         this.roles = data.authorities;
-        window.location.href='home';
+        this.location.back();
+
       },
       err => {
         this.isLogged = false;

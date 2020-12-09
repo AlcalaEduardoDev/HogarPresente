@@ -1,0 +1,9 @@
+.oscurecer{
+    background-image: 
+      linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      );
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
