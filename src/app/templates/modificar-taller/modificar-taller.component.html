@@ -1,0 +1,53 @@
+
+
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs" data-aos="fade-in">
+    <div class="container">
+      <h2>Course Details</h2>
+      <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+    </div>
+  </div><!-- End Breadcrumbs -->
+
+  <!-- ======= Cource Details Section ======= -->
+  <section id="course-details" class="course-details">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row">
+        <div class="col-lg-8">
+          <img src="{{datosCurso.imagen.imagenUrl}}" class="img-fluid" alt=""> <a class="btn"> <fa-icon [icon]="faImages"></fa-icon></a>
+          <h3>{{datosCurso.subtitulo}} <a class="btn" ><i class="ri-pencil-line" ></i></a></h3>
+          <p>
+            {{datosCurso.descripcion}}
+          </p>
+          <a class="btn" ><i class="ri-pencil-line" style="width: 15px; height: 15px;"></i></a>
+        </div>
+        <div class="col-lg-4">
+
+          <div class="course-info d-flex justify-content-between align-items-center">
+            <h5>Capacitador</h5>
+            <p><a href="#">{{datosCurso.capacitador}}</a></p>
+          </div>
+
+          <div class="course-info d-flex justify-content-between align-items-center">
+            <h5>Precio</h5>
+            <p>${{datosCurso.precio}}</p> <a class="btn" ><i class="ri-pencil-line" style="width: 15px; height: 15px;"></i></a>
+          </div>
+
+          <div class=" d-flex justify-content-between align-items-center">
+          <a (click)="irContenido()" style="color: white;"  class="get-started-btn btn">Empezar</a>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Cource Details Section -->
+
+  <!-- ======= Cource Details Tabs Section ======= -->
+  <section id="cource-details-tabs" class="cource-details-tabs">
+    <div class="container" data-aos="fade-up">
+
+      <app-nav [unidades]="datosCurso.unidades" ></app-nav>
+
+    </div>
+  </section><!-- End Cource Details Tabs Section -->
+  

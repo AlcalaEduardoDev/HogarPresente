@@ -33,6 +33,9 @@ import { NavComponent } from './components/nav/nav.component';
 import { CreadorCursoComponent } from './templates/creador-curso/creador-curso.component';
 import { ListaCursosComponent } from './templates/lista-cursos/lista-cursos.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { ModificarTallerComponent } from './templates/modificar-taller/modificar-taller.component';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +57,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SignUpComponent,
     NavComponent,
     CreadorCursoComponent,
-    ListaCursosComponent
+    ListaCursosComponent,
+    ModificarTallerComponent
   ],
   imports: [
     BrowserModule, 
@@ -68,6 +72,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SocialLoginModule,
     PdfViewerModule,
     NgbModule,
+    MatSlideToggleModule,
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
     BrowserAnimationsModule,

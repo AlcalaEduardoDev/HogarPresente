@@ -8,7 +8,8 @@ import { Error404Component } from './templates/error404/error404.component';
 import { CursoComponent } from './templates/curso/curso.component';
 import { LoginComponent } from './templates/login/login.component';
 import { SignUpComponent } from './templates/sign-up/sign-up.component';
-import {CreadorCursoComponent} from './templates/creador-curso/creador-curso.component'
+import { CreadorCursoComponent } from './templates/creador-curso/creador-curso.component'
+import { ModificarTallerComponent } from './templates/modificar-taller/modificar-taller.component'
 
 
 
@@ -18,11 +19,12 @@ const routes: Routes = [
   { path: 'lista-cursos', component: ListaCursosComponent },
   { path: 'ficha-curso', component: FichaCursoComponent },
   { path: 'ficha-curso/:id', component: FichaCursoComponent },
+  { path: 'modificar_taller/:id', component: ModificarTallerComponent },
   { path: 'ficha-curso/:id/curso', component: CursoComponent },
   { path: 'editar-perfil', component: EditarPerfilComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
-  {path:'creador-curso', component: CreadorCursoComponent },
+  { path: 'creador-curso', component: CreadorCursoComponent },
   { path: '**', component: Error404Component },
 
 

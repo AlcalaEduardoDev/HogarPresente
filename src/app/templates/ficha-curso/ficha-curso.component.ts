@@ -22,9 +22,7 @@ export class FichaCursoComponent implements OnInit {
     private activeRouter:ActivatedRoute,
     private modalService: BsModalService,
     private cursoService : CursoService,
-    ) { 
-      
-  }
+    ) {}
   
   modalRef: BsModalRef;
   datosCurso : Curso;
@@ -40,16 +38,7 @@ export class FichaCursoComponent implements OnInit {
   }
 
 
-  /*verificarLogg( template: TemplateRef<any>){
-    if (this.userAlumnoService.loggeado == true){
-      this.route.navigate(["/curso"]);
-    } else {
-      this.modalRef = this.modalService.show(
-        template,
-        Object.assign({}, { class: 'gray modal-sm' })
-      );  
-    } 
-  }
+  /*
   hide(){
     this.modalRef.hide();
     

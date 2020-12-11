@@ -1,6 +1,17 @@
 
-  <a (click)="irCurso(curso.id)">
   <div class="course-item zoom">
+    <div class="course-content position-absolute" placement="top-right" ngbDropdown #myDrop="ngbDropdown">
+      <a class="btn btn-outline mr-4 text-white bg-transparent text-justify-right rounded"  id="dropdownManual"  (click)="myDrop.open()"> <fa-icon [icon]="faEllipsisH"></fa-icon> </a>
+      <div ngbDropdownMenu aria-labelledby="dropdownManual" class="">
+        <a class="btn" (click)="gotoModificarTaller(curso.id)" ngbDropdownItem>Modificar curso</a>
+        <div  class="d-flex justify-content-between">
+          <div ngbDropdownItem>Habilitar curso</div><mat-slide-toggle></mat-slide-toggle>
+        </div>
+        <a class="btn text-danger" ngbDropdownItem>Eliminar curso</a>
+      </div>
+    </div>
+    <a (click)="irCurso(curso.id)"> 
+
     <img  [ngClass]="{'oscurecer': !curso.habilitado}" src="{{curso.imagen.imagenUrl}}" class="img-fluid" alt="...">
     <div class="course-content">
       <div class="d-flex justify-content-between align-items-center mb-3">
@@ -18,5 +29,6 @@
       
       </div>
     </div>
+  </a>
   </div>
  <!-- End Course Item-->
