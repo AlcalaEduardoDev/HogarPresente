@@ -49,15 +49,12 @@ export class ListaCursosComponent implements OnInit {
 
   separarCursos() {
     for (const curso of this.cursos) {
-      console.log(curso);
       if (curso.habilitado == true) {
         this.cursosHabilitados.push(curso);
       } else {
         this.cursosInhabilitados.push(curso);
       }
     }
-    console.log(this.cursosHabilitados);
-    console.log(this.cursosInhabilitados);
 
   }
   authAdmin(): boolean {

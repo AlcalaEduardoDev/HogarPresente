@@ -48,7 +48,7 @@ export class CreadorCursoComponent implements OnInit {
     this.tallerForm.reset();
   }
   onCreate(){
-    const nuevoCurso = new NuevoCurso(this.nombreTaller,this.subtituloTaller, this.descripcionTaller, this.categoriaTaller,this.precioTaller,  this.idAdministrador);
+    var nuevoCurso = new NuevoCurso(this.nombreTaller,this.subtituloTaller, this.descripcionTaller, this.categoriaTaller,this.precioTaller,  this.idAdministrador);
     if(this.tallerForm.valid){
       this.cursoService.nuevo(nuevoCurso).subscribe(
         data => {

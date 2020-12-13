@@ -11,7 +11,7 @@ export class Curso {
     capacitador: string;
     categoria: string;
     habilitado: boolean;
-    imagen: Imagen;
+    imagen: string;
     unidades: Array<Unidad>;
 }
 

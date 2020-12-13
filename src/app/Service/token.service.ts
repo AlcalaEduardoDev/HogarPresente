@@ -69,9 +69,10 @@ export class TokenService {
     return sessionStorage.getItem(APELLIDO_KEY);
   }
 
-  public setFoto(foto:string):void{
+  public setFoto(foto:number):void{
+    const fotoUsuario = foto + '';
     window.sessionStorage.removeItem(FOTO_KEY);
-    window.sessionStorage.setItem(FOTO_KEY,foto);
+    window.sessionStorage.setItem(FOTO_KEY,fotoUsuario);
   }
   public getFoto():string{
     return sessionStorage.getItem(FOTO_KEY);

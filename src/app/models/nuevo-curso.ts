@@ -5,7 +5,8 @@ export class NuevoCurso {
     categoria : string;
     precio : number;
     usuarioId: number;
-    habilitado: boolean = false;
+    habilitado: boolean;
+
     constructor(titulo:string,subtitulo: string, descripcion: string, categoria: string, precio: number, usuarioId: number){
         this.titulo = titulo;
         this.subtitulo=subtitulo;

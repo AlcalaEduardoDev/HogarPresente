@@ -9,7 +9,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
-
+  @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 body {
   font-family: "Poppins-Regular";
   color: #333;
@@ -1083,15 +1083,6 @@ section {
   color: #37423b;
 }
 
-.oscurecer{
-  background-image: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    );
-    -webkit-filter: grayscale(100%);
-filter: grayscale(100%);
-}
 
 .separar-foto{
 margin-left: 130px !important;

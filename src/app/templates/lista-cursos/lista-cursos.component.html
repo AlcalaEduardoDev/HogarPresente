@@ -32,9 +32,10 @@
     <section id="courses" class="courses">
       <div class="container" data-aos="fade-up">
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
-            <app-card-curso class="col-lg-4 col-md-6 d-flex align-items-stretch"  
+            <app-card-curso class="col-lg-4 col-md-6 d-flex align-items-stretch "  
                             *ngFor="let cursoInhabilitado of cursosInhabilitados | filterCursos:filter | paginate: {itemsPerPage :6, currentPage : p}" 
-                            [curso]="cursoInhabilitado">
+                            [curso]="cursoInhabilitado"
+                            style="z-index: auto;">                            
             </app-card-curso>
         </div>
       </div>
@@ -52,7 +53,8 @@
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
             <app-card-curso class="col-lg-4 col-md-6 d-flex align-items-stretch"  
                             *ngFor="let cursoHabilitado of cursosHabilitados | filterCursos:filter | paginate: {itemsPerPage :6, currentPage : p}" 
-                            [curso]="cursoHabilitado">
+                            [curso]="cursoHabilitado"
+                            style="z-index: auto;">
             </app-card-curso>
         </div>
       </div>

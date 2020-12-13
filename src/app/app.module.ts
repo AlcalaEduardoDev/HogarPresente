@@ -23,7 +23,6 @@ import { NgbModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollapseComponent } from './components/collapse/collapse.component';
 import { CursoComponent } from './templates/curso/curso.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { interceptorProvider } from './interceptors/user-interceptor.service';
@@ -33,8 +32,13 @@ import { NavComponent } from './components/nav/nav.component';
 import { CreadorCursoComponent } from './templates/creador-curso/creador-curso.component';
 import { ListaCursosComponent } from './templates/lista-cursos/lista-cursos.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ModificarTallerComponent } from './templates/modificar-taller/modificar-taller.component';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
@@ -76,9 +80,11 @@ import { ModificarTallerComponent } from './templates/modificar-taller/modificar
     AccordionModule.forRoot(),
     ModalModule.forRoot(),
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MaterialModule
   ],
   providers: [interceptorProvider,
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
