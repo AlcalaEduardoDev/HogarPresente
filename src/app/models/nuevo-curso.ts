@@ -7,12 +7,23 @@ export class NuevoCurso {
     usuarioId: number;
     habilitado: boolean;
 
-    constructor(titulo:string,subtitulo: string, descripcion: string, categoria: string, precio: number, usuarioId: number){
+    constructor(titulo:string,subtitulo: string, descripcion: string, categoria: string, precio: number, usuarioId?: number){
         this.titulo = titulo;
         this.subtitulo=subtitulo;
         this.descripcion = descripcion;
         this.categoria = categoria;
         this.precio = precio;
         this.usuarioId = usuarioId;
+    }
+    
+}
+
+export class modificarCurso extends NuevoCurso{
+    constructor (titulo:string,subtitulo: string, descripcion: string, categoria: string, precio: number){
+        super(titulo
+            ,subtitulo
+            , descripcion
+            , categoria
+            , precio);
     }
 }

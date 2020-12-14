@@ -31,4 +31,20 @@ export class CursoService {
   public habilitar(id, taller:Curso): Observable<any>{
     return this.httpClient.put<any>(this.apiBaseUrl+`/api/cursos/habilitar/${id}`, taller);
   }
+  public updateTitulo(id, titulo:string): Observable <any>{
+    return this.httpClient.put<any>(this.apiBaseUrl+`/api/cursos/titulo/${id}`, titulo);
+  }
+  public updateSubtitulo(id, subtitulo:string): Observable <any>{
+    return this.httpClient.put<any>(this.apiBaseUrl+`/api/cursos/subtitulo/${id}`, subtitulo);
+  }
+  public updateDescripcion(id, descripcion:string): Observable <any>{
+    return this.httpClient.put<any>(this.apiBaseUrl+`/api/cursos/descripcion/${id}`, descripcion);
+  }
+  public updateCategoria(id, categoria:string): Observable <any>{
+    return this.httpClient.put<any>(this.apiBaseUrl+`/api/cursos/categoria/${id}`, categoria);
+  }
+  public updatePrecio(id, precio:number): Observable <any>{
+    return this.httpClient.put<any>(this.apiBaseUrl+`/api/cursos/precio/${id}`, precio);
+  }
+
 }

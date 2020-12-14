@@ -39,7 +39,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ModificarTallerComponent } from './templates/modificar-taller/modificar-taller.component';
 import { MaterialModule } from './material/material.module';
-
+import 'boxicons';
 
 @NgModule({
   declarations: [
