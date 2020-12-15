@@ -219,11 +219,26 @@ button {
   font-size: 14px; 
   margin: 10px !important;
 }
+.get-cancel-btn { 
+  background: #ca2c2c;
+  color: #fff;
+  border-radius: 50px;
+  padding: 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px; 
+  margin: 10px !important;
+}
 
 .get-started-btn:hover {
   background: #D99058;
   color: #fff;
 }
+.get-cancel-btn:hover {
+  background: #881e1e;
+  color: #fff;
+}
+
 
 @media (max-width: 768px) {
   .get-started-btn {

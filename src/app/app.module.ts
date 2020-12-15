@@ -32,11 +32,10 @@ import { NavComponent } from './components/nav/nav.component';
 import { CreadorCursoComponent } from './templates/creador-curso/creador-curso.component';
 import { ListaCursosComponent } from './templates/lista-cursos/lista-cursos.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { ModificarTallerComponent } from './templates/modificar-taller/modificar-taller.component';
 import { MaterialModule } from './material/material.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -46,6 +45,7 @@ import { ConfirmDialogComponent } from './components/dialog/confirm-dialog/confi
 @NgModule({
   declarations: [
     AppComponent,
+    
     NavbarComponent,
     ConfirmEqualValidatorDirective,
     HomeComponent,
@@ -68,7 +68,7 @@ import { ConfirmDialogComponent } from './components/dialog/confirm-dialog/confi
     ConfirmDialogComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     NgbNavModule,
     AppRoutingModule,
     FormsModule,
@@ -87,7 +87,8 @@ import { ConfirmDialogComponent } from './components/dialog/confirm-dialog/confi
     MaterialModule,
     NgxSpinnerModule
   ],
-  providers: [interceptorProvider,    
+  providers: [interceptorProvider,
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
@@ -110,3 +111,6 @@ import { ConfirmDialogComponent } from './components/dialog/confirm-dialog/confi
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));

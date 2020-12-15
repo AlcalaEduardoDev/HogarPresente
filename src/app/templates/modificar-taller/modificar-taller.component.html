@@ -27,34 +27,32 @@
             </div>
         </div>
           <div class="form-group d-flex justify-content-between">
-            <a type="submit" class="btn get-started-btn" style="color: white;" > <fa-icon [icon]="faImages"></fa-icon> Subir </a>
+            <a type="submit" class="btn get-started-btn " style="color: white;" > <fa-icon [icon]="faImages"></fa-icon> Subir </a>
           </div>
         </form>
-        <h3 *ngIf="!textareaSubtitulo">
-          {{datosCurso.subtitulo}}<i class="ri-pencil-line btn" (click)="activarTextareaSubtitulo()"></i>
+        <h3 *ngIf="!textareaSubtitulo" class="color-iconos">
+          {{datosCurso.subtitulo}}<i class="ri-pencil-line btn " style="font-size: 18px;" (click)="activarTextareaSubtitulo()"></i>
         </h3>
         <div *ngIf="textareaSubtitulo">
-          <form #f="ngForm">
-            <input style="width: 700px;" [(ngModel)]="subtituloTaller" [ngModelOptions]="{standalone: true}">
+          <form #f="ngForm" class="w-100">
+            <input class="form-control" [(ngModel)]="subtituloTaller" [ngModelOptions]="{standalone: true}">
           </form>
-          <div class="btn bg-success flex-row-reverse" (click)="updateSubtitulo()">Guardar cambios</div>
-          <div class="btn bg-danger flex-row-reverse" (click)="activarTextareaSubtitulo()">Cancelar</div>
+          <div class="btn get-started-btn flex-row-reverse" (click)="updateSubtitulo()"><i class="ri-check-line"></i></div>
+          <div class="btn get-cancel-btn flex-row-reverse" (click)="activarTextareaSubtitulo()"><i class="ri-close-line"></i></div>
         </div>
         <p *ngIf="!textareaDescripcion">
           {{datosCurso.descripcion}}
         </p>
         <div class="w-100 " *ngIf="textareaDescripcion">
-          <form novalidate #f="ngForm">
+          <form novalidate #f="ngForm" class="w-100">
             <div class="form-group">
-              <textarea placeholder="{{datosCurso.descripcion}}" style="width: 700px; height:150px;"
-                [(ngModel)]="descripcionTaller" [ngModelOptions]="{standalone: true}"></textarea>
+            <textarea class="form-control" placeholder="{{datosCurso.descripcion}}" [(ngModel)]="descripcionTaller" [ngModelOptions]="{standalone: true}"></textarea>
             </div>
           </form>
-          <div class="btn bg-success flex-row-reverse" (click)="updateDescripcion()">Guardar cambios</div>
-          <div class="btn bg-danger flex-row-reverse" (click)="activarTextareaDescripcion()">Cancelar</div>
+          <div class="btn get-started-btn" (click)="updateDescripcion()"><i class="ri-check-line"></i></div>
+          <div class="btn get-cancel-btn" (click)="activarTextareaDescripcion()"><i class="ri-close-line"></i></div>
         </div>
-        <div class="d-flex flex-row-reverse" *ngIf="!textareaDescripcion"><i class="btn p-2 ri-pencil-line"
-            (click)="activarTextareaDescripcion()"></i></div>
+        <div class="d-flex flex-row-reverse color-iconos" *ngIf="!textareaDescripcion"><i class="btn p-2 ri-pencil-line color-iconos" style="font-size: 18px;" (click)="activarTextareaDescripcion()"></i></div>
       </div>
       <div class="col-lg-4">
 
@@ -63,35 +61,35 @@
           <p><a href="#">{{datosCurso.capacitador}}</a></p>
         </div>
 
-        <div class="course-info d-flex justify-content-between align-items-center">
+        <div *ngIf="!textareaPrecio" class="course-info d-flex justify-content-between align-items-center">
           <h5>Precio</h5>
-          <section *ngIf="!textareaPrecio">
-            <p>${{datosCurso.precio}}</p><i class="btn ri-pencil-line" (click)="activarTextareaPrecio()"
-              style="width: 15px; height: 15px;"></i>
-          </section>
-          <div *ngIf="textareaPrecio">
+            <p class="color-iconos">${{datosCurso.precio}}<i class="btn ri-pencil-line" style="font-size: 18px;" (click)="activarTextareaPrecio()"></i></p>
+        </div>
+        <div *ngIf="textareaPrecio" class="course-info d-flex justify-content-between align-items-center">
+          <h5>Precio</h5>
+          <div >
             <form >
-              <input type="number"  [(ngModel)]="precioTaller" [ngModelOptions]="{standalone: true}">
+              <input type="number" class="form-control" [(ngModel)]="precioTaller" [ngModelOptions]="{standalone: true}">
             </form>
-            <div class="btn bg-success" (click)="updatePrecio()">Guardar cambios</div>
-            <div class="btn bg-danger" (click)="activarTextareaPrecio()">Cancelar</div>
+            <div class="btn get-started-btn" (click)="updatePrecio()"><i class="ri-check-line"></i></div>
+            <div class="btn get-cancel-btn" (click)="activarTextareaPrecio()"><i class="ri-close-line"></i></div>
           </div>
         </div>
-        <div class="course-info d-flex justify-content-between align-items-center">
+        <div *ngIf="!textareaCategoria" class="course-info d-flex justify-content-between align-items-center">
+            <h5>Categoria</h5>        
+            <p class="color-iconos">{{datosCurso.categoria}} <i class="ri-pencil-line btn" style="font-size: 18px;" (click)="activarTextareaCategoria()"></i></p>      
+        </div>
+        <div *ngIf="textareaCategoria" class="course-info d-flex justify-content-between align-items-center">
           <h5>Categoria</h5>
-          <section *ngIf="!textareaCategoria">
-            <p>{{datosCurso.categoria}}</p><i class="ri-pencil-line btn" (click)="activarTextareaCategoria()"></i>
-          </section>
-            <form *ngIf="textareaCategoria">
-              <input type="text" name="" id=""  [(ngModel)]="categoriaTaller" [ngModelOptions]="{standalone: true}">
-              <div class="btn bg-success" (click)="updateCategoria()">Guardar cambios</div>
-              <div class="btn bg-danger" (click)="activarTextareaCategoria()">Cancelar</div>
+            <form>
+              <input class="form-control" type="text" name="" id=""  [(ngModel)]="categoriaTaller" [ngModelOptions]="{standalone: true}">
+              <div class="btn get-started-btn" (click)="updateCategoria()"><i class="ri-check-line"></i></div>
+              <div class="btn get-cancel-btn" (click)="activarTextareaCategoria()"><i class="ri-close-line"></i></div>
             </form>
-
         </div>
 
         <div class=" d-flex justify-content-between align-items-center">
-          <a (click)="irContenido()" style="color: white;" class="get-started-btn btn">Empezar</a>
+          <a (click)="irContenido()" style="color: white;" class="get-started-btn btn">Ir a contenidos</a>
         </div>
       </div>
     </div>
@@ -104,7 +102,9 @@
   <div class="container" data-aos="fade-up">
 
     <app-nav [unidades]="datosCurso.unidades"></app-nav>
-
+    <div class="btn d-inline-flex p-2 color-iconos" style="font-size: 18px;">
+      <p ><i class="ri-add-circle-line"></i> Añadir unidad</p>
+    </div>
   </div>
 </section><!-- End Cource Details Tabs Section -->
 <!--Spinner-->
