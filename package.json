@@ -47,6 +47,7 @@
     "ng2-pdf-viewer": "^6.3.2",
     "ngx-bootstrap": "^6.2.0",
     "ngx-pagination": "^5.0.0",
+    "ngx-spinner": "^10.0.1",
     "rxjs": "~6.6.0",
     "scriptjs": "^2.5.9",
     "tslib": "^2.0.0",

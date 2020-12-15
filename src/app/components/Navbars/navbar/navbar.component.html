@@ -36,10 +36,10 @@
           </a>
         </li>
         <a [routerLink]="['/editar-perfil']">
-          <img src="{{fotoUser}}" class="rounded-circle mr-3" style="width:'30px'">
+          
         </a>
         <li class="nav-item" (click)="onLogOut()">
-          <a class="nav-link" style="cursor: pointer;" ><i class="fas fa-sign-out-alt"></i>Cerrar sesion</a>          
+          <a class="nav-link" style="cursor: pointer;" ><fa-icon [icon]="faSignOutAlt"></fa-icon>Cerrar sesion</a>          
         </li>
       </ul>
     </div>

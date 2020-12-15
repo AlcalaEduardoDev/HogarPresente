@@ -5,20 +5,19 @@
       <div ngbDropdownMenu aria-labelledby="dropdownManual" style="z-index: 10" >
         <a class="btn" (click)="gotoModificarTaller(curso.id)" ngbDropdownItem>Modificar curso</a>
         <div  class="d-flex justify-content-between">
-          <div disabled ngbDropdownItem>Habilitar curso</div><mat-slide-toggle [(ngModel)]="curso.habilitado" (click)="habilitarTaller(curso.id)"></mat-slide-toggle>
+          <div disabled ngbDropdownItem>Habilitar curso</div><mat-slide-toggle [checked]="habilitado" (change)="change($event)"></mat-slide-toggle>
         </div>
         <a class="btn text-danger" (click)="eliminarTaller(modalConfirmacion, modalHabilitado)" ngbDropdownItem>Eliminar curso</a>
       </div>
     </div>
 
     <a (click)="irCurso(curso.id)">
-    <img  [ngClass]="{'oscurecer': !curso.habilitado}" src="{{curso.imagen}}" class="img-fluid" alt="...">
+    <img  [ngClass]="{'oscurecer': !curso.habilitado,'noOscurecer':curso.habilitado}" src="{{curso.imagen}}" class="img-fluid" alt="...">
     <div class="course-content">
       <div class="d-flex justify-content-between align-items-center mb-3">
         <h4 [ngClass]="{'oscurecer': !curso.habilitado}" > {{curso.categoria}} </h4>
         <p class="price">$ {{curso.precio}}  </p>
       </div>
-
       <h3  >{{curso.titulo}} </h3>
       <p> {{curso.descripcion}} </p>
       <div class="trainer d-flex justify-content-between align-items-center">
@@ -45,5 +44,12 @@
     <h3>Debe deshabilitar el taller para poder eliminarlo</h3>
       <button type="button " class="btn btn-success m-1" data-toggle="modal" data-target="#loginModal" (click)="habilitarTaller(curso.id)">Deshabilitar</button>
       <button type="button" class="btn btn-danger m-1" (click)="hide()" >Cerrar</button>
+  </div>
+</ng-template>
+<ng-template #modalConfirmacionHabilitar>
+  <div class="modal-body text-center">
+    <h3>¿Desea {{estado}} el taller?</h3>
+      <a type="button " class="btn btn-success m-1" data-toggle="modal" data-target="#loginModal" (click)="habilitarTaller(curso.id)">Aceptar</a>
+      <a type="button" class="btn btn-danger m-1" (click)="deshabilitarTaller($event)" >Cancelar</a>
   </div>
 </ng-template>

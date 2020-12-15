@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 
 export class Imagen{
+    id?:number;
     name : string;
     imagenUrl: string;
     imagenId: string;

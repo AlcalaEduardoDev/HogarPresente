@@ -6,6 +6,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faImages } from '@fortawesome/free-solid-svg-icons'
 import { modificarCurso, NuevoCurso } from 'src/app/models/nuevo-curso';
+import { ImagenService } from 'src/app/Service/imagen.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -22,6 +24,8 @@ export class ModificarTallerComponent implements OnInit {
     private activeRouter: ActivatedRoute,
     private modalService: BsModalService,
     private cursoService: CursoService,
+    private imagenService:ImagenService,
+    private spinner: NgxSpinnerService
   ) { }
   datosCurso: Curso;
   faImages = faImages;
@@ -31,8 +35,8 @@ export class ModificarTallerComponent implements OnInit {
   textareaCategoria: boolean = false;
 
 
-
-  descripcion: string;
+  imagen : File;
+  imagenMin : File;
   taller: Curso;
   nombreTaller: string;
   subtituloTaller: string;
@@ -44,12 +48,13 @@ export class ModificarTallerComponent implements OnInit {
   ngOnInit(): void {
     let cursoId = this.activeRouter.snapshot.paramMap.get('id');
     this.cursoService.findOne(cursoId).subscribe(
-      data => this.datosCurso = data
-      )
+      data =>{     
+      this.datosCurso = data
       this.subtituloTaller = this.datosCurso.subtitulo;
       this.precioTaller = this.datosCurso.precio;
       this.descripcionTaller = this.datosCurso.descripcion;
-      this.categoriaTaller = this.datosCurso.categoria;
+      this.categoriaTaller = this.datosCurso.categoria;}
+      )
   }
   irContenido() { }
 
@@ -101,8 +106,36 @@ export class ModificarTallerComponent implements OnInit {
     const cursoId = this.activeRouter.snapshot.paramMap.get('id');
     this.cursoService.updatePrecio(cursoId, this.precioTaller).subscribe(
       data=>{
-        console.log("precio actualizado")
+        console.log("precio actualizado");
+        window.location.reload();
       }
     )
+  }
+  onUploadImg(){
+    this.spinner.show();
+    this.imagenService.upload(this.imagen).subscribe(
+      data=>{
+        this.spinner.hide();
+      },
+      err => 
+      {
+        this.spinner.hide();
+        alert(err.console.error.mensaje);
+        this.reset();
+      }
+    )
+  }
+  reset(){
+    this.imagen = null;
+    this.imagenMin = null;
+  }
+  onFileChange(event){
+    this.imagen = event.target.files[0];
+    const fr = new FileReader();
+    fr.onload = (evento : any) =>{
+      this.imagenMin = evento.target.result;
+    };
+    fr.readAsDataURL(this.imagen);
+
   }
 }

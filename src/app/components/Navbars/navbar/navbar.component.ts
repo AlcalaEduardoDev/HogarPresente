@@ -1,7 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
 import { TokenService } from 'src/app/Service/token.service';
-
+import {faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 selector: 'app-navbar',
@@ -14,6 +14,7 @@ isLogged=false;
 nombreUser='';
 apellidoUser = '';
 fotoUser='';
+faSignOutAlt=faSignOutAlt;
 constructor(
   private tokenService:TokenService
 ) { }

@@ -39,7 +39,9 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ModificarTallerComponent } from './templates/modificar-taller/modificar-taller.component';
 import { MaterialModule } from './material/material.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import 'boxicons';
+import { ConfirmDialogComponent } from './components/dialog/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import 'boxicons';
     NavComponent,
     CreadorCursoComponent,
     ListaCursosComponent,
-    ModificarTallerComponent
+    ModificarTallerComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule, 
@@ -81,10 +84,10 @@ import 'boxicons';
     ModalModule.forRoot(),
     BrowserAnimationsModule,
     FontAwesomeModule,
-    MaterialModule
+    MaterialModule,
+    NgxSpinnerModule
   ],
-  providers: [interceptorProvider,
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+  providers: [interceptorProvider,    
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

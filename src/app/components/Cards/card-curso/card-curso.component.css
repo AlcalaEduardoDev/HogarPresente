@@ -7,6 +7,15 @@
       -webkit-filter: grayscale(100%);
       filter: grayscale(100%);
     }
+.noOscurecer{
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0),
+      rgba(0, 0, 0)
+    );
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+  }
 
 a :hover{
   cursor: pointer;
