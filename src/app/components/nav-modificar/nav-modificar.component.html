@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="d-flex" >
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav" orientation="vertical" >
+          <li ngbNavItem="{{unidad.id}}" *ngFor="let unidad of unidades">
+              <a ngbNavLink  *ngIf="!textareaNombreUnidad"> {{unidad.nombre}} </a> <i class="btn ri-pencil-line" style="font-size: 18px;" (click)="activarTextareaNombreUnidad()"></i>
+            <form  action="" *ngIf="textareaNombreUnidad">
+              <input type="text" name="" id="" calss="form-control" [(ngModel)]="nombreUnidad" [ngModelOptions]="{standalone: true}"> 
+              <div class="btn get-started-btn" (click)="updateNombreUnidad(this.unidad.id)"><i class="ri-check-line"></i></div>
+              <div class="btn get-cancel-btn" (click)="activarTextareaNombreUnidad()"><i class="ri-close-line"></i></div>
+            </form>
+            <ng-template ngbNavContent>
+              <p *ngIf="!textareaDescripcionUnidad">{{unidad.descripcion}}  <i class="btn ri-pencil-line" style="font-size: 18px;" (click)="activarTextareaDescripcionUnidad()"></i></p>
+              <form action="" *ngIf="textareaDescripcionUnidad">
+                <textarea type="text" name="" id="" calss="form-control" [(ngModel)]="descripcionUnidad" [ngModelOptions]="{standalone: true}"></textarea>
+                <div class="btn get-started-btn" (click)="updateDescripcionUnidad(this.unidad.id)"><i class="ri-check-line"></i></div>
+                <div class="btn get-cancel-btn" (click)="activarTextareaDescripcionUnidad()"><i class="ri-close-line"></i></div>
+              </form>
+            </ng-template>
+          </li>
+        </ul>      
+        <div [ngbNavOutlet]="nav" class="ml-4"></div>
+      </div>      
+</div>

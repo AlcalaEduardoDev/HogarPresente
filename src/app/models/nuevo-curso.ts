@@ -17,13 +17,3 @@ export class NuevoCurso {
     }
     
 }
-
-export class modificarCurso extends NuevoCurso{
-    constructor (titulo:string,subtitulo: string, descripcion: string, categoria: string, precio: number){
-        super(titulo
-            ,subtitulo
-            , descripcion
-            , categoria
-            , precio);
-    }
-}

@@ -36,7 +36,9 @@
           </a>
         </li>
         <a [routerLink]="['/editar-perfil']">
-          
+        <li class="nav-item">
+          <img src="{{fotoUser}}" class="rounded-circle mr-3" style="width:'40px'">
+        </li>
         </a>
         <li class="nav-item" (click)="onLogOut()">
           <a class="nav-link" style="cursor: pointer;" ><fa-icon [icon]="faSignOutAlt"></fa-icon>Cerrar sesion</a>          

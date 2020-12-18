@@ -5,5 +5,4 @@ export interface Unidad {
     nombre: string;
     descripcion: string;
     contenidos : Array<ContenidoUnidades>;
-    unidadOpen? : boolean;
 }

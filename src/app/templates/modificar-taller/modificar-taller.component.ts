@@ -5,9 +5,10 @@ import { Curso } from '../../interface/curso';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { faImages } from '@fortawesome/free-solid-svg-icons'
-import { modificarCurso, NuevoCurso } from 'src/app/models/nuevo-curso';
+import {  NuevoCurso } from 'src/app/models/nuevo-curso';
 import { ImagenService } from 'src/app/Service/imagen.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { UnidadService } from 'src/app/Service/unidad-service.service';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class ModificarTallerComponent implements OnInit {
     private modalService: BsModalService,
     private cursoService: CursoService,
     private imagenService:ImagenService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private unidadService:UnidadService
   ) { }
   datosCurso: Curso;
   faImages = faImages;
@@ -129,6 +131,17 @@ export class ModificarTallerComponent implements OnInit {
     this.imagen = null;
     this.imagenMin = null;
   }
+
+  createUnidad(){
+    var idUnidad:number = + this.datosCurso.id;
+    console.log(idUnidad);
+    this.unidadService.new(idUnidad).subscribe(
+      data=>{
+        window.location.reload();
+      }
+    )
+  }
+
   onFileChange(event){
     this.imagen = event.target.files[0];
     const fr = new FileReader();

@@ -3,9 +3,9 @@
     <div class="d-flex" >
         <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav" orientation="vertical" >
           <li ngbNavItem="{{unidad.id}}" *ngFor="let unidad of unidades">
-            <a ngbNavLink> {{unidad.nombre}} </a>
+            <a ngbNavLink> {{unidad.nombre}}</a>
             <ng-template ngbNavContent>
-              <p>{{unidad.descripcion}}</p>
+              <p>{{unidad.descripcion}} </p>
             </ng-template>
           </li>
         </ul>      
