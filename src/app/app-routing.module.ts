@@ -8,9 +8,9 @@ import { Error404Component } from './templates/error404/error404.component';
 import { CursoComponent } from './templates/curso/curso.component';
 import { LoginComponent } from './templates/login/login.component';
 import { SignUpComponent } from './templates/sign-up/sign-up.component';
-import { CreadorCursoComponent } from './templates/creador-curso/creador-curso.component'
-import { ModificarTallerComponent } from './templates/modificar-taller/modificar-taller.component'
-
+import { CreadorCursoComponent } from './templates/creador-curso/creador-curso.component';
+import { ModificarTallerComponent } from './templates/modificar-taller/modificar-taller.component';
+import { ModificarContenidoComponent } from './templates/modificar-contenido/modificar-contenido.component';
 
 
 const routes: Routes = [
@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'creador-curso', component: CreadorCursoComponent },
+  { path: 'modificar_taller/:id/modificar-contenido', component: ModificarContenidoComponent},
   { path: '**', component: Error404Component },
 
 

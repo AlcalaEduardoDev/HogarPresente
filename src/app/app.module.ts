@@ -42,6 +42,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import 'boxicons';
 import { ConfirmDialogComponent } from './components/dialog/confirm-dialog/confirm-dialog.component';
 import { NavModificarComponent } from './components/nav-modificar/nav-modificar.component';
+import { ModificarContenidoComponent } from './templates/modificar-contenido/modificar-contenido.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { NavModificarComponent } from './components/nav-modificar/nav-modificar.
     ListaCursosComponent,
     ModificarTallerComponent,
     ConfirmDialogComponent,
-    NavModificarComponent
+    NavModificarComponent,
+    ModificarContenidoComponent
   ],
   imports: [
     BrowserModule,

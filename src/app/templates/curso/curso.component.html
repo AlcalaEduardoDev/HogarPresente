@@ -24,20 +24,17 @@
         </div>
       </div>
       <div class="p-2 bd-highlight" data-aos="fade-right">
-        <ul class="nav nav-tabs flex-column">
-          <li class="nav-item mt-2" >
-            <a class="nav-link" width="200px" data-toggle="tab" (click)="cambiarVistaDocumento('https://www.youtube.com/watch?v=BO-nhyqpm7A&ab_channel=EDteam')" >
-              <h4>Unde praesentium sed</h4>
-              <p>Voluptas vel esse repudiandae quo excepturi.</p>
-            </a>
-          </li>
-          <li class="nav-item mt-2">
-            <a class="nav-link" data-toggle="tab" (click)="cambiarVistaDocumento('https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf')" >
-              <h4>Pariatur explicabo vel</h4>
-              <p>Velit veniam ipsa sit nihil blanditiis mollitia natus.</p>
-            </a>
-          </li>        
-        </ul>
+        <div class="card-body">
+          <div class="container">
+              <accordion [isAnimated]="true" *ngFor="let unidad of unidades, index as i">
+                  <accordion-group [heading]="unidad.nombre">
+                      <a *ngFor="let contUnidad of unidades[this.i].contenidos"
+                          (click)="cambiarVistaDocumento(contUnidad.documento)"
+                          class="list-group-item"><strong> Contenido: {{contUnidad.nombre}} </strong></a>
+                  </accordion-group>
+              </accordion>
+          </div>
+      </div>
       </div>
     </div>
 

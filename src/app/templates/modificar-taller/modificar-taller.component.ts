@@ -58,7 +58,10 @@ export class ModificarTallerComponent implements OnInit {
       this.categoriaTaller = this.datosCurso.categoria;}
       )
   }
-  irContenido() { }
+  irContenido() {
+    let cursoId = this.activeRouter.snapshot.paramMap.get('id');
+    this.route.navigate(['modificar_taller' ,cursoId, 'modificar-contenido'])
+   }
 
   activarTextareaSubtitulo() {
     if (this.textareaSubtitulo) {

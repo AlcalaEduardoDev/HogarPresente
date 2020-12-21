@@ -23,8 +23,17 @@ export class CursoComponent implements OnInit {
   ngOnInit(): void {
     let cursoId = this.activeRouter.snapshot.paramMap.get('id');
     this.cursoService.findOne(cursoId).subscribe(
-      data => this.datosCurso = data
-      );
+      data => {
+        this.datosCurso = data
+        this.unidades = this.datosCurso.unidades;
+        if (this.unidades[0].contenidos[0].documento.indexOf("www.youtube.com") == -1) {
+          this.video = false;
+          this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.unidades[0].contenidos[0].documento);
+        } else {
+          this.videoId = this.unidades[0].contenidos[0].documento.split('v=')[1].split('&')[0];
+          this.video = true;
+        }
+      });
       this.unidades = this.datosCurso.unidades;
     }
     
@@ -35,7 +44,7 @@ export class CursoComponent implements OnInit {
       datosCurso: Curso;
       pdfSrc = 'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf';
       video: boolean = true;
-      videoId: string = "Nfj81ARo260";
+      videoId: string = "";
 
   public cambiarVistaDocumento(url: string) {
     if (url.indexOf("www.youtube.com") == -1) {

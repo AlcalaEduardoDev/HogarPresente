@@ -1,0 +1,42 @@
+<main id="main">
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h4>Some <strong>Features</strong> we do provide</h4>
+            </div>
+            <div class=" d-flex bd-highlight ">
+                <div class="p-2 flex-grow-1 bd-highlight" data-aos="fade-left" data-aos-delay="100">
+                    <div class="tab-content align-content-end">
+                        <div class="card-body">
+                            <div class="tab-pane">
+                                <figure *ngIf="video">
+                                    <youtube-player [videoId]="videoId" [width]="850" [height]="480"
+                                        suggestedQuality="highres"></youtube-player>
+                                </figure>
+                            </div>
+                            <div class="tab-pane" *ngIf="!video">
+                                <iframe width="850" height="600" [src]='urlSafe' frameborder="0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-2 bd-highlight" data-aos="fade-right">
+                    <div class="card-body">
+                        <div class="container">
+                            <accordion [isAnimated]="true" *ngFor="let unidad of unidades, index as i">
+                                <accordion-group [heading]="unidad.nombre">
+                                    <a *ngFor="let contUnidad of unidades[this.i].contenidos"
+                                        (click)="cambiarVistaDocumento(contUnidad.documento)"
+                                        class="list-group-item"><strong> Contenido: {{contUnidad.nombre}} </strong></a>
+                                </accordion-group>
+                            </accordion>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Features Section -->
+
+</main><!-- End #main -->

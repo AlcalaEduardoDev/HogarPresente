@@ -2,7 +2,7 @@
     <div class="d-flex" >
         <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav" orientation="vertical" >
           <li ngbNavItem="{{unidad.id}}" *ngFor="let unidad of unidades">
-              <a ngbNavLink  *ngIf="!textareaNombreUnidad"> {{unidad.nombre}} </a> <i class="btn ri-pencil-line" style="font-size: 18px;" (click)="activarTextareaNombreUnidad()"></i>
+              <a ngbNavLink  *ngIf="!textareaNombreUnidad"> {{unidad.nombre}} </a> <i *ngIf="!textareaNombreUnidad" class="btn ri-pencil-line" style="font-size: 18px;" (click)="activarTextareaNombreUnidad()"></i>
             <form  action="" *ngIf="textareaNombreUnidad">
               <input type="text" name="" id="" calss="form-control" [(ngModel)]="nombreUnidad" [ngModelOptions]="{standalone: true}"> 
               <div class="btn get-started-btn" (click)="updateNombreUnidad(this.unidad.id)"><i class="ri-check-line"></i></div>
