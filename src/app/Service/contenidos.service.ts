@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ContenidoUnidades } from '../Interface/contenido-unidades';
 import { NuevoContenido } from '../models/nuevo-contenido';
 
 @Injectable({
@@ -17,8 +18,8 @@ export class ContenidosService {
   public findOne(id): Observable<any>{
     return this.httpClient.get(this.apiBaseUrl + `/api/contenidos/${id}`);
   }
-  public nuevo(id,nombre:string): Observable<any>  {
-    return this.httpClient.post<any>(this.apiBaseUrl+`/api/contenidos/${id}`,nombre);
+  public nuevo(contenido:NuevoContenido): Observable<any>  {
+    return this.httpClient.post<any>(this.apiBaseUrl+`/api/contenidos`,contenido);
   }
   public delete(id): Observable<any> {
     return this.httpClient.delete<any>(this.apiBaseUrl + `/api/contenidos/${id}`);

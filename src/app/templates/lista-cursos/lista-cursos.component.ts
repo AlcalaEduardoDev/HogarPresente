@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Curso } from 'src/app/Interface/curso';
 import { CursoService } from 'src/app/Service/curso.service';
 import { TokenService } from 'src/app/Service/token.service';
-import {faSearch} from '@fortawesome/free-solid-svg-icons'
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-lista-cursos',

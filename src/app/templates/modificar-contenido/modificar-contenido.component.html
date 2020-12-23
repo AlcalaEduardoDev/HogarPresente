@@ -29,6 +29,9 @@
                                     <a *ngFor="let contUnidad of unidades[this.i].contenidos"
                                         (click)="cambiarVistaDocumento(contUnidad.documento)"
                                         class="list-group-item"><strong> Contenido: {{contUnidad.nombre}} </strong></a>
+                                    <div class="btn d-inline-flex p-2 color-iconos" style="font-size: 18px;" (click)="onCreate(modalCrearUnidad, contUnidad.id)">
+                                        <p ><i class="ri-add-circle-line"></i> Añadir contenido</p>
+                                    </div>
                                 </accordion-group>
                             </accordion>
                         </div>
@@ -38,5 +41,19 @@
 
         </div>
     </section><!-- End Features Section -->
-
 </main><!-- End #main -->
+
+<ng-template #modalCrearUnidad>
+    <div class="modal-body text-center">
+        <form action="">
+            <label for="Titulo"> Titulo del contenido</label>
+            <input class="w-75" type="text" name="Titulo" id="" placeholder="Titulo unidad" [(ngForm)]="nombre" >
+            <label for="Descripcion"> Descripcion del contenido</label>
+            <textarea class="w-75" name="Descripcion" id="" cols="30" rows="10" [(ngForm)]="descripcion"></textarea>
+            <label for="Enlace"> Enlace del contenido</label>
+            <input class="w-75" type="text" name="Enlace" placeholder="Enlace de video de youtube o pdf" [(ngForm)]="documento">
+        </form>
+        <button type="button " class="btn btn-success m-1" (click)="crearUnidad()">Crear</button>
+        <button type="button" class="btn btn-danger m-1" (click)="hide()">Cancelar</button>
+    </div>
+</ng-template>
