@@ -6,7 +6,7 @@ export class JwtDto {
     authorities: string[];
     nombre: string;
     apellido: string;
-    imagen:string;
+    imagen: string;
     edad: string;
     estudios: string;
 }

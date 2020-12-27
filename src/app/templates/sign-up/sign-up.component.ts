@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/Service/auth.service';
   ]
 })
 export class SignUpComponent implements OnInit {
-
+ 
   isRegister= false;
   isRegisterFail= false;
   nuevoUsuario:NuevoUsuario;
@@ -21,13 +21,17 @@ export class SignUpComponent implements OnInit {
   mailUser:string;
   passUser:string;
   fotoUser:'https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png';
-  roles: string [] = [];
+  rolUser: string = "alumno";
+  estudiosUser: string;
+  edadUser: number;
   errMsg: string;
   userForm : FormGroup;
   modalRef: BsModalRef;
   emailPattern: any =	/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   namePattern: any=/^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$/;
-
+  estudiosArray : Array<string> =[
+    "Primario", "Secundario", "Terciario", "Superiores"
+  ];
   constructor(
     private route:Router, 
     private modalService: BsModalService,
@@ -40,7 +44,7 @@ export class SignUpComponent implements OnInit {
   }
   onRegister(templateRegistro: TemplateRef<any>): void {
     if(this.userForm.valid){
-      this.nuevoUsuario = new NuevoUsuario(this.nombreUser,this.apellidoUser, this.mailUser, this.passUser);
+      this.nuevoUsuario = new NuevoUsuario(this.nombreUser,this.apellidoUser, this.mailUser, this.passUser,this.edadUser,this.estudiosUser,this.rolUser);
       this.authService.nuevo(this.nuevoUsuario).subscribe(
         data => {
           console.log('Usuario creado correctamente');
@@ -67,7 +71,9 @@ export class SignUpComponent implements OnInit {
       apellido: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern(this.namePattern)]),
       email: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern(this.emailPattern)]),
       password : new FormControl('', [Validators.required, Validators.minLength(3)]),
-      confirmPassword : new FormControl('', [Validators.required])
+      confirmPassword : new FormControl('', [Validators.required]),
+      edad : new FormControl('', [Validators.required]),
+      estudios: new FormControl('', [Validators.required])
     })
   }
   onResetForm(){
@@ -77,9 +83,16 @@ export class SignUpComponent implements OnInit {
   mostrarDatos(){
     console.log(this.userForm.value);
   }
+  edadCounter(i:number){
+    return new Array(i);
+  }
   get nombre(){return this.userForm.get('nombre');}
   get apellido(){return this.userForm.get('apellido');}
   get email(){return this.userForm.get('email');}
   get password(){return this.userForm.get('password');}
   get confirmPassword(){return this.userForm.get('confirmPassword');}
+  get edad(){return this.userForm.get('edad');}
+  get estudios(){return this.userForm.get('estudios');}
+
+
 }

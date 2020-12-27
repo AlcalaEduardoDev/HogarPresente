@@ -43,6 +43,7 @@ import 'boxicons';
 import { ConfirmDialogComponent } from './components/dialog/confirm-dialog/confirm-dialog.component';
 import { NavModificarComponent } from './components/nav-modificar/nav-modificar.component';
 import { ModificarContenidoComponent } from './templates/modificar-contenido/modificar-contenido.component';
+import { DialogErrorLoginComponent } from './components/dialog/dialog-error-login/dialog-error-login.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ModificarContenidoComponent } from './templates/modificar-contenido/mod
     ModificarTallerComponent,
     ConfirmDialogComponent,
     NavModificarComponent,
-    ModificarContenidoComponent
+    ModificarContenidoComponent,
+    DialogErrorLoginComponent
   ],
   imports: [
     BrowserModule,

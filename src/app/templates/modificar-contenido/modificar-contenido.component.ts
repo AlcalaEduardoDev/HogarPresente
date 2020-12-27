@@ -29,7 +29,7 @@ export class ModificarContenidoComponent implements OnInit {
   //Variables para crear el curso
   nombre: string = "";
   descripcion: string = "";
-  contenido: string = "";
+  documento: string = "";
   unidadId:number;
   //Variables para modificar el curso
   nombreNuevo: string = "";
@@ -58,6 +58,7 @@ export class ModificarContenidoComponent implements OnInit {
           this.videoId = this.unidades[0].contenidos[0].documento.split('v=')[1].split('&')[0];
           this.video = true;
         }
+        console.log(this.datosCurso);
       });
   }
 
@@ -74,14 +75,15 @@ export class ModificarContenidoComponent implements OnInit {
   onCreate(modalCrearUnidad: TemplateRef<any>, unidadId){
     this.unidadId = unidadId;
     this.modalRef = this.modalService.show(
-      modalCrearUnidad,
+      modalCrearUnidad, 
       Object.assign({}, { class: 'gray modal-lg' })
     ); 
   }
 
   crearUnidad() {
-    var nuevoCurso = new NuevoContenido(this.nombre, this.descripcion, this.contenido, this.unidadId);
-    this.contenidoService.nuevo(nuevoCurso).subscribe(
+    var nuevoContenido = new NuevoContenido(this.nombre, this.descripcion, this.documento, this.unidadId);
+    console.log(nuevoContenido);
+    this.contenidoService.nuevo(nuevoContenido).subscribe(
       data=>{
         window.location.reload();
       }

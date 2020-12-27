@@ -11,10 +11,10 @@ export class ImagenService {
   urlBase : string = 'https://hogar-presente.herokuapp.com';
   constructor(private httpClient: HttpClient) { }
 
-  public upload(img:File): Observable <any>{
-    const   formData = new FormData();
+  public upload(img:File, id): Observable <any>{
+    const formData = new FormData();
     formData.append('multipartFile',img);
-    return this.httpClient.post<any>(this.urlBase + '/cloudinary/upload',formData);
+    return this.httpClient.put<any>(this.urlBase + `/api/cursos/Img/${id}`, formData);
   }
   public delete(id:number): Observable <any>{
     return this.httpClient.delete<any>(this.urlBase + `/cloudinary/delete/${id}`);

@@ -6,6 +6,8 @@ import { Alumno } from 'src/app/interface/alumno';
 import { LoginUsuario } from 'src/app/models/login-usuario';
 import { AuthService } from 'src/app/Service/auth.service';
 import { TokenService } from 'src/app/Service/token.service';
+import { DialogErrorLoginComponent } from '../../components/dialog/dialog-error-login/dialog-error-login.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,8 @@ export class LoginComponent implements OnInit {
     private tokenService: TokenService,
     private authService: AuthService,
     private route: Router,
-    private location: Location
+    private location: Location,
+    private dialog: MatDialog
   ) { 
     this.userForm = this.createFormGroup();
   }
@@ -69,6 +72,7 @@ export class LoginComponent implements OnInit {
         this.isLogged = false;
         this.loginFail = true;
         this.msgError = err.error.mensaje;
+        const dialogRef = this.dialog.open(DialogErrorLoginComponent);
         console.log(this.msgError);
       }
     )

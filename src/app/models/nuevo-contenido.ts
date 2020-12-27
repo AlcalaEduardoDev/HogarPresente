@@ -6,7 +6,7 @@ export class NuevoContenido {
     constructor(nombre, descripcion, documento, unidadId) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.documento = descripcion;
+        this.documento = documento;
         this.unidadId = unidadId;
     }
 }

@@ -87,7 +87,8 @@ export class ModificarTallerComponent implements OnInit {
     const cursoId = this.activeRouter.snapshot.paramMap.get('id');
     this.cursoService.updateSubtitulo(cursoId, this.subtituloTaller).subscribe(
       data=>{
-        console.log("subtitulo actualizado")
+        window.location.reload();
+
       }
     )
   }
@@ -95,7 +96,8 @@ export class ModificarTallerComponent implements OnInit {
     const cursoId = this.activeRouter.snapshot.paramMap.get('id');
     this.cursoService.updateDescripcion(cursoId, this.descripcionTaller).subscribe(
       data=>{
-        console.log("descripcion actualizada")
+        window.location.reload();
+
       }
     )
   }
@@ -103,7 +105,8 @@ export class ModificarTallerComponent implements OnInit {
     const cursoId = this.activeRouter.snapshot.paramMap.get('id');
     this.cursoService.updateCategoria(cursoId, this.categoriaTaller).subscribe(
       data=>{
-        console.log("categoria actualizada")
+        window.location.reload();
+
       }
     )
   }
@@ -111,14 +114,14 @@ export class ModificarTallerComponent implements OnInit {
     const cursoId = this.activeRouter.snapshot.paramMap.get('id');
     this.cursoService.updatePrecio(cursoId, this.precioTaller).subscribe(
       data=>{
-        console.log("precio actualizado");
         window.location.reload();
       }
     )
   }
   onUploadImg(){
     this.spinner.show();
-    this.imagenService.upload(this.imagen).subscribe(
+    let cursoId = this.activeRouter.snapshot.paramMap.get('id');
+    this.imagenService.upload(this.imagen, cursoId).subscribe(
       data=>{
         this.spinner.hide();
       },
