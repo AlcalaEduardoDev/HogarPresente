@@ -8,10 +8,6 @@
             <h2>Creador de taller</h2>
         </div>
     </div><!-- End Breadcrumbs -->
-
-
-
-
     <label for="textInput">Nombre del Taller</label>
     <input type="text" formControlName="nombre" class="form-control mb-4" [(ngModel)]="nombreTaller">
     <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
@@ -20,11 +16,11 @@
         </div>
     </div>
     
-    <label for="textInput">Titulo del taller</label>
+    <label for="textInput">Subtitulo del taller</label>
     <input type="text" formControlName="titulo" class="form-control mb-4" [(ngModel)]="subtituloTaller">
     <div class="alert alert-danger" *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)">
         <div class="container-error-mesage" *ngIf="titulo.errors.required">
-            Este campo es obligatorio
+            El titulo del taller es obligatorio
         </div>
     </div>
     
@@ -32,7 +28,7 @@
     <textarea formControlName="descripcion" class="form-control mb-4" [(ngModel)]="descripcionTaller"></textarea>
     <div class="alert alert-danger" *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
         <div class="container-error-mesage" *ngIf="descripcion.errors.required">
-            Este campo es obligatorio
+            El campo descripcion es obligatorio
         </div>
     </div>
 
@@ -40,7 +36,7 @@
     <input type="number" formControlName="precio" class="form-control validate" min="0" max="100000" required [(ngModel)]="precioTaller">
     <div class="alert alert-danger" *ngIf="precio.invalid && (precio.dirty || precio.touched)">
         <div class="container-error-mesage" *ngIf="precio.errors.required">
-            Este campo es obligatorio
+            El campo precio es obligatorio
         </div>
     </div>
 
@@ -48,20 +44,12 @@
     <input type="text" formControlName="categoria" class="form-control mb-4" [(ngModel)]="categoriaTaller">
     <div class="alert alert-danger" *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">
         <div class="container-error-mesage" *ngIf="categoria.errors.required">
-            El campo nombre es obligatorio
+            El campo categoria es obligatorio
         </div>
         <div class="container-error-mesage" *ngIf="categoria.errors.pattern">
-            El campo nombre solo puede contener letras
+            El campo categoria solo puede contener letras
         </div>
     </div>
-
-   <!-- <label for="textInput">Enlace de la imágen</label>
-    <input type="text" formControlName="imagen" class="form-control mb-4" [(ngModel)]="imagenTaller">
-    <div class="alert alert-danger" *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
-        <div class="container-error-mesage" *ngIf="imagen.errors.required">
-            Este campo es obligatorio
-        </div>
-    </div>-->
 
     <button class="btn btn-info btn-block" (click)="onCreate()" type="submit">Guardar</button>
 </form>

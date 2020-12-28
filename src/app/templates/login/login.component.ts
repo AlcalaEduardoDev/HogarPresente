@@ -72,7 +72,10 @@ export class LoginComponent implements OnInit {
         this.isLogged = false;
         this.loginFail = true;
         this.msgError = err.error.mensaje;
-        const dialogRef = this.dialog.open(DialogErrorLoginComponent);
+        const dialogRef = this.dialog.open(DialogErrorLoginComponent, {
+          data:this.msgError,
+          width: '250px'
+        });
         console.log(this.msgError);
       }
     )

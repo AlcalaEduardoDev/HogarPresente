@@ -1,7 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { faBullseye } from '@fortawesome/free-solid-svg-icons';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { UnidadService } from 'src/app/Service/unidad-service.service';
 import { Unidad } from '../../Interface/unidad';
+import { DialogModifUnidadComponent } from '../../components/dialog/dialog-modif-unidad/dialog-modif-unidad.component'
 
 @Component({
   selector: 'app-nav-modificar',
@@ -12,7 +15,9 @@ export class NavModificarComponent implements OnInit {
 
   @Input() unidades:Array<Unidad>;
   constructor(
-    private unidadService : UnidadService,
+    private unidadService : UnidadService,    
+    private modalService: BsModalService,
+    private dialog: MatDialog
   ) {}
 
    ngOnInit(): void {
@@ -20,11 +25,13 @@ export class NavModificarComponent implements OnInit {
     }
     
   i : number =0;
+  unidadId;
   active:number;
   nombreUnidad : string;
   descripcionUnidad : string;
   textareaNombreUnidad: boolean = false;
   textareaDescripcionUnidad : boolean = false;
+  modalRef:BsModalRef;
 
   activarTextareaNombreUnidad(){
     if(this.textareaNombreUnidad){
@@ -50,4 +57,11 @@ export class NavModificarComponent implements OnInit {
       }
     )
   }
+
+  activarModal(unidad : Unidad){
+    const dialogRef = this.dialog.open(DialogModifUnidadComponent,{
+      data: unidad
+    })
+  }
+
 }

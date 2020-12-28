@@ -44,11 +44,11 @@ import { ConfirmDialogComponent } from './components/dialog/confirm-dialog/confi
 import { NavModificarComponent } from './components/nav-modificar/nav-modificar.component';
 import { ModificarContenidoComponent } from './templates/modificar-contenido/modificar-contenido.component';
 import { DialogErrorLoginComponent } from './components/dialog/dialog-error-login/dialog-error-login.component';
+import { DialogModifUnidadComponent } from './components/dialog/dialog-modif-unidad/dialog-modif-unidad.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent,    
     NavbarComponent,
     ConfirmEqualValidatorDirective,
     HomeComponent,
@@ -71,7 +71,8 @@ import { DialogErrorLoginComponent } from './components/dialog/dialog-error-logi
     ConfirmDialogComponent,
     NavModificarComponent,
     ModificarContenidoComponent,
-    DialogErrorLoginComponent
+    DialogErrorLoginComponent,
+    DialogModifUnidadComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +93,9 @@ import { DialogErrorLoginComponent } from './components/dialog/dialog-error-logi
     FontAwesomeModule,
     MaterialModule,
     NgxSpinnerModule
+  ],
+  entryComponents: [
+    DialogErrorLoginComponent
   ],
   providers: [interceptorProvider,
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },

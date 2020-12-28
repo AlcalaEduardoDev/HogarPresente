@@ -35,6 +35,7 @@ export class ModificarContenidoComponent implements OnInit {
   nombreNuevo: string = "";
   descripcionNueva: string = "";
   documentoNuevo: string = "";
+  
 
 
   constructor(

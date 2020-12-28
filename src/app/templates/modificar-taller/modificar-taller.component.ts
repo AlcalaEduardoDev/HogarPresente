@@ -124,6 +124,7 @@ export class ModificarTallerComponent implements OnInit {
     this.imagenService.upload(this.imagen, cursoId).subscribe(
       data=>{
         this.spinner.hide();
+        window.location.reload();
       },
       err => 
       {

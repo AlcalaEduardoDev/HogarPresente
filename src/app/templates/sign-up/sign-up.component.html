@@ -58,22 +58,24 @@
                     </div>
                   </div>
             </div>
-            <div class="form-wrapper">
-              <mat-form-field appearance="fill">
-                <mat-label>Edad</mat-label>
-                <mat-select formControlName="edad" [(ngModel)]="edadUser" name="edadSelect">
-                  <mat-option *ngFor="let in of edadCounter(20) ;let i = index" [value]="i+16" >{{i+16}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-            <div class="form-wrapper">
-              <mat-form-field appearance="fill">
-                <mat-label>Estudios</mat-label>
-                <mat-select formControlName="estudios" [(ngModel)]="estudiosUser" name="estudiosSelect"> 
-                  <mat-option>Ninguno</mat-option>
-                  <mat-option *ngFor="let estudio of estudiosArray" [value]="estudio">{{estudio}}</mat-option>
-                </mat-select>
-              </mat-form-field>
+            <div class="alternative-theme">
+              <div class="form-wrapper">
+                <mat-form-field  appearance="fill">
+                  <mat-label>Edad</mat-label>
+                  <mat-select   color="primary" formControlName="edad" [(ngModel)]="edadUser" name="edadSelect">
+                    <mat-option *ngFor="let in of edadCounter(20) ;let i = index" [value]="i+16" >{{i+16}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="form-wrapper">
+                <mat-form-field appearance="fill">
+                  <mat-label>Estudios</mat-label>
+                  <mat-select formControlName="estudios" [(ngModel)]="estudiosUser" name="estudiosSelect"> 
+                    <mat-option>Ninguno</mat-option>
+                    <mat-option *ngFor="let estudio of estudiosArray" [value]="estudio">{{estudio}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
             </div>
             <div class="separar8"></div>
             <a (click)="onRegister(templateRegistro)" class="get-started-btn btn" style="color:white">Crear Cuenta</a>
