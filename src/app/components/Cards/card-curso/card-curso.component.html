@@ -19,7 +19,7 @@
         <p class="price">$ {{curso.precio}}  </p>
       </div>
       <h3  >{{curso.titulo}} </h3>
-      <p> {{curso.descripcion}} </p>
+      <p> {{ (curso.descripcion.length > 120)? (curso.descripcion | slice:0:120)+'...':(curso.descripcion)}} </p>
       <div class="trainer d-flex justify-content-between align-items-center">
         <div class="trainer-profile d-flex align-items-center">
           <img [ngClass]="{'oscurecer': !curso.habilitado}"  src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">

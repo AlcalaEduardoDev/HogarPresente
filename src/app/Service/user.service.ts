@@ -15,7 +15,7 @@ const helper = new JwtHelperService();
 export class UserService {
   
   oauthURL = 'http://localhost:8080/oauth/';
-  apiBaseUrl : string = 'https://ba072e38-a035-4e4f-af9e-281642d5d4ca.mock.pstmn.io';
+  apiBaseUrl : string = 'https://hogar-presente.herokuapp.com';
   isAdmin : boolean;
 
 
@@ -29,5 +29,8 @@ export class UserService {
   public facebook (tokenDto:TokenDto): Observable<TokenDto>{
     return this.http.post<TokenDto>(this.oauthURL + 'facebook', tokenDto, cabecera);
   }
-
+  
+  public findOne(id): Observable<any>{
+    return this.http.get<any>(this.apiBaseUrl + `/api/usuarios/${id}`);
+  }
 }

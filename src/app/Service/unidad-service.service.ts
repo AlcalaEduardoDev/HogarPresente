@@ -22,4 +22,7 @@ export class UnidadService {
     return this.http.put<any>(this.apiBaseUrl + `/api/unidades/descripcion/${id}`, descripcion);
   }
 
+  public delete (id): Observable <any>{
+    return this.http.delete<any>(this.apiBaseUrl+ `/api/unidades/${id}`);
+  }
 }

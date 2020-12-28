@@ -5,8 +5,8 @@
 
 .alternative-theme{
 
-    $al-app-primary: mat-palette($mat-amber);
-    $al-app-accent:  mat-palette($mat-amber, A200, A100, A400);
+    $al-app-primary: mat-palette($mat-orange, 600);
+    $al-app-accent:  mat-palette($mat-orange, A200, A100, A400);
     $al-app-warn:    mat-palette($mat-red);
     $al-app-theme: mat-light-theme($al-app-primary, $al-app-accent, $al-app-warn);       
     @include angular-material-theme($al-app-theme);

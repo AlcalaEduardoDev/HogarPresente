@@ -5,7 +5,7 @@ export class NuevoUsuario {
     clave: string;
     edad : number;
     estudios : string;
-    roles : string;
+    roles : Array<string> = ["alumno"];
     constructor(nombre: string, apellido: string, correo: string, clave: string, edad: number, estudios: string, rol: string) {
         this.correo = correo;
         this.nombre = nombre;
@@ -13,6 +13,5 @@ export class NuevoUsuario {
         this.clave = clave;
         this.edad = edad;
         this.estudios = estudios;
-        this.roles = rol;
     }
 }
