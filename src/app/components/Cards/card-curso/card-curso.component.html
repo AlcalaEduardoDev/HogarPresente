@@ -7,7 +7,7 @@
         <div *ngIf="isAdmin" class="d-flex justify-content-between">
           <div disabled ngbDropdownItem>Habilitar taller</div><mat-slide-toggle [checked]="habilitado" (change)="change($event)"></mat-slide-toggle>
         </div>
-        <a *ngIf="isAdmin" class="btn text-danger" (click)="eliminarTaller(modalConfirmacion, modalHabilitado)" ngbDropdownItem>Eliminar talle>r</a>
+        <a *ngIf="isAdmin" class="btn text-danger" (click)="eliminarTaller(modalConfirmacion, modalHabilitado)" ngbDropdownItem>Eliminar taller</a>
       </div>
     </div>
 
@@ -18,7 +18,7 @@
         <h4 [ngClass]="{'oscurecer': !curso.habilitado}" > {{curso.categoria}} </h4>
         <p class="price">$ {{curso.precio}}  </p>
       </div>
-      <h3  >{{curso.titulo}} </h3>
+      <h3  >{{curso.subtitulo}} </h3>
       <p> {{ (curso.descripcion.length > 120)? (curso.descripcion | slice:0:120)+'...':(curso.descripcion)}} </p>
       <div class="trainer d-flex justify-content-between align-items-center">
         <div class="trainer-profile d-flex align-items-center">
