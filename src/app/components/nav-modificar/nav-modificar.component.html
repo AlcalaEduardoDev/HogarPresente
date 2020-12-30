@@ -2,9 +2,9 @@
     <div class="d-flex" >
         <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav" orientation="vertical" >
           <li ngbNavItem="{{unidad.id}}" *ngFor="let unidad of unidades">
-              <a ngbNavLink> {{unidad.nombre}} <i class="btn ri-pencil-line color-iconos" style="font-size: 18px;" (click)="activarModal(unidad)"></i> </a> 
+              <a ngbNavLink> {{unidad.nombre}} <i class=" ri-pencil-line " style="font-size: 18px;" (click)="activarModal(unidad)"></i><i style="font-size: 18px;" (click)="activarModalEliminar(unidad.id)" class="ri-close-line"></i> </a> 
               <ng-template ngbNavContent>
-                <p> {{unidad.descripcion}}  <i class="btn ri-pencil-line color-iconos" style="font-size: 18px;" (click)="activarModal(unidad)"></i></p>            
+                <p> {{unidad.descripcion}}  <i class=" ri-pencil-line " style="font-size: 18px;" (click)="activarModal(unidad)"></i></p>            
               </ng-template>
           </li>
         </ul>      

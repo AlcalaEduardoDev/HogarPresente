@@ -126,7 +126,6 @@ export class CardCursoComponent implements OnInit {
   change(e) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent);
       dialogRef.afterClosed().subscribe(response => {
-        console.log( 'response ', response );
         if (response) {
            this.habilitado = !this.habilitado;
            this.habilitarTaller();

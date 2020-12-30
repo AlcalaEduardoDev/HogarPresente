@@ -5,6 +5,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { UnidadService } from 'src/app/Service/unidad-service.service';
 import { Unidad } from '../../Interface/unidad';
 import { DialogModifUnidadComponent } from '../../components/dialog/dialog-modif-unidad/dialog-modif-unidad.component'
+import { DialogDeleteUnidadComponent } from '../../components/dialog/dialog-delete-unidad/dialog-delete-unidad.component'
+
 
 @Component({
   selector: 'app-nav-modificar',
@@ -57,11 +59,25 @@ export class NavModificarComponent implements OnInit {
       }
     )
   }
-
-  activarModal(unidad : Unidad){
+  activarModal(unidad : Unidad): void{
     const dialogRef = this.dialog.open(DialogModifUnidadComponent,{
       data: unidad
     })
   }
-
+  activarModalEliminar(id){
+    const dialogRef = this.dialog.open(DialogDeleteUnidadComponent);
+    dialogRef.afterClosed().subscribe(response => {
+      if (response) {
+        this.unidadId = id;
+        this.onDelete();
+      } else {
+        dialogRef.close();
+      }
+    })
+  }
+  onDelete(): void{
+    this.unidadService.delete(this.unidadId).subscribe(
+      data=> window.location.reload()
+    )
+  }
 }

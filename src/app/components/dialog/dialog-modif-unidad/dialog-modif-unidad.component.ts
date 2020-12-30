@@ -29,15 +29,16 @@ export class DialogModifUnidadComponent implements OnInit {
     if (this.tituloUnidad != ""){
       this.unidadService.updateNombre(this.data.id, this.tituloUnidad).subscribe(
         data => {
-          console.log("nombre actualizado")
+          
       })
     }
     if (this.descripcionUnidad != "") {
       this.unidadService.updateDescripcion(this.data.id,this.descripcionUnidad).subscribe(
         data=>{
-          console.log("descripcion actualizada")
+          
         }
       );
+      window.location.reload();
     }
     //window.location.reload();
   }

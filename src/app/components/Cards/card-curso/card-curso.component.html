@@ -1,13 +1,13 @@
 
   <div class="course-item zoom mb-3">
-    <div *ngIf="isAdmin" class="course-content position-absolute " style="z-index: 10" placement="top-right" ngbDropdown #myDrop="ngbDropdown">
+    <div *ngIf="isAdmin || isCapacitador" class="course-content position-absolute " style="z-index: 10" placement="top-right" ngbDropdown #myDrop="ngbDropdown">
       <a class="btn  text-white bg-transparent "  id="dropdownManual"  (click)="myDrop.open()"> <fa-icon [icon]="faEllipsisH"></fa-icon> </a>
       <div ngbDropdownMenu aria-labelledby="dropdownManual" style="z-index: 10" >
-        <a class="btn" (click)="gotoModificarTaller(curso.id)" ngbDropdownItem>Modificar curso</a>
-        <div  class="d-flex justify-content-between">
-          <div disabled ngbDropdownItem>Habilitar curso</div><mat-slide-toggle [checked]="habilitado" (change)="change($event)"></mat-slide-toggle>
+        <a class="btn" (click)="gotoModificarTaller(curso.id)" ngbDropdownItem>Modificar taller</a>
+        <div *ngIf="isAdmin" class="d-flex justify-content-between">
+          <div disabled ngbDropdownItem>Habilitar taller</div><mat-slide-toggle [checked]="habilitado" (change)="change($event)"></mat-slide-toggle>
         </div>
-        <a class="btn text-danger" (click)="eliminarTaller(modalConfirmacion, modalHabilitado)" ngbDropdownItem>Eliminar curso</a>
+        <a *ngIf="isAdmin" class="btn text-danger" (click)="eliminarTaller(modalConfirmacion, modalHabilitado)" ngbDropdownItem>Eliminar talle>r</a>
       </div>
     </div>
 

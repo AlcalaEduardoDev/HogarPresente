@@ -30,6 +30,9 @@ export class UserService {
     return this.http.post<TokenDto>(this.oauthURL + 'facebook', tokenDto, cabecera);
   }
   
+  public findAll(): Observable<any>{
+    return this.http.get<any>(this.apiBaseUrl+'/api/usuarios');
+  }
   public findOne(id): Observable<any>{
     return this.http.get<any>(this.apiBaseUrl + `/api/usuarios/${id}`);
   }

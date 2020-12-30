@@ -1,7 +1,7 @@
 <main id="main">
     <!-- ======= Features Section ======= -->
     <section id="features" class="features">
-        <div class="container">
+        <div class="container-lg">
             <div class="section-title" data-aos="fade-up">
                 <h4>Some <strong>Features</strong> we do provide</h4>
             </div>
@@ -21,21 +21,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="p-2 bd-highlight" data-aos="fade-right">
-                    <div class="card-body">
-                        <div class="container">
-                            <accordion [isAnimated]="true" *ngFor="let unidad of unidades, index as i">
-                                <accordion-group [heading]="unidad.nombre">
-                                    <a *ngFor="let contUnidad of unidades[this.i].contenidos"
-                                        (click)="cambiarVistaDocumento(contUnidad.documento)"
-                                        class="list-group-item"><strong> {{contUnidad.nombre}} </strong></a>
-                                        <div class="btn d-inline-flex p-2 color-iconos" style="font-size: 18px;" (click)="onCreate(modalCrearUnidad, unidades[this.i].id)">
-                                        <p ><i class="ri-add-circle-line"></i> Añadir contenido</p>
-                                    </div>
-                                </accordion-group>
-                            </accordion>
-                        </div>
-                    </div>
+                <div class="bd-highlight" data-aos="fade-right">
+                    <accordion [isAnimated]="true" *ngFor="let unidad of unidades, index as i">
+                        <accordion-group [isOpen]="true" [heading]="unidad.nombre">
+                            <a *ngFor="let contUnidad of unidades[this.i].contenidos"
+                                (click)="cambiarVistaDocumento(contUnidad.documento)" class="list-group-item"><strong>
+                                    {{contUnidad.nombre}} </strong></a>
+                            <div class="btn d-inline-flex p-2 color-iconos" style="font-size: 18px;"
+                                (click)="onCreate(modalCrearUnidad, unidades[this.i].id)">
+                                <p><i class="ri-add-circle-line"></i> Añadir contenido</p>
+                            </div>
+                        </accordion-group>
+                    </accordion>
                 </div>
             </div>
 
@@ -45,13 +42,14 @@
 
 <ng-template #modalCrearUnidad>
     <div class="modal-body text-center">
-            <label for="Titulo"> Titulo del contenido</label>
-            <input class="w-75" type="text" name="Titulo" id="" placeholder="Titulo del contenido" [(ngModel)]="nombre" >
-            <label for="Descripcion"> Descripcion del contenido</label>
-            <textarea class="w-75" name="Descripcion" id="" cols="30" rows="10" [(ngModel)]="descripcion"></textarea>
-            <label for="Enlace"> Enlace del contenido</label>
-            <input class="w-75" type="text" name="Enlace" placeholder="Enlace de video de youtube o pdf" [(ngModel)]="documento">
+        <label for="Titulo"> Titulo del contenido</label>
+        <input class="w-75" type="text" name="Titulo" id="" placeholder="Titulo del contenido" [(ngModel)]="nombre">
+        <label for="Descripcion"> Descripcion del contenido</label>
+        <textarea class="w-75" name="Descripcion" id="" cols="30" rows="10" [(ngModel)]="descripcion"></textarea>
+        <label for="Enlace"> Enlace del contenido</label>
+        <input class="w-75" type="text" name="Enlace" placeholder="Enlace de video de youtube o pdf"
+            [(ngModel)]="documento">
         <button type="button " class="btn btn-success m-1" (click)="crearUnidad()">Crear</button>
         <button type="button" class="btn btn-danger m-1" (click)="hide()">Cancelar</button>
-</div>
+    </div>
 </ng-template>

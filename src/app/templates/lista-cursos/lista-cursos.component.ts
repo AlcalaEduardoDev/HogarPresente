@@ -3,6 +3,7 @@ import { Curso } from 'src/app/Interface/curso';
 import { CursoService } from 'src/app/Service/curso.service';
 import { TokenService } from 'src/app/Service/token.service';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-lista-cursos',
@@ -13,6 +14,8 @@ export class ListaCursosComponent implements OnInit {
 
   constructor(
     private listaCursosService: CursoService,
+    private spinner: NgxSpinnerService,
+
     private dataToken: TokenService
   ) { }
   p = '';
@@ -25,24 +28,22 @@ export class ListaCursosComponent implements OnInit {
   faSearch = faSearch;
 
   ngOnInit(): void {
-    this.listaCursosService
-      .findAll()
-      .subscribe((response: Array<Curso>) => {
+    this.spinner.show();
+    this.listaCursosService.findAll().subscribe((response: Array<Curso>) => {
         this.cursos = response;
         console.log(this.cursos);
         this.separarCursos();
+        this.spinner.hide();
       }
       );
     if (this.dataToken.getToken()) {
       if (this.authAdmin()) {
         this.isAdmin = true;
-        console.log("El usuario es un administrador")
       } else this.isAdmin = false;
     }
     if (this.dataToken.getToken()) {
       if (this.authCapacitador()) {
         this.isCapacitador = true;
-        console.log("El usuario es un capacitador")
       } else this.isCapacitador = false;
     }
   }

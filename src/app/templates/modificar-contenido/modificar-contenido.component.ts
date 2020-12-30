@@ -1,12 +1,15 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Curso } from 'src/app/Interface/curso';
 import { Unidad } from 'src/app/Interface/unidad';
 import { NuevoContenido } from 'src/app/models/nuevo-contenido';
 import { ContenidosService } from 'src/app/Service/contenidos.service';
+import { TokenService } from 'src/app/Service/token.service';
 import { CursoService } from 'src/app/Service/curso.service';
+import { MatDialog } from '@angular/material/dialog';
+import {DialogCrearContenidoComponent} from '../../components/dialog/dialog-crear-contenido/dialog-crear-contenido.component'
 
 @Component({
   selector: 'app-modificar-contenido',
@@ -43,11 +46,15 @@ export class ModificarContenidoComponent implements OnInit {
     private contenidoService: ContenidosService,
     private activeRouter: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    private modalService: BsModalService
+    private route: Router,
+    private modalService: BsModalService,
+    private tokenService:TokenService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    let cursoId = this.activeRouter.snapshot.paramMap.get('id');
+    if (this.tokenService.getToken()) {
+      let cursoId = this.activeRouter.snapshot.paramMap.get('id');
     this.cursoService.findOne(cursoId).subscribe(
       data => {
         this.datosCurso = data
@@ -61,6 +68,11 @@ export class ModificarContenidoComponent implements OnInit {
         }
         console.log(this.datosCurso);
       });
+    } else {
+      this.route.navigate(['lista-cursos']);
+      
+    }
+    
   }
 
   public cambiarVistaDocumento(url: string) {
@@ -72,23 +84,11 @@ export class ModificarContenidoComponent implements OnInit {
       this.video = true;
     }
   }
-
   onCreate(modalCrearUnidad: TemplateRef<any>, unidadId){
     this.unidadId = unidadId;
-    this.modalRef = this.modalService.show(
-      modalCrearUnidad, 
-      Object.assign({}, { class: 'gray modal-lg' })
-    ); 
-  }
-
-  crearUnidad() {
-    var nuevoContenido = new NuevoContenido(this.nombre, this.descripcion, this.documento, this.unidadId);
-    console.log(nuevoContenido);
-    this.contenidoService.nuevo(nuevoContenido).subscribe(
-      data=>{
-        window.location.reload();
-      }
-    )
+    const dialogRef = this.dialog.open(DialogCrearContenidoComponent,{
+      data : unidadId
+    })
   }
   updateNombre(id){
     this.contenidoService.updateNombre(id, this.nombreNuevo).subscribe(
@@ -103,9 +103,6 @@ export class ModificarContenidoComponent implements OnInit {
         window.location.reload();
       }
     )
-  }
-  hide(){
-    this.modalRef.hide();    
   }
 
 }

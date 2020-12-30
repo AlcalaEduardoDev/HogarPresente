@@ -22,15 +22,21 @@ export class FichaCursoComponent implements OnInit {
     private activeRouter:ActivatedRoute,
     private modalService: BsModalService,
     private cursoService : CursoService,
+    private userService : UserService
     ) {}
   
   modalRef: BsModalRef;
   datosCurso : Curso;
-
+  nombreCapacitador:string;
   ngOnInit(): void { 
     let cursoId = this.activeRouter.snapshot.paramMap.get('id');
     this.cursoService.findOne(cursoId).subscribe(
-      data=>this.datosCurso = data     
+      data=>{
+        this.datosCurso = data
+        this.userService.findOne(this.datosCurso.id_usuario_creador).subscribe(response=>{
+        this.nombreCapacitador = response.nombre +' '+ response.apellido;
+          })
+        }   
     )
   }
   irContenido(){

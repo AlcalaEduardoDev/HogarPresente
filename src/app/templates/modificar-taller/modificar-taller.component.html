@@ -1,11 +1,4 @@
-<!-- ======= Breadcrumbs ======= -->
-<div class="breadcrumbs" data-aos="fade-in">
-  <div class="container">
-    <h2>{{datosCurso.titulo}}</h2>
-    <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat
-      debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
-  </div>
-</div><!-- End Breadcrumbs -->
+
 
 <!-- ======= Cource Details Section ======= -->
 <section id="course-details" class="course-details">
@@ -15,19 +8,19 @@
       <div class="col-lg-8">
         <img src="{{datosCurso.imagen}}" class="img-fluid" alt=""> 
         
-        <form  novalidate enctype="multipart/form-data" >
+        <form  novalidate enctype="multipart/form-data" class="mb-4">
           <div class="custom-file mt-4">
             <input type="file" class="custom-file-input" id="imagen" (change)="onFileChange($event)" accept="image/png, image/jpeg, image/gif" #imgenInputFile>
-            <label class="custom-file-label" for="imagen">Seleccionar Archivo</label>
+            <label class="custom-file-label" for="imagen">Click aqui para actualizar la imagen</label>
           </div>
           <div *ngIf="imagen" class="mt-5">
             <h5>Vista Previa:</h5>
             <div>
                 <img class="image-thumbnail" style="max-width: 100px" [src]="imagenMin">
             </div>
-        </div>
-          <div class="form-group d-flex justify-content-between">
-            <a type="submit" (click)="onUploadImg()" class="btn get-started-btn " style="color: white;" > <fa-icon [icon]="faImages"></fa-icon> Subir </a>
+            <div class="form-group d-flex justify-content-between">
+              <a type="submit" (click)="onUploadImg()" class="btn get-started-btn " style="color: white;" > <fa-icon [icon]="faImages"></fa-icon> Subir </a>
+            </div>
           </div>
         </form>
         <h3 *ngIf="!textareaSubtitulo" class="color-iconos">
@@ -58,7 +51,7 @@
 
         <div class="course-info d-flex justify-content-between align-items-center">
           <h5>Capacitador</h5>
-          <p><a href="#">{{datosCurso.capacitador}}</a></p>
+          <p><a href="#">{{nombreCapacitador}}</a></p>
         </div>
 
         <div *ngIf="!textareaPrecio" class="course-info d-flex justify-content-between align-items-center">
@@ -112,7 +105,6 @@
   bdColor="rgba(51,51,51,0.8)"
   size="medium"
   color="#fff"
-  type="ball-scale-multiple"
->
-  <p style="font-size: 20px; color: white">Loading...</p>
+  type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Cargando...</p>
 </ngx-spinner>

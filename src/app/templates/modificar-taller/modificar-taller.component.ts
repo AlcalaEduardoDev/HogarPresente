@@ -9,6 +9,7 @@ import {  NuevoCurso } from 'src/app/models/nuevo-curso';
 import { ImagenService } from 'src/app/Service/imagen.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { UnidadService } from 'src/app/Service/unidad-service.service';
+import { TokenService } from 'src/app/Service/token.service';
 
 
 @Component({
@@ -20,23 +21,24 @@ export class ModificarTallerComponent implements OnInit {
 
 
   constructor(
-    public userAlumnoService: UserService,
+    public userService: UserService,
     private route: Router,
     private activeRouter: ActivatedRoute,
     private modalService: BsModalService,
     private cursoService: CursoService,
     private imagenService:ImagenService,
     private spinner: NgxSpinnerService,
-    private unidadService:UnidadService
+    private unidadService:UnidadService,
+    private tokenService:TokenService
   ) { }
+
   datosCurso: Curso;
   faImages = faImages;
   textareaDescripcion: boolean = false;
   textareaSubtitulo: boolean = false;
   textareaPrecio: boolean = false;
   textareaCategoria: boolean = false;
-
-
+  nombreCapacitador:string;
   imagen : File;
   imagenMin : File;
   taller: Curso;
@@ -48,21 +50,28 @@ export class ModificarTallerComponent implements OnInit {
   idAdministrador: number;
 
   ngOnInit(): void {
-    let cursoId = this.activeRouter.snapshot.paramMap.get('id');
-    this.cursoService.findOne(cursoId).subscribe(
-      data =>{     
-      this.datosCurso = data
-      this.subtituloTaller = this.datosCurso.subtitulo;
-      this.precioTaller = this.datosCurso.precio;
-      this.descripcionTaller = this.datosCurso.descripcion;
-      this.categoriaTaller = this.datosCurso.categoria;}
-      )
+    if (this.tokenService.getToken()) {
+ 
+      let cursoId = this.activeRouter.snapshot.paramMap.get('id');
+      this.cursoService.findOne(cursoId).subscribe(
+        data =>{     
+        this.datosCurso = data
+        this.subtituloTaller = this.datosCurso.subtitulo;
+        this.precioTaller = this.datosCurso.precio;
+        this.descripcionTaller = this.datosCurso.descripcion;
+        this.categoriaTaller = this.datosCurso.categoria;
+        this.userService.findOne(this.datosCurso.id_usuario_creador).subscribe(response=>{
+        this.nombreCapacitador = response.nombre +' '+ response.apellido;
+        })      
+      })
+    } else {
+      this.route.navigate(['lista-cursos']);
+    }
   }
   irContenido() {
     let cursoId = this.activeRouter.snapshot.paramMap.get('id');
     this.route.navigate(['modificar_taller' ,cursoId, 'modificar-contenido'])
    }
-
   activarTextareaSubtitulo() {
     if (this.textareaSubtitulo) {
       this.textareaSubtitulo = false;
@@ -158,4 +167,5 @@ export class ModificarTallerComponent implements OnInit {
     fr.readAsDataURL(this.imagen);
 
   }
+
 }

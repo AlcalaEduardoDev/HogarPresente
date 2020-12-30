@@ -22,7 +22,7 @@
       <a href="creador-curso" class="get-started-btn3" >Crear Nuevo Taller</a>
     </div>
   </div>
-  <div *ngIf="isAdmin">
+  <div *ngIf="isAdmin || isCapacitador">
     <div class="breadcrumbs3">
       <div class="container">
         <h2>Talleres inhabilitados.</h2>
@@ -30,6 +30,8 @@
     </div>
     <section id="courses" class="courses">
       <div class="container" data-aos="fade-up">
+      <ngx-spinner bdColor= "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-clip-rotate-multiple"><p style="color: white" > Cargando Talleres... </p></ngx-spinner>
+
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
             <app-card-curso class="col-lg-4 col-md-6 d-flex align-items-stretch "  
                             *ngFor="let cursoInhabilitado of cursosInhabilitados | filterCursos:filter | paginate: {itemsPerPage :6, currentPage : p}" 
@@ -49,6 +51,8 @@
   <div>
     <section id="courses" class="courses">
       <div class="container" data-aos="fade-up">
+      <ngx-spinner bdColor= "rgba(0, 0, 0, 0.2)" size = "medium" color = "#fff" type = "ball-clip-rotate-multiple"><p style="color: white" > Cargando Talleres... </p></ngx-spinner>
+
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
             <app-card-curso class="col-lg-4 col-md-6 d-flex align-items-stretch"  
                             *ngFor="let cursoHabilitado of cursosHabilitados | filterCursos:filter | paginate: {itemsPerPage :6, currentPage : p}" 

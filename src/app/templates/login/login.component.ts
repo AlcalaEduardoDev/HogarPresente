@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/Service/auth.service';
 import { TokenService } from 'src/app/Service/token.service';
 import { DialogErrorLoginComponent } from '../../components/dialog/dialog-error-login/dialog-error-login.component';
 import { MatDialog } from '@angular/material/dialog';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,9 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private route: Router,
     private location: Location,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private spinner: NgxSpinnerService
+
   ) { 
     this.userForm = this.createFormGroup();
   }
@@ -49,10 +52,14 @@ export class LoginComponent implements OnInit {
 
   
   onLogin(): void {
+    this.spinner.show();
+
     this.loginUsuario = new LoginUsuario(this.emailUsuario, this.passUsuario);
     console.log(this.loginUsuario.correo);
     this.authService.login(this.loginUsuario).subscribe(
       data => {
+        this.spinner.hide();
+
         this.isLogged = true;
         this.loginFail = false;
         this.tokenService.setId(data.id);
@@ -72,6 +79,8 @@ export class LoginComponent implements OnInit {
         this.isLogged = false;
         this.loginFail = true;
         this.msgError = err.error.mensaje;
+        this.spinner.hide();
+
         const dialogRef = this.dialog.open(DialogErrorLoginComponent, {
           data:this.msgError,
           width: '250px'

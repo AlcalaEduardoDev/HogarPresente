@@ -1,15 +1,15 @@
 <div class="alternative-theme">
-  <div mat-dialog-content>
-  <div>
+  <div mat-dialog-content style="width: 100%;">
+  <div >
     <mat-form-field>
-      <mat-label>Nombre de la unidad</mat-label>
-      <input matInput value="{{data.nombre}}" [(ngModel)]="tituloUnidad" [ngModelOptions]="{standalone: true}">
+      <mat-label style="color: white;">Nombre de la unidad</mat-label>
+      <input style="width: 100%;" matInput [value]="data.nombre" [(ngModel)]="tituloUnidad" [ngModelOptions]="{standalone: true}">
     </mat-form-field>
   </div>
-  <div>
+  <div >
     <mat-form-field>
-      <mat-label>Descripcion de la unidad</mat-label>
-      <textarea matInput value="{{data.descripcion}}" [(ngModel)]="descripcionUnidad" [ngModelOptions]="{standalone: true}"></textarea>
+      <mat-label style="color: white;">Descripcion de la unidad</mat-label>
+      <textarea style="width: 100%;" matInput [value]="data.descripcion" [(ngModel)]="descripcionUnidad" [ngModelOptions]="{standalone: true}"></textarea>
     </mat-form-field>
   </div>
   </div>

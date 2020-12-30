@@ -46,6 +46,9 @@ import { ModificarContenidoComponent } from './templates/modificar-contenido/mod
 import { DialogErrorLoginComponent } from './components/dialog/dialog-error-login/dialog-error-login.component';
 import { DialogModifUnidadComponent } from './components/dialog/dialog-modif-unidad/dialog-modif-unidad.component';
 import { TruncatePipe } from './Pipes/truncate.pipe';
+import { DialogDeleteUnidadComponent } from './components/dialog/dialog-delete-unidad/dialog-delete-unidad.component';
+import { DialogVerifCorreoComponent } from './components/dialog/dialog-verif-correo/dialog-verif-correo.component';
+import { DialogCrearContenidoComponent } from './components/dialog/dialog-crear-contenido/dialog-crear-contenido.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +77,10 @@ import { TruncatePipe } from './Pipes/truncate.pipe';
     ModificarContenidoComponent,
     DialogErrorLoginComponent,
     DialogModifUnidadComponent,
-    TruncatePipe
+    TruncatePipe,
+    DialogDeleteUnidadComponent,
+    DialogVerifCorreoComponent,
+    DialogCrearContenidoComponent
   ],
   imports: [
     BrowserModule,
